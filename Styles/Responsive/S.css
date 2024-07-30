@@ -329,6 +329,12 @@
     .about_dow_app p {
         font-size: 25px;
     }
+
+    .privacy-heading {
+        margin-top: 90px;
+        margin-bottom: 20px;
+
+    }
 }
 
 
@@ -443,6 +449,9 @@
         font-weight: 700;
         margin-bottom: 10px;
     }
+
+
+
 }
 
 
