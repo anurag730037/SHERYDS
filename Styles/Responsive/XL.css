@@ -1,0 +1,268 @@
+@media (min-width: 1900px) {
+
+    .classy-navbar {
+        width: 100%;
+        height: 100px;
+    }
+
+    .home-parent li a {
+        font-size: 28px !important;
+    }
+
+
+
+    .log-in {
+        font-size: 28px;
+        padding: 20px;
+    }
+
+    .classy-navbar .nav-brand img {
+        width: 200px;
+    }
+
+    .about-title {
+        width: 45%;
+        right: 20px;
+    }
+
+
+
+    .sub-heading {
+        font-size: 65px;
+    }
+
+    .why-img {
+        width: 100%;
+    }
+
+    .prime-head {
+        margin-bottom: 3rem;
+    }
+
+    .why-choose-div {
+        padding-right: 100px;
+    }
+
+    .why-choose-heading {
+        font-size: 55px;
+    }
+
+    .under-sub-heading {
+        font-size: 37px;
+    }
+
+    .know-more {
+        font-size: 25px;
+
+        padding: 20px 40px
+    }
+
+
+    .home-section {
+        height: 60vh;
+    }
+
+    .line-1 {
+        font-size: 43px;
+        font-weight: 500;
+        text-align: left;
+    }
+
+    .line-2 {
+        font-size: 120px;
+        font-weight: 700;
+        line-height: 130px;
+        text-align: left;
+    }
+
+    .line-3 {
+        font-size: 60px;
+        font-weight: 400;
+        line-height: 80px;
+        text-align: left;
+    }
+
+    .line-4 {
+        font-size: 60px;
+        font-weight: 700;
+        line-height: 80px;
+        text-align: left;
+    }
+
+    .home-points {
+        font-size: 47px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        text-align: left;
+        padding: 39px 11px;
+    }
+
+    .btn-sec {
+        border: none;
+        font-size: 30px;
+        font-weight: 400;
+        cursor: pointer;
+    }
+
+    .safety-img img {
+        padding-left: 135px;
+
+    }
+
+    .moto-content p,
+    .card-text {
+        font-size: 21px;
+        line-height: 40px;
+    }
+
+    .points {
+        display: flex;
+        gap: 2.9rem;
+        margin: 2.9rem 0;
+    }
+
+    .points img {
+        max-width: none;
+        width: 70px;
+    }
+
+    .points-desc p {
+        font-size: 31px;
+    }
+
+    .selection h4 {
+        font-size: 40px;
+    }
+
+    .card-title {
+        font-size: 30px;
+    }
+
+    .card-text {
+        font-size: 22px;
+    }
+
+    .safety-text {
+        font-size: 35px;
+        font-weight: 400;
+        line-height: 60px;
+    }
+
+    .curve {
+        width: 100%;
+        position: absolute;
+        left: 23.5%;
+
+    }
+
+    .curve-2 {
+        /* margin-left: 10px; */
+        position: absolute;
+        /* z-index: -1; */
+        left: 53.5%;
+    }
+
+
+
+
+    /* Safety-PAGE  */
+
+    .safety-card-title {
+        font-weight: 800 !important;
+        font-size: 30px !important;
+    }
+
+
+
+    .login-logo img {
+        width: 100%;
+
+    }
+
+    .log-input {
+        font-size: 25px !important;
+    }
+
+
+    .input-sec .col-form-label {
+        font-size: 25px !important;
+    }
+
+    .otp-btn {
+        font-size: 25px;
+        padding: 10px 45px;
+        margin-top: 20px;
+    }
+
+    .app-links img {
+        width: 97%;
+        /* margin: 7px 4px; */
+    }
+
+    .download-app p {
+        font-size: 45px;
+        line-height: 40px;
+    }
+
+    .about_dow_app p {
+
+        font-size: 30px;
+    }
+
+    .footer-logo p {
+        font-size: 35px;
+    }
+
+    .footer-heading {
+        font-size: 40px;
+
+    }
+
+    .direct-links {
+        font-size: 30px;
+    }
+
+    .add-div p {
+        font-size: 18px;
+    }
+
+    .privacy-heading {
+        margin-top: 150px;
+        margin-bottom: 100px;
+    }
+
+    .moto-img {
+        width: 140px;
+    }
+
+    .curve-1 {
+        transform: rotate(10deg);
+        position: absolute;
+        width: 22%;
+        left: 24%;
+        z-index: 1;
+    }
+
+    .curve-2 {
+        transform: rotate(10deg);
+        position: absolute;
+        width: 22%;
+        left: 54%;
+        z-index: 1;
+    }
+
+    .add-div {
+        font-size: 30px;
+    }
+
+
+}
+
+
+
+@media (max-width: 1100px) {
+    .privacy-heading {
+        margin-top: 65px;
+        margin-bottom: 20px;
+    }
+}

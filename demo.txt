@@ -1,0 +1,97 @@
+ <footer class="footer">
+        <div class="">
+            <div class="row footer-section">
+
+                <div class="col-lg-4 col-md-4 col-6 d-flex flex-column justify-content-between">
+                    <div class="footer-logo ">
+                        <p><strong>Powered by :</strong></p>
+                        <img src="Images/new-logo.png" alt="Logo">
+                    </div>
+                    <div class="download-app">
+                        <p>Download Our App</p>
+                        <div class="app-links">
+                            <a href="playstore-link"><img src="Images/Google_Play_Store_badge_EN.svg.png"
+                                    alt="Play Store"></a>
+                            <a href="applestore-link"><img src="Images/App_Store_Badge.svg (2).png"
+                                    alt="Apple Store"></a>
+                        </div>
+                    </div>
+                    <div class="social-links mt-3">
+                        <a href="facebook-link"><img class="socialImg" src="she_ryds_img/Facebook.png" alt=""></a>
+                        <a href="twitter-link"><img class="socialImg" src="she_ryds_img/Twitter.png" alt=""></a>
+                        <a href="instagram-link"><img class="socialImg" src="she_ryds_img/Instagram.png" alt=""></a>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-2 col-md-2 col-6  ">
+                    <h5 class="footer-heading">Shortcuts</h5>
+                    <ul class="list-unstyled">
+                        <li><a class="direct-links" href="index.html">Home</a></li>
+                        <li><a class="direct-links" href="safety.html">Safety</a></li>
+                        <li><a class="direct-links" href="drive_with_us.html">Drive with Us</a></li>
+
+                        <li><a class="direct-links" href="about_us.html">About Us</a></li>
+                        <!-- <li><a class="direct-links" href="initiatives.html">Initiatives</a></li> -->
+                        <li><a class="direct-links" href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="col-lg-2 col-md-2 add-sec col-6">
+                    <h5 class="footer-heading">Address</h5>
+
+                    <div class="add-div">
+                        <p><strong class="add">Registered Office:</strong><br>
+                            737-738, 7 Floor, Mall of Jaipur, Gandhi Path, W B Block, Vaishali Nagar,
+                            Jaipur, Raj 302021
+                            <br>
+                            Email: reachus@rydr.co.in<br>
+                        </p>
+                    </div>
+                    <div class="add-div">
+                        <p><strong class="add">Branch Office:</strong><br>
+                            G 148 First Floor South City 2, Gurugram, Haryana 122018 <br>
+                            Email: reachus@rydr.co.in</p>
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-3 col-md-3 col-6 d-flex  flex-column align-item-center contact-sec">
+                    <div>
+                        <h5 class="footer-heading">Contact Us</h5>
+                    </div>
+                    <div>
+                        <form class="contact-form contact-div">
+                            <div>
+                                <input type="text" class="form-control" placeholder=" Name" id="connect-name" required>
+                                <input type="number" class="form-control" placeholder=" Phone" required name=""
+                                    id="connect-phone">
+                                <input type="email" class="form-control" placeholder="Email" id="connect-email"
+                                    required>
+                                <textarea class="form-control" rows="3" placeholder=" Message" id="connect-message"
+                                    required></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="log-in contact-btn" id="contact-submit">Contact</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom ">
+
+                <div class="">
+                    <p class="fw-bold">© 2024 @ First And Last Mile Connectivity India PVT. Limited. All Rights
+                        Reserved.</p>
+                </div>
+
+                <div class="  footer-end">
+                    <a class="fw-bold" href="privacy_policy.html">Privacy Policy</a>
+                    <span> | </span>
+                    <a class="fw-bold" href="terms&conditions.html">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
