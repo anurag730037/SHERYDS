@@ -261,7 +261,7 @@ a {
     background-color: #FFEFF1;
     padding: 200px 50px;
     margin-top: 30px;
-    height: 95vh;
+    height: 97vh;
 }
 
 .home-text {
@@ -1730,6 +1730,13 @@ placehokdr {
     .points {
         gap: 22px;
         margin: 25px 0;
+    }
+}
+
+@media (min-width: 1400px) and (max-width: 1900px) {
+
+    .home-section {
+        height: 70vh;
     }
 }
 
