@@ -958,7 +958,7 @@ a {
 .safety-card-group {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     width: 90%;
     margin-top: 80px;
 
