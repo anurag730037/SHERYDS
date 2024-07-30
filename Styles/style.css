@@ -1,17 +1,17 @@
 @font-face {
     font-family: plusJakarta;
-    src: url('/Font/Plus_Jakarta_Sans/static/PlusJakartaSans-Regular.ttf') format('truetype');
+    src: url('../Font/Plus_Jakarta_Sans/static/PlusJakartaSans-Regular.ttf') format('truetype');
 
 }
 
 @font-face {
     font-family: ExtraBoldPlusJakarta;
-    src: url('./Font/Plus_Jakarta_Sans/static/PlusJakartaSans-ExtraBold.ttf') format('truetype');
+    src: url('../Font/Plus_Jakarta_Sans/static/PlusJakartaSans-ExtraBold.ttf') format('truetype');
 }
 
 @font-face {
     font-family: BoldPlusJakarta;
-    src: url('./Font/Plus_Jakarta_Sans/static/PlusJakartaSans-Bold.ttf') format('truetype');
+    src: url('../Font/Plus_Jakarta_Sans/static/PlusJakartaSans-Bold.ttf') format('truetype');
 }
 
 
