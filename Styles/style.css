@@ -193,10 +193,9 @@ a {
 
 .log-in:hover,
 .log-in:focus {
-    color: #c30000;
+    color: #F267AC;
     background-color: white;
-    border: 1px solid #c30000;
-
+    border: 1px solid #F267AC;
 }
 
 /* Initially hide the menu button */
@@ -296,7 +295,7 @@ a {
 
 .home-points {
     color: black;
-    font-size: 26px;
+    font-size: 25px;
     font-weight: 700;
 
     letter-spacing: 0.02em;
