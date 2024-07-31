@@ -285,7 +285,7 @@ a {
     font-family: BoldPlusJakarta;
     color: #F267AC;
     font-size: 85px;
-    font-weight: 700;
+    font-weight: 900;
     line-height: 90px;
     text-align: left;
     letter-spacing: 0.03em;
@@ -1782,4 +1782,10 @@ placehokdr {
         margin: 8px 0px;
     }
 
+}
+
+@media (min-width: 1600px) {
+    .home-section {
+        height: 85vh;
+    }
 }
