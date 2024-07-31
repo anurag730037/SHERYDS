@@ -112,6 +112,10 @@
     }
 
     .why-choose-content {
+        justify-content: flex-start;
+    }
+
+    .why-choose-content {
         width: 100%;
     }
 
@@ -127,7 +131,7 @@
     }
 
     .why-choose-div {
-        padding-right: 40px;
+        padding-right: 0px;
     }
 
     .why-img {
@@ -137,8 +141,10 @@
 
     .points {
         gap: 18px;
-        margin: 20px 0;
+        margin: 8px 0;
+        width: 100%;
     }
+
 
     .points img {
         /* width: 100px; */
@@ -234,7 +240,7 @@
     .list-unstyled,
     .add-div,
     .contact-div {
-        margin-top: 1rem;
+        /* margin-top: 1rem; */
     }
 
     .footer-bottom p,

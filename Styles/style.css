@@ -771,8 +771,8 @@ a {
 }
 
 .add-div p {
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 16px;
+    /* font-weight: 600; */
 }
 
 .add {
@@ -800,7 +800,7 @@ a {
 }
 
 .list-unstyled li {
-    margin-top: 9px;
+    margin-bottom: 9px;
 }
 
 .contact-form input,
@@ -1728,7 +1728,7 @@ placehokdr {
 
     .points {
         gap: 22px;
-        margin: 25px 0;
+        margin: 15px 0;
     }
 }
 
