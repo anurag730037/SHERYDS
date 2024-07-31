@@ -286,7 +286,7 @@ a {
     color: #F267AC;
     font-size: 85px;
     font-weight: 700;
-    line-height: 100px;
+    line-height: 90px;
     text-align: left;
     letter-spacing: 0.03em;
 }
@@ -889,12 +889,12 @@ a {
 
 .saf-1 {
     font-size: 23px !important;
-    line-height: 25x;
+    line-height: 30x;
 }
 
 .saf-2 {
-    font-size: 50px;
-    line-height: 70px;
+    font-size: 85px;
+    line-height: 90px;
 }
 
 
@@ -1055,7 +1055,7 @@ a {
 .dwu-1,
 .dwu-2,
 .dwu-3 {
-    line-height: 1.1;
+    /* line-height: 1.1; */
 }
 
 .adv-part {
