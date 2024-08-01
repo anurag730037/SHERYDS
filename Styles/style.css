@@ -53,7 +53,7 @@ a {
     /* font-weight: 900; */
     line-height: 100px;
     color: black;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-bottom: 40px;
     letter-spacing: 0.03em;
     text-align: center;
@@ -149,6 +149,27 @@ a {
         align-items: baseline !important;
         padding: 20px;
     }
+}
+
+
+.modal-content {
+    display: flex;
+}
+
+.modal-body {
+    display: flex;
+    flex: 1;
+    width: 100%;
+}
+
+.modal-section {
+    flex: 1;
+    padding: 20px;
+}
+
+.modal-divider {
+    width: 1px;
+    background-color: #dee2e6;
 }
 
 
@@ -260,7 +281,7 @@ a {
     background-color: #FFEFF1;
     padding: 200px 50px;
     margin-top: 30px;
-    height: 97vh;
+    height: 75vh;
 }
 
 .home-text {
@@ -273,34 +294,34 @@ a {
 
 .line-1 {
     color: black;
-    font-size: 23px;
+    font-size: 17px;
     font-weight: 500;
     line-height: 30px;
     text-align: left;
-    letter-spacing: 0.03em;
+    /* letter-spacing: 0.02em; */
 }
 
 .line-2 {
 
     font-family: BoldPlusJakarta;
     color: #F267AC;
-    font-size: 85px;
+    font-size: 65px;
     font-weight: 900;
-    line-height: 90px;
+    line-height: 65px;
     text-align: left;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.04em;
 }
 
 
 
 .home-points {
     color: black;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 700;
 
     letter-spacing: 0.02em;
     text-align: left;
-    padding: 15px 0px;
+    padding: 10px 0px;
 
 }
 
@@ -312,13 +333,37 @@ a {
 
 }
 
+.modal-header .close {
+    /* position: absolute; */
+    background-color: #ebebeb;
+    height: 30px;
+    width: 30px;
+
+    border-radius: 50%;
+
+    border: 0px;
+    z-index: 1;
+}
+
+.modal-header {
+    justify-content: end !important;
+}
+
+.modal-header .close {
+    margin-top: 0px;
+}
+
+.true {
+    margin-bottom: 2px !important;
+}
+
 
 .btn-1,
 .btn-2 {
     background-color: #F267AC;
     color: white;
     border-radius: 4px;
-    padding: 10px 20px;
+    padding: 10px 15px;
     cursor: pointer;
 
 }
@@ -327,7 +372,7 @@ a {
     background-color: #F267AC;
     color: white;
     border: none;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 500;
     cursor: pointer;
 }
@@ -346,8 +391,8 @@ a {
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 42%;
-    margin-top: 100px;
+    width: 32%;
+    margin-top: 120px;
     /* background-image: url(/Images/Title-img.png); */
     /* height: 80vh; */
 }
@@ -407,8 +452,8 @@ a {
     font-size: 14px;
     font-weight: 400;
     line-height: 25px;
-    letter-spacing: -0.02em;
-    text-align: center;
+    letter-spacing: 0.02em;
+    text-align: justify !important;
     padding: 10px 35px;
 }
 
