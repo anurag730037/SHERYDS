@@ -2089,6 +2089,27 @@ placehokdr {
     /* margin: 20px; */
 }
 
+.FAQ {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.faq-que {
+    font-size: 25px !important;
+    font-weight: 700 !important;
+    line-height: 35px !important;
+    letter-spacing: 0.02em !important;
+    text-align: center !important;
+}
+
+.accordion-body p {
+    font-size: 15px;
+    color: #000000;
+    word-spacing: 0.15em;
+}
+
 @media only screen and (max-width: 700px) {
     .methods {
         flex-direction: column;
