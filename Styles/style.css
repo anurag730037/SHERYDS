@@ -293,8 +293,10 @@ a {
 
 
 .topSection {
+
     background: linear-gradient(53deg, #FFFFFF 21.24%, rgba(153, 153, 153, 0) 99.21%),
-        url('/she_ryds_img/title_bg_metro.png');
+        url('../she_ryds_img/title_bg_metro.png');
+
     background-size: cover;
     /* Ensure the image covers the entire element */
     background-position: center;
