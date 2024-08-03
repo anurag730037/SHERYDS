@@ -24,6 +24,50 @@
     <link rel="stylesheet" href="Styles/Responsive/S.css">
 
     <script src="JS/jquery.min.js"></script>
+
+
+    <style>
+        .image-container {
+            /* Set the container to have a fixed height */
+            height: 300px;
+
+            /* Set the container to take up 75% of the horizontal space */
+            width: 72%;
+            margin: 0 auto;
+            /* Center the container horizontally */
+
+            /* Position the content overlay on top of the image */
+            position: relative;
+        }
+
+        .first-initi-img {
+            /* Cover the entire container */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Reduce opacity */
+            opacity: 0.4;
+        }
+
+        .content-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(151, 141, 141, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .first-details {
+            color: black;
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -63,11 +107,10 @@
                                 </div>
                                 <!-- <div>|</div> -->
 
-                                <div class="login-register-btn mx-3" data-toggle="modal" id="loginButton"
-                                    data-target="#customer-login">
-                                    <!-- <a href="login.html">
-                                        <div class="log-in">Log In</div>
-                                    </a> -->
+                                <div class="login-register-btn mx-3">
+                                    <a href="">
+                                        <div class="log-in">Download the App</div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -81,8 +124,8 @@
         <div class=" home-section">
             <div class=" home-text safety-page-text">
                 <div class="side-text ">
-                    <span class="line-2 saf-2">About Us</span><br>
-
+                    <!-- <span class="line-2 saf-2">About Us</span><br> -->
+                    <span style="color: #b47dd4; font-family: ExtraBoldPlusJakarta;" class="line-1">About Us</span>
                 </div>
 
 
@@ -92,10 +135,10 @@
             </div>
 
         </div>
-        <section class="container d-flex flex-column justify-content-center align-items-center">
+        <section class="container d-flex flex-column justify-content-center ">
             <div>
-                <h3 style="color:#F267AC; font-weight: 700;" class="sub-heading mb-3">
-                    <!-- About Sheryds -->
+                <h3 style="color:#F267AC; font-weight: 700; text-align: left;" class="under-sub-heading mb-1 mt-2">
+                    About Sheryds
                 </h3>
             </div>
             <div class="about-desc">
@@ -106,7 +149,7 @@
                     city cleaner.
                 </p>
 
-                <p> <span class="fw-bold">SHE RYDS</span> is another initiative that will transform the way women
+                <p> <span class="fw-bold">SHE RYDS</span> has another initiative that will transform the way women
                     travel. SHE RYDS
                     empowers women to be independent, self-reliant, confident and comfortable in travelling from one
                     destination to another. <span class="fw-bold">
@@ -114,8 +157,8 @@
                         reducing carbon emissions through its E-Scooty Taxi Service.
                     </span></p>
 
-                <p> SHE RYDS also empowers the “She She
-                    Rydss” by <span class="fw-bold">offering employment opportunities to women</span> and giving them an
+                <p> SHE RYDS also empowers the “SheRydrs” by <span class="fw-bold">offering employment opportunities to
+                        women</span> and giving them an
                     opportunity to
                     come into the
                     mainstream, become bread earners for themselves and their families, earn with dignity and live with
@@ -134,9 +177,164 @@
 
 
 
+        <!-- INITIATIVES  -->
+
+        <!-- <section>
+            <section class=" d-flex justify-content-center align-items-center flex-column section-margin">
+                <h1 class="sub-heading">Reducing Emissions – Together</h1>
+                <div class="image-container">
+                    <img class="first-initi-img" src="images/demo/Emission_together.png" alt="Emission together">
+                    <div class="content-overlay">
+                        <p class="first-details">"It's important that we take action to reduce the impact of pollution
+                            in the city we
+                            love.
+                            Rydr's mission is to improve the quality of air we breathe as we ride. You can contribute in
+                            reducing carbon
+                            emission by booking a ride with us.
+                            Rydr's mission is to improve air quality by offering sustainable transportation options. By
+                            sharing rides or
+                            using electric vehicles, we can significantly reduce carbon footprint and create a healthier
+                            environment for
+                            everyone. Every Rydr ride booked removes CO2 emissions, making a real difference in our
+                            city."
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+
+                <div class="center-content section-margin">
+                    <div class="content-head">
+                        <h1 class="text-center sub-heading">How We’re Reducing Emissions</h1>
+                    </div>
+
+                    <div class="methods ">
+
+                        <div class="method-card ">
+                            <img src="images/demo/leaf.png" alt="">
+                            <div class="methods-desc">
+                                <p class="">
+                                    All SheRyds rides are carbon neutral – we offset every gram of CO2 emitted via Using
+                                    Electric vehicles
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="method-card ">
+                            <img src="images/demo/method-2.png" alt="">
+                            <div class="methods-desc">
+                                <p class="">
+                                    Select SheRyds to reduce emissions for your ride – E-SCOOTY cabs, every time
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="method-card ">
+                            <img src="images/demo/method-3.png" alt="">
+                            <div class="methods-desc">
+                                <p class="">
+                                    For every ride taken, we plant a tree. This not only helps in offsetting any minimal
+                                    emissions produced
+                                    but also contributes to reforestation efforts and biodiversity.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
 
-        <!-- Drivers  -->
+
+            <section>
+                <div class="planting-section section-margin">
+
+                    <h1 class=" sub-heading">
+                        Planting Trees With Every Ride
+                    </h1>
+
+                    <div class="initiative-top side-padding">
+
+                        <img class="initi-img" src="images/demo/plant.jpeg" alt="">
+
+                        <div class="col">
+
+                            <p class="details">At Rydr, we are dedicated to supporting air quality improvement and
+                                various
+                                other projects across Delhi. Our aim is to enhance lives by planting trees throughout
+                                the city.
+
+                                According to Trees for Cities, vegetation helps remove dangerous air pollutants,
+                                including carbon dioxide,
+                                dust, and other gaseous toxins. Together, we can do even more to reduce airborne
+                                pollution in the city we
+                                live in and love, creating a brighter future for all.
+                                <br>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet
+                                consectetur adipisicing elit. In, nemo? Similique iusto error eum saepe mollitia velit
+                                debitis dolore rem animi officiis.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="green-jobs">
+                <div class="planting-section section-margin">
+
+                    <h1 class="sub-heading">
+                        Creating Green Jobs</h1>
+
+                    <div class="initiative-top side-padding">
+
+                        <img class="initi-img" src="images/demo/electric.png" alt="">
+
+                        <div class="col">
+
+                            <p class="details">Lorem ipsum dolor sit amet consectetur Lorem ipsum Lorem ipsum, dolor sit
+                                amet
+                                consectetur adipisicing elit. Quod, ducimus? dolor sit amet consectetur adipisicing
+                                elit. Atque, eius.
+                                adipisicing elit. Suscipit sint quos velit ipsa fugit quia sapiente quaerat corporis
+                                modi ut! Numquam
+                                nobis quam doloremque libero provident autem quidem ex quibusdam! Et perferendis cum
+                                debitis libero
+                                quibusdam labore magnam ad earum sequi saepe? Quo similique cupiditate excepturi porro
+                                libero a odio.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+
+            <section class="d-flex justify-content-center align-items-center flex-column section-margin">
+                <div>
+                    <h1 class="section-margin sub-heading">Carbon Offsetting</h1>
+                </div>
+                <div class="initiative-top side-padding">
+                    <div class="col">
+
+                        <p class="details">Lorem ipsum dolor sit amet consectetur Lorem ipsum Lorem ipsum, dolor sit
+                            amet
+                            consectetur adipisicing elit. Quod, ducimus? dolor sit amet consectetur adipisicing
+                            elit. Atque, eius.
+                            adipisicing elit. Suscipit sint quos velit ipsa fugit quia sapiente quaerat corporis
+                            modi ut! Numquam
+                            nobis quam doloremque libero provident autem quidem ex quibusdam! Et perferendis cum
+                            debitis libero
+                            quibusdam labore magnam ad earum sequi saepe? Quo similique cupiditate excepturi porro
+                            libero a odio.</p>
+                    </div>
+                </div>
+
+
+            </section>
+
+        </section> -->
 
 
     </main>
@@ -152,17 +350,17 @@
                         <div class="app-links about_app_link">
                             <a href="playstore-link"><img src="Images/Google_Play_Store_badge_EN.svg.png"
                                     alt="Play Store"></a>
+
                             <a href="applestore-link"><img src="Images/App_Store_Badge.svg (2).png"
                                     alt="Apple Store"></a>
                         </div>
                     </div>
                     <div class="download-app about_dow_app">
-                        <p>Download Driver App</p>
+                        <p>Download She Rydr App</p>
                         <div class="app-links about_app_link">
                             <a href="playstore-link"><img src="Images/Google_Play_Store_badge_EN.svg.png"
                                     alt="Play Store"></a>
-                            <a href="applestore-link"><img src="Images/App_Store_Badge.svg (2).png"
-                                    alt="Apple Store"></a>
+
                         </div>
                     </div>
                     <div class="social-links about-social-link">
@@ -180,9 +378,9 @@
                         <li><a class="direct-links" href="index.html">Home</a></li>
                         <li><a class="direct-links" href="safety.html">Safety</a></li>
                         <li><a class="direct-links" href="drive_with_us.html">Drive with Us</a></li>
-                        <li><a class="direct-links" href="about_us.html">Career</a></li>
+                        <!-- <li><a class="direct-links" href="about_us.html">Career</a></li> -->
                         <li><a class="direct-links" href="about_us.html">About Us</a></li>
-                        <li><a class="direct-links" href="initiatives.html">Initiatives</a></li>
+                        <!-- <li><a class="direct-links" href="initiatives.html">Initiatives</a></li> -->
                         <li><a class="direct-links" href="faq.html">FAQ</a></li>
                     </div>
                 </div>
@@ -232,7 +430,7 @@
             <div class="footer-bottom ">
 
                 <div class="">
-                    <p class="fw-bold">© 2024 @ First And Last Mile Connectivity India PVT. Limited. All Rights
+                    <p class="fw-bold">© 2024 @ First And Last Mile Connectivity India Pvt. Limited. All Rights
                         Reserved.</p>
                 </div>
 

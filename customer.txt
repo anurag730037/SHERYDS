@@ -1,0 +1,153 @@
+  <section class="cust-safety-portion">
+            <div class="cust-safety" style="
+                     background-image: url('she_ryds_img/safety_cust_background.png') !important;">
+                <div class="d-flex justify-content-center align-items-center flex-column mb-5">
+                    <h2 class="sub-heading mb-0 mt-5 text-capitalize">For Customers</h2>
+                    <p class="under-safety">Rides are tracked by Rydr, with access to latitude and longitude Data.</p>
+                </div>
+
+                <div class=" d-flex justify-content-center">
+                    <div class="row safety-card-group">
+                        <div class="col-md-3 d-flex">
+                            <div class="card safety-card flex-fill d-flex flex-column">
+                                <img class="card-img-top safety-card-img" src="she_ryds_img/sos.png"
+                                    alt="Card image cap">
+                                <div class="card-body safety-card-body flex-grow-1">
+                                    <h5 class="card-title safety-card-title">SOS Number</h5>
+                                    <p class="card-text safety-card-text">Customers and Drivers can report any kind of
+                                        incidence or issues through the 24*7 support feature on the app post & during
+                                        the ride.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 d-flex">
+                            <div class="card safety-card flex-fill d-flex flex-column">
+                                <img class="card-img-top safety-card-img" src="she_ryds_img/insurance.png"
+                                    alt="Card image cap">
+                                <div class="card-body safety-card-body flex-grow-1">
+                                    <h5 class="card-title safety-card-title">Insurance</h5>
+                                    <p class="card-text safety-card-text">Insurance can be claimed for any accident that
+                                        occurs during the ride covering OPD charges, hospitalization and accidental
+                                        benefit with a maximum sum insured of Rs. ----- Lakhs.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 d-flex">
+                            <div class="card safety-card flex-fill d-flex flex-column">
+                                <img class="card-img-top safety-card-img" src="she_ryds_img/rating.png"
+                                    alt="Card image cap">
+                                <div class="card-body safety-card-body flex-grow-1">
+                                    <h5 class="card-title safety-card-title  ">Two-way Rating System</h5>
+                                    <p class="card-text safety-card-text">Post the ride, Customer and Driver can give
+                                        ratings to each other and any rating below 3 is flagged by us. Rydr reaches out
+                                        to them in 10 minutes to address their concern. The Driver is terminated
+                                        immediately in case of any misconduct.</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class=" d-flex justify-content-center" style="margin-top: 20px;">
+                    <div class="row safety-card-group">
+
+                        <div class="col-md-3 d-flex">
+
+
+                            <div class="card safety-card  d-flex flex-column">
+                                <img class="card-img-top safety-card-img" src="she_ryds_img/rating.png"
+                                    alt="Card image cap">
+                                <div class="card-body safety-card-body flex-grow-1">
+                                    <h5 class="card-title safety-card-title">Pro Active Check In</h5>
+                                    <p class="card-text safety-card-text">Every customer will be alerted
+                                        on the system and called by
+                                        Rydr customer support when
+                                        there is any unusual activity or
+                                        deviation from the set
+                                        protocol.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 d-flex">
+                            <div class="card safety-card  d-flex flex-column">
+                                <img class="card-img-top safety-card-img" src="she_ryds_img/sos.png"
+                                    alt="Card image cap">
+                                <div class="card-body safety-card-body flex-grow-1">
+                                    <h5 class="card-title safety-card-title">SOS Number</h5>
+                                    <p class="card-text safety-card-text">Customers and Drivers can report any kind of
+                                        incidence or issues through the 24*7 support feature on the app post & during
+                                        the ride.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+        DRIVER-----------------------------
+
+
+         <section class="driver-safety-portion ">
+            </div>
+            <div class="cust-safety">
+
+                <div class="d-flex justify-content-center align-items-center flex-column">
+                    <h2 class="sub-heading  mb-0 mt-5 text-capitalize">For Drivers</h2>
+                    <p class="under-safety">From hiring, to monitoring, to ongoing checks,
+
+                        we take all necessary steps to ensure our Riders
+
+                        safety.
+                    </p>
+                </div>
+
+                <div class="d-flex justify-content-center">
+
+                    <div class="card-deck driver-safety-card-group">
+                        <div class="card driver-safety-card">
+                            <img class="card-img-top safety-card-img" src="she_ryds_img/insurance.png"
+                                alt="Card image cap">
+                            <div class="card-body safety-card-body">
+                                <h5 class="card-title safety-card-title">Insurance</h5>
+                                <p class="card-text safety-card-text">Insurance can be claimed for any accident that
+                                    occurs during the
+                                    ride covering OPD charges, hospitalization and accidental benefit</p>
+                            </div>
+                        </div>
+                        <div class="card driver-safety-card">
+                            <img class="card-img-top safety-card-img" src="she_ryds_img/customer-service.png"
+                                alt="Card image cap">
+                            <div class="card-body safety-card-body">
+                                <h5 class="card-title safety-card-title text-center">24 X 7 Customer Support</h5>
+                                <p class="card-text safety-card-text">Customer and Drivers can report any kind of
+                                    incidence or issues
+                                    through the 24*7 support feature on the app post & during the ride.</p>
+                            </div>
+                        </div>
+                        <div class="card driver-safety-card">
+                            <img class="card-img-top safety-card-img" src="she_ryds_img/rating.png"
+                                alt="Card image cap">
+                            <div class="card-body safety-card-body">
+                                <h5 class="card-title safety-card-title text-center">Two-way Rating System</h5>
+                                <p class="card-text safety-card-text">Post the ride, Customer and Driver can give
+                                    ratings to each other
+                                    and any rating below 3 is flagged by us. Rydr reaches out to them in 10 minutes to
+                                    address their concern. The Driver is terminated immediately in case of any
+                                    misconduct.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </section>

@@ -7,7 +7,7 @@
     .btn-sec {
         /* background-color: white; */
         border: none;
-        font-size: 16px;
+        font-size: 12px;
     }
 
     .sub-heading {
@@ -61,14 +61,14 @@
     }
 
     .line-1 {
-        font-size: 18px;
-        line-height: 20px;
-        letter-spacing: -0.03rem;
+        font-size: 20px;
+        line-height: 25px;
+        letter-spacing: 0.03rem;
     }
 
     .line-2 {
-        font-size: 50px;
-        line-height: 40px;
+        font-size: 18px;
+        /* line-height: 40px; */
     }
 
     .line-3 {
@@ -83,8 +83,6 @@
 
     .home-points {
         font-size: 16px;
-
-        padding: 25px 0px;
     }
 
     .rydr-btn {
@@ -345,5 +343,11 @@
 @media (max-width: 1150px) {
     .line-break {
         display: block;
+    }
+}
+
+@media (max-width: 1110px) {
+    .moto-head {
+        height: 60px;
     }
 }
