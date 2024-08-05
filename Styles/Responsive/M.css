@@ -26,10 +26,11 @@
 
     .under-sub-heading {
         font-size: 18px;
+        line-height: 30px;
     }
 
     .know-more {
-        font-size: 14px;
+        font-size: 11px;
         font-weight: 700;
         line-height: 22px;
         border: none;
@@ -43,29 +44,33 @@
         width: 50%;
     }
 
+    .safety-title {
+        width: 40%;
+    }
+
     .about-title {
         width: 45%;
         right: 20px;
     }
 
     .side-text {
-        padding: 10px 15px;
+        padding: 5px 15px;
     }
 
     .home-section {
-        padding: 220px 50px;
+        padding: 195px 50px;
     }
 
 
     .line-1 {
         font-size: 17px;
-        line-height: 30px;
+        line-height: 25px;
     }
 
 
     .line-2 {
-        font-size: 52px;
-        line-height: 50px;
+        font-size: 17px;
+        line-height: 0px;
     }
 
 
@@ -82,7 +87,7 @@
 
     .home-points {
         font-size: 16px;
-        padding: 10px 2px;
+        padding-top: 10px;
         padding-left: 15px;
     }
 
@@ -95,22 +100,31 @@
         padding: 7px 13px;
     }
 
+    .moto-img {
+        width: 90px;
+    }
+
     .moto-head {
         margin-top: 1.5rem !important;
     }
 
     .moto-content p {
-        font-size: 14px;
+        font-size: 12px;
         text-align: center;
         padding: 0px 20px;
-        line-height: 26px;
+        line-height: 24px;
     }
+
+    .points-desc .under-sub-heading {
+        line-height: 20px;
+    }
+
 
 
     .points-desc p {
         margin-bottom: 0;
-        padding: 0px 5px;
-        font-size: 11px;
+        padding: 0px 0px;
+        font-size: 12px;
     }
 
     .mini-head {
@@ -132,7 +146,7 @@
     }
 
     .points img {
-        width: 70px;
+        width: 30px;
     }
 
     .points-desc strong {
@@ -187,6 +201,20 @@
         margin-top: 0;
     }
 
+    .safety-heading {
+        margin: 0px 40px;
+    }
+
+    .safety-heading {
+        font-size: 35px;
+        margin-bottom: 90px;
+        line-height: 70px;
+    }
+
+    .safety-know {
+        margin-left: 60px;
+    }
+
 
     .safety-text {
         font-size: 16px;
@@ -213,7 +241,7 @@
     }
 
     .social-links img {
-        width: 90%;
+        width: 80%;
     }
 
     .footer-heading {
@@ -230,17 +258,22 @@
     }
 
     .add-div p {
-        font-size: 14px;
+        font-size: 11px;
     }
 
     .contact-form input {
-        height: 40px;
+        height: 35px;
     }
 
     .contact-form input,
     .contact-form textarea {
-        margin-bottom: 15px;
-        padding: 1px;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+
+    .form-control {
+        padding: 0.375rem .75rem;
+        font-size: 14px !important;
     }
 
     .contact-form ::placeholder {
@@ -249,7 +282,11 @@
     }
 
     textarea.form-control {
-        height: 70px;
+        height: 60px;
+    }
+
+    .contact-btn {
+        padding: 8px 10px;
     }
 
     .footer-bottom p,
@@ -276,13 +313,14 @@
     }
 
     .download-app p {
-        font-size: 15px;
+        font-size: 18px;
         font-weight: 600;
         line-height: 35px;
+        margin-top: 20px;
     }
 
     .app-links img {
-        width: 60%;
+        width: 50%;
         margin: 2px;
     }
 
@@ -300,11 +338,46 @@
         padding: 190px 51px;
     }
 
-    .safety-heading {
-        font-size: 29px;
-        margin-bottom: 90px;
-        line-height: 70px;
+    .line-bg-grey {
+        gap: 40px;
+        margin-top: 70px;
+        padding-left: 45px;
     }
+
+    .new-saf-head {
+        height: 50vh;
+    }
+
+    .new-saf-head-desc p {
+        font-size: 12px;
+    }
+
+    .new-saf-head-desc {
+        width: 43%;
+    }
+
+    .sherydr_verification_img h2 {
+        font-size: 22px;
+    }
+
+    .new-saf-head-img {
+        width: 20%;
+    }
+
+    .sherydr_verification p {
+        font-size: 12px;
+    }
+
+    .sherydr_verification_img img {
+        width: 75%;
+    }
+
+    .sherydr_verification p {
+        width: 32%;
+        margin-top: 20px;
+    }
+
+
 
     .safety-content .sub-heading {
         margin-bottom: 20px;
@@ -316,12 +389,12 @@
     }
 
     .safety-card-body {
-        padding: 1.25rem 7px !important;
+        padding: 0.7rem 5px !important;
     }
 
     .safety-card-title {
-        font-size: 12px !important;
-        margin: 5px 0px;
+        font-size: 18px !important;
+        margin: 3px 0px;
     }
 
     .safety-card-text {
@@ -414,17 +487,17 @@
 
     .curve-1 {
         position: absolute;
-        width: 17%;
+        width: 18%;
         /* top: 20%; */
-        left: 27%;
+        left: 26%;
         margin-top: 27px;
         transform: rotate(-10deg);
     }
 
     .curve-2 {
         position: absolute;
-        width: 17%;
-        left: 57%;
+        width: 18%;
+        left: 56%;
         margin-top: 27px;
         transform: rotate(-10deg);
     }
@@ -436,6 +509,14 @@
 
     .why-choose-div {
         width: 50%;
+    }
+
+    /* Safety Page  */
+
+    .line-bg-grey h4 {
+        cursor: pointer;
+        font-weight: 700;
+        margin-bottom: 0px;
     }
 
 }

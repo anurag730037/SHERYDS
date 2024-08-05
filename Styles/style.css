@@ -705,7 +705,7 @@ a {
 .sherydr_verification p {
     word-spacing: 0.3em;
     letter-spacing: 0.03em;
-    width: 40%;
+    width: 35%;
 }
 
 .new-saf-head-desc {
@@ -728,7 +728,7 @@ a {
 
 .sherydr_verification_img {
     display: flex;
-    width: 30%;
+    width: 35%;
     flex-direction: column;
     justify-content: center;
     align-items: center;

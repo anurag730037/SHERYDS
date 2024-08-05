@@ -23,7 +23,7 @@
 
     .under-sub-heading {
         /* font-family: Plus Jakarta Sans; */
-        font-size: 25px;
+        font-size: 22px;
         font-weight: 700;
         line-height: 35px;
         letter-spacing: 0.02em;
@@ -37,8 +37,8 @@
         position: relative;
         justify-content: flex-start;
         align-items: center;
-        padding: 270px 50px;
-        margin-top: 60px;
+        padding: 260px 50px;
+        margin-top: 20px;
         height: auto;
     }
 
@@ -52,12 +52,16 @@
 
     .title-img {
         right: 0%;
-        width: 53%;
+        width: 55%;
     }
 
     .about-title {
-        width: 46%;
+        width: 35%;
         right: 30px;
+    }
+
+    .about-section {
+        width: 86%;
     }
 
     .line-1 {
@@ -214,6 +218,10 @@
         align-items: center;
     }
 
+    .safety-know {
+        margin-left: 85px;
+    }
+
     .footer-logo img {
         width: 52%;
     }
@@ -229,6 +237,14 @@
     .app-links img {
         /* width: 35%;
         margin: 10px 5px; */
+    }
+
+    .app-links img {
+        width: 85%;
+    }
+
+    .social-links {
+        gap: 70px;
     }
 
     .socialImg {
@@ -251,17 +267,66 @@
     }
 
 
+    .know-more {
+        padding: 6px 25px
+    }
+
 
     /* Safety---  */
 
+    .safety-title {
+        width: 44%;
+    }
+
+    .new-saf-head {
+        height: 45vh;
+    }
+
+    .safety-page-top {
+        margin-top: 0px !important;
+        padding: 279px 50px;
+    }
+
+    .breadcrumb {
+        font-size: 15px;
+        margin-left: 5px;
+    }
+
+    .new-saf-head-desc {
+        width: 48%;
+    }
+
+    .new-saf-head-img {
+        width: 17%;
+    }
+
+    .new-saf-head-desc p {
+        font-size: 15px;
+    }
+
+    .sherydr_verification_img h2 {
+        font-size: 30px;
+    }
+
+    .sherydr_verification p {
+        font-size: 15px;
+        word-spacing: 0.3em;
+        letter-spacing: 0.03em;
+        width: 32%;
+        margin-top: 15px;
+    }
+
+    .info-list {
+        font-size: 15px;
+    }
 
     .safety-card-group {
         width: 100%;
     }
 
     .safety-card-title {
-        height: 50px;
-        font-size: 17px !important;
+        height: 60px;
+        font-size: 22px !important;
     }
 
     .driver-safety-card-group {
@@ -271,27 +336,41 @@
 
 
     /* Drive-with-us  */
-
+    .drive_w_us {
+        width: 41%;
+    }
 
 
     .with-us-text {
         align-items: baseline;
-        left: 10%;
+        /* left: 10%; */
+        top: 30%;
     }
 
     .adv-wid {
-        width: 95%;
+        width: 90%;
     }
 
     .adv-card {
-        padding: 0 10px;
+        padding: 0 5px;
         padding-top: 20px;
         padding-bottom: 10px;
     }
 
     .adv-card-title h5 {
         margin-top: 10px;
-        font-size: 1.4rem;
+        font-size: 16px
+    }
+
+    .adv-card-top {
+        gap: 10px;
+    }
+
+
+    /* About us  */
+
+    .about-text {
+        top: 29%;
     }
 
     .login-div {
@@ -348,6 +427,6 @@
 
 @media (max-width: 1110px) {
     .moto-head {
-        height: 60px;
+        height: 65px;
     }
 }
