@@ -49,7 +49,7 @@
     }
 
     .about-title {
-        width: 45%;
+        width: 35%;
         right: 20px;
     }
 
@@ -173,9 +173,9 @@
         font-size: 14px;
         font-weight: 400;
         line-height: 27px;
-        text-align: justify;
+        text-align: center;
         display: -webkit-box;
-        -webkit-line-clamp: 4;
+        -webkit-line-clamp: 9;
         -webkit-box-orient: vertical;
     }
 
@@ -331,11 +331,42 @@
         text-align: center;
     }
 
+    .social-links {
+        gap: 20px;
+    }
+
 
 
     /* Safety Page  */
     .safety-page-top {
         padding: 190px 51px;
+    }
+
+    .breadcrumb {
+        position: absolute;
+        font-size: 17px;
+        margin-top: 60px;
+        margin-left: 25px;
+        margin-bottom: 0px;
+        padding: 10px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+    }
+
+    .bottom-back {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 50px;
+    }
+
+    .bottom-back a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #f267af;
+        font-weight: 800;
     }
 
     .line-bg-grey {
@@ -397,16 +428,23 @@
         margin: 3px 0px;
     }
 
+    .cust-safety {
+        padding-bottom: 20px;
+    }
+
     .safety-card-text {
         font-size: 11px;
-        line-height: 22px;
-        -webkit-line-clamp: 5;
+        line-height: 18px;
+        -webkit-line-clamp: 9;
     }
 
     .driver-safety-card-group {
         width: 83%;
     }
 
+    .info-list {
+        font-size: 10px;
+    }
 
 
     /* Drive With US  */
@@ -429,13 +467,13 @@
     }
 
     .adv-card-img img {
-        max-width: 50%;
+        max-width: 42%;
         height: auto;
     }
 
     .adv-card-title h5 {
         margin-top: 15px;
-        font-size: 1.1rem;
+        font-size: 0.8rem;
     }
 
     .why-img {

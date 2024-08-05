@@ -52,6 +52,12 @@
         width: 65%;
     }
 
+    .about-title {
+        /* left: 40%; */
+        transform: translateX(-50%);
+        width: 45%;
+    }
+
     .motos {
         display: flex;
         flex-direction: column;
@@ -135,6 +141,10 @@
         align-items: center;
     }
 
+    .social-links {
+        gap: 25px;
+    }
+
     /* SAFETY  */
 
     .line-bg-grey {
@@ -164,6 +174,10 @@
 
     .new-saf-head-desc {
         width: 54%;
+    }
+
+    .new-saf-head-desc p {
+        width: 100%;
     }
 
     .new-saf-head-desc .sub-heading {
@@ -278,6 +292,16 @@
 
     .info-list {
         font-size: 12px;
+    }
+
+    .driver-head {}
+
+    .driver-head-desc {
+        width: 56%;
+    }
+
+    .driver-head-desc-img {
+        width: 32%;
     }
 
 
@@ -480,16 +504,26 @@
 
 @media (max-width:415px) {
 
+    .title-img {
+        /* left: 40%; */
+        transform: translateX(-30%);
+        width: 75%;
+    }
+
+    .safety-title {
+        transform: translateX(0%);
+    }
+
     .line-1 {
         font-size: 19px;
-        line-height: 35px;
+        line-height: 30px;
     }
 
 
 
     .line-2 {
-        font-size: 33px;
-        line-height: 35px;
+        font-size: 19px;
+        line-height: 20px;
     }
 
     .line-4 {
@@ -499,7 +533,8 @@
 
     .home-points {
         font-size: 16px;
-        padding: 20px 10px;
+        padding: 10px 0px;
+        padding-bottom: 0px;
     }
 
     .footer-bottom p {
@@ -542,6 +577,32 @@
         margin-bottom: 10px;
     }
 
+
+    .new-saf-head-desc {
+        width: 50%;
+    }
+
+    .new-saf-head-img {
+        width: 45%;
+    }
+
+    .sherydr_verification_img {
+        width: 45%;
+    }
+
+    .sherydr_verification_img img {
+        width: 98%;
+    }
+
+    .sherydr_verification_img h2 {
+        font-size: 15px;
+    }
+
+    .about-title {
+        /* left: 40%; */
+        transform: translateX(-40%);
+        width: 50%;
+    }
 
 
 }
