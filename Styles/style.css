@@ -765,6 +765,10 @@ a {
     /* align-items: center; */
 }
 
+.info-list {
+    font-size: 15px;
+}
+
 .safety-text {
     font-size: 21px;
     font-weight: 400;
