@@ -24,6 +24,14 @@
         padding: 5px 10px;
     }
 
+    .home-text {
+        text-align: left;
+    }
+
+    .dwn {
+        padding: 8px 13px;
+    }
+
     .why-choose-heading {
         font-size: 35px;
     }
@@ -39,7 +47,8 @@
     }
 
     .home-text {
-        align-items: center;
+        /* align-items: center; */
+        align-items: flex-start;
         margin: 20px;
         position: static;
         left: auto;
@@ -236,7 +245,7 @@
     .home-points {
         text-align: center;
         font-size: 15px;
-        padding: 10px 0px 0px 0px;
+        padding: 10px 0px 0px 10px;
 
     }
 
@@ -264,7 +273,7 @@
 
     .safety-page-text .side-text {
         padding: 0px !important;
-        text-align: center;
+        text-align: left;
     }
 
     .safety-card-group {
@@ -374,6 +383,11 @@
         flex-wrap: wrap;
         width: 85%;
         justify-content: center;
+    }
+
+    .adv-card-title h5 {
+        margin-top: 7px;
+        font-size: 1.1rem;
     }
 
     .log-input {
