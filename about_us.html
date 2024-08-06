@@ -107,11 +107,17 @@
                                 </div>
                                 <!-- <div>|</div> -->
 
+                                <!-- Button to trigger modal -->
                                 <div class="login-register-btn mx-3">
-                                    <a href="">
+                                    <a href="#" data-toggle="modal" data-target="#myModal">
                                         <div class="log-in">Download the App</div>
                                     </a>
                                 </div>
+
+
+
+
+
                             </div>
                         </div>
                     </nav>
@@ -136,6 +142,38 @@
 
         </div>
         <section class="container d-flex flex-column justify-content-center about-section">
+
+            <!-- Modal Structure -->
+            <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog"
+                aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">X</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-section">
+                                <h5 class="text-center fw-bold">Customer App</h5>
+                                <div class="app-links">
+                                    <a href="playstore-link"><img src="Images/Google_Play_Store_badge_EN.svg.png"
+                                            alt="Play Store"></a>
+                                    <a href="applestore-link"><img src="Images/App_Store_Badge.svg (2).png"
+                                            alt="Apple Store"></a>
+                                </div>
+                            </div>
+                            <div class="modal-divider"></div>
+                            <div class="modal-section">
+                                <h5 class="text-center fw-bold">SheRydr App</h5>
+                                <div class="app-links sherydr-app">
+                                    <a href="playstore-link"><img src="Images/Google_Play_Store_badge_EN.svg.png"
+                                            alt="Play Store"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div>
                 <h3 style="color:#F267AC; font-weight: 700; text-align: left;" class="under-sub-heading mb-1 mt-2">
                     About Sheryds
@@ -444,7 +482,10 @@
     </footer>
 
 
-
+    <!-- Bootstrap JS and dependencies -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
     <script src="assets/js/bootstrap.min.js"></script>

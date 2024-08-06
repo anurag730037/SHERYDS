@@ -63,7 +63,7 @@
                                 </div>
                                 <!-- <div>|</div> -->
                                 <div class="login-register-btn mx-3">
-                                    <a href="">
+                                    <a href="#" data-toggle="modal" data-target="#myModal">
                                         <div class="log-in">Download the App</div>
                                     </a>
                                 </div>
@@ -96,6 +96,38 @@
             </div>
             <div class="new-saf-head-img driver-head-desc-img">
                 <img src="she_ryds_img/driver-safety.png" alt="">
+            </div>
+        </div>
+
+        <!-- Modal Structure -->
+        <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">X</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h5 class="text-center fw-bold">Customer App</h5>
+                            <div class="app-links">
+                                <a href="playstore-link"><img src="Images/Google_Play_Store_badge_EN.svg.png"
+                                        alt="Play Store"></a>
+                                <a href="applestore-link"><img src="Images/App_Store_Badge.svg (2).png"
+                                        alt="Apple Store"></a>
+                            </div>
+                        </div>
+                        <div class="modal-divider"></div>
+                        <div class="modal-section">
+                            <h5 class="text-center fw-bold">SheRydr App</h5>
+                            <div class="app-links sherydr-app">
+                                <a href="playstore-link"><img src="Images/Google_Play_Store_badge_EN.svg.png"
+                                        alt="Play Store"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -350,7 +382,7 @@
 
 
 
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="JS/ProfileButton.js"></script>
     <script src="JS/contact-form.js"></script>
