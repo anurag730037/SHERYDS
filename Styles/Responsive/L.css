@@ -244,7 +244,8 @@
     }
 
     .social-links {
-        gap: 70px;
+        padding-left: 0px;
+        gap: 10px;
     }
 
     .socialImg {

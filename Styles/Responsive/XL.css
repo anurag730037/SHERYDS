@@ -193,7 +193,8 @@
     .social-links {
         display: flex;
         justify-content: center;
-        gap: 90px;
+        gap: 30px;
+        padding-left: 0px;
     }
 
     .contact-form input,
@@ -359,6 +360,25 @@
     .about-text {
         font-size: 80px;
     }
+
+    .driver-part .card-text {
+        /* font-size: 14px; */
+        font-weight: 400;
+        line-height: 40px;
+        letter-spacing: 0.02em;
+        text-align: center;
+    }
+
+    .driver-part .card-title {
+        margin: 20px 0px;
+        height: 85px;
+    }
+
+
+    .selection h4 {
+        margin: 30px
+    }
+
 }
 
 
@@ -376,5 +396,9 @@
         display: flex;
         gap: 2.5rem;
         margin: 3rem 0;
+    }
+
+    .selection h4 {
+        margin: 30px
     }
 }

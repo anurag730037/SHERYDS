@@ -531,7 +531,7 @@ a {
     flex-direction: column;
     align-items: flex-start;
     width: 50%;
-    margin: 30px 0px;
+    margin-top: 0px;
 }
 
 .why-img {
@@ -559,11 +559,10 @@ a {
 .whats {
     margin-bottom: 0px;
 
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 100px;
+    margin-top: 80px;
+    line-height: 50px;
     letter-spacing: -0.02em;
-    color: #c30000;
+
 }
 
 
@@ -598,7 +597,7 @@ a {
 
 .card-group {
     /* width: 33% !important; */
-    gap: 50px !important;
+    gap: 20px !important;
 
 }
 
@@ -615,12 +614,13 @@ a {
 
 
 .card-title {
-    font-size: 25px;
-    font-weight: 700;
+    /* font-size: 25px; */
+    /* font-weight: 700; */
     line-height: 50px;
     letter-spacing: -0.02em;
     text-align: left;
-    margin: 5px;
+    margin: 1px;
+
 }
 
 .card-text {
@@ -633,15 +633,15 @@ a {
 }
 
 .driver-part .card-title {
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 30px;
-    letter-spacing: -0.02em;
+    /* font-size: 20px; */
+    /* font-weight: 700; */
+    /* line-height: 30px; */
+    letter-spacing: 0.02em;
     text-align: center;
 }
 
 .driver-part .card-text {
-    font-size: 14px;
+    /* font-size: 14px; */
     font-weight: 400;
     line-height: 25px;
     letter-spacing: -0.02em;
@@ -668,8 +668,8 @@ a {
 }
 
 .selection.active h4 {
-    color: #c30000;
-    border-bottom: 2px solid #c30000;
+    color: #F267AC;
+    border-bottom: 2px solid #F267AC;
 }
 
 .cust-part,
@@ -924,8 +924,9 @@ a {
 }
 
 .social-links {
+    padding-left: 40px;
     display: flex;
-    gap: 30px;
+    gap: 10px;
 
 }
 
