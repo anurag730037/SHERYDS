@@ -1088,6 +1088,7 @@ a {
 }
 
 .safety-page-top {
+    height: 79vh;
     margin-top: 0px;
     /* background-image: linear-gradient(90deg, rgb(194, 13, 13) 1%, rgba(194, 13, 13) 35%, rgba(247, 247, 247, 0) 60%), url("../Images/safety_final.png") !important;
     background-blend-mode: normal;
@@ -1099,8 +1100,13 @@ a {
 }
 
 .safety-page-text {
-    top: 20%;
+    top: 38%;
     left: 10%;
+}
+
+.about-us-div {
+    top: 45%;
+    left: 9%;
 }
 
 .saf-1,
@@ -2018,7 +2024,7 @@ placehokdr {
 
     .points {
         gap: 22px;
-        margin: 15px 0;
+        margin: 25px 0;
     }
 }
 
