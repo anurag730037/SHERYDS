@@ -1369,9 +1369,10 @@ a {
 
 
 .adv-card {
+    background-color: #FAF3F4;
     flex: 1 1 calc(25% - 25px);
     box-sizing: border-box;
-    border-radius: 8.35rem;
+    border-radius: 0.35rem;
     display: flex;
     flex-direction: column;
     align-items: center;
