@@ -581,7 +581,7 @@ a {
 
 .points-desc .under-sub-heading {
     line-height: 22px;
-    letter-spacing: 0.035em;
+    letter-spacing: 0.02em;
 }
 
 .selection h4 {
@@ -696,6 +696,7 @@ a {
 }
 
 .sherydr_verification {
+    background-color: #ffeff1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1983,8 +1984,30 @@ placehokdr {
 }
 
 @media (min-width: 1400px) and (max-width: 1900px) {
+    .new-saf-head {
+        height: 53vh;
+    }
+
+    .safety-card-text {
+        font-size: 16px;
+    }
+
+    .about-desc p {
+        font-size: 16px;
+    }
+
+    .safety-text {
+        font-size: 25px;
+        font-weight: 400;
+        line-height: 40px;
+    }
+
+    .moto-content p {
+        font-size: 16px;
+    }
+
     .points-desc p {
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .points {

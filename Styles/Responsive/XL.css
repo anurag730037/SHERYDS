@@ -9,6 +9,9 @@
         font-size: 28px !important;
     }
 
+    .safety-know {
+        margin-top: 40px;
+    }
 
 
     .log-in {
@@ -25,7 +28,14 @@
         right: 20px;
     }
 
+    .line-bg-grey {
+        margin-top: 100px;
+        padding-left: 10%;
+    }
 
+    .title-img {
+        width: 39%;
+    }
 
     .sub-heading {
         font-size: 65px;
@@ -40,7 +50,7 @@
     }
 
     .why-choose-div {
-        padding-right: 100px;
+        /* padding-right: 100px; */
     }
 
     .why-choose-heading {
@@ -59,7 +69,7 @@
 
 
     .home-section {
-        height: 82vh;
+        height: 57vh;
     }
 
     .line-1 {
@@ -125,14 +135,14 @@
 
     .moto-content p,
     .card-text {
-        font-size: 21px;
+        font-size: 25px;
         line-height: 40px;
     }
 
     .points {
         display: flex;
         gap: 2.9rem;
-        margin: 2rem 0;
+        margin: 4rem 0;
     }
 
     .points img {
@@ -141,7 +151,7 @@
     }
 
     .points-desc p {
-        font-size: 22px;
+        font-size: 25px;
     }
 
     .selection h4 {
@@ -153,7 +163,7 @@
     }
 
     .card-text {
-        font-size: 22px;
+        font-size: 25px;
     }
 
     .safety-text {
@@ -176,14 +186,32 @@
         left: 53.5%;
     }
 
+    .why-choose-content {
+        /* gap: 60px; */
+    }
 
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 90px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        margin-bottom: 20px;
+        border-radius: 14px;
+    }
 
 
     /* Safety-PAGE  */
 
+    .safety-title {
+        width: 29%;
+    }
+
     .safety-card-title {
         font-weight: 800 !important;
-        font-size: 30px !important;
+        font-size: 37px !important;
     }
 
 
@@ -228,7 +256,7 @@
 
     .footer-heading {
         font-size: 40px;
-
+        margin-bottom: 1em;
     }
 
     .direct-links {
@@ -268,7 +296,65 @@
         font-size: 30px;
     }
 
+    .adv-card-img img {
+        max-width: 50%;
+        height: auto;
+    }
 
+    .adv-card-title h5 {
+        margin: 8px 0;
+        font-size: 1.5rem;
+    }
+
+    .about-title {
+        width: 25%;
+        right: 62px;
+    }
+
+    .breadcrumb a {
+        font-size: 3rem;
+    }
+
+    .back-img {
+        width: 13%;
+    }
+
+    .new-saf-head-desc p {
+        font-size: 25px;
+    }
+
+    .new-saf-head-desc {
+        width: 45%;
+    }
+
+    .new-saf-head-desc h2 {
+        margin-bottom: 20px;
+    }
+
+    .sherydr_verification p {
+        font-size: 25px;
+    }
+
+    .sherydr_verification_img h2 {
+        font-family: ExtraBoldPlusJakarta;
+        font-size: 50px;
+        /* font-weight: 900; */
+        line-height: 55px;
+    }
+
+    .new-saf-head {
+        height: 50vh;
+    }
+
+    .app-safety-feature {
+        width: 85%;
+    }
+
+    .safety-card-title {
+
+        height: 80px;
+        line-height: 1.3;
+    }
 }
 
 
