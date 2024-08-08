@@ -1390,7 +1390,7 @@ a {
 /* Drive With US  */
 
 .drive-with-us-section {
-    background: url('/she_ryds_img/safety_cust_background.png');
+    background: url('../she_ryds_img/safety_cust_background.png');
     height: 90vh;
     margin-top: 0px;
 }
