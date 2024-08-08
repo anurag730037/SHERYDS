@@ -838,7 +838,7 @@ a {
 .line-bg-grey {
     width: 100%;
     height: 10vh;
-    background-color: #FFDBE0;
+    background-color: #ffeff1;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
