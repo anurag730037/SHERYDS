@@ -36,6 +36,7 @@ img {
   z-index: 100;
   /* background-color: red !important; */
   /* sticky */
+  background-color: white !important;
 }
 
 .classy-nav-container * {

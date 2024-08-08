@@ -39,7 +39,7 @@
         align-items: center;
         padding: 260px 50px;
         margin-top: 20px;
-        height: auto;
+        height: 97vh;
     }
 
     .home-text {
@@ -47,12 +47,12 @@
         justify-content: center;
         display: flex;
         flex-direction: column;
-        left: 4%;
+        left: 8%;
     }
 
     .title-img {
         right: 0%;
-        width: 55%;
+        width: 63%;
     }
 
     .about-title {
@@ -66,7 +66,7 @@
 
     .line-1 {
         font-size: 20px;
-        line-height: 25px;
+        line-height: 30px;
         letter-spacing: 0.03rem;
     }
 
@@ -90,7 +90,7 @@
     }
 
     .rydr-btn {
-        gap: 10px;
+        gap: 25px;
     }
 
     .btn-sec a {
@@ -101,6 +101,10 @@
     .btn-2 {
 
         padding: 8px 15px;
+    }
+
+    .moto-section {
+        height: 93vh;
     }
 
     .moto-content p {
@@ -147,6 +151,9 @@
         width: 100%;
     }
 
+    .points img {
+        width: 30px;
+    }
 
     .points img {
         /* width: 100px; */
@@ -154,6 +161,11 @@
 
     .whats {
         margin-bottom: 0px;
+    }
+
+    .prime-head {
+        margin-bottom: 0px !important;
+        line-height: 75px;
     }
 
     .cust-part,
@@ -201,14 +213,15 @@
 
 
     .safety-text {
-        font-size: 20px;
+        font-size: 15px;
         font-weight: 400;
-        line-height: 35px;
-        padding-left: 40px;
+        line-height: 27px;
+        padding-left: 10px;
     }
 
     .safety-content .sub-heading {
         margin-bottom: 0;
+        margin-left: 0px;
     }
 
     .safety-content {
@@ -219,7 +232,11 @@
     }
 
     .safety-know {
-        margin-left: 85px;
+        margin-left: 60px;
+    }
+
+    .saf-img {
+        width: 55%;
     }
 
     .footer-logo img {
@@ -239,8 +256,14 @@
         margin: 10px 5px; */
     }
 
+
+
     .app-links img {
         width: 85%;
+    }
+
+    .app-2 img {
+        width: 66%;
     }
 
     .social-links {
@@ -286,6 +309,7 @@
     .safety-page-top {
         margin-top: 0px !important;
         padding: 279px 50px;
+        height: 90vh;
     }
 
     .breadcrumb {

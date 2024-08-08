@@ -88,14 +88,14 @@ a {
 
 .know-more {
     font-size: 11px;
-    font-weight: 700;
+    /* font-weight: 700; */
     line-height: 20px;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.02em;
     text-align: center;
-    color: black;
-    background-color: #e3dde0;
+    color: white;
+    background-color: #f267ac;
     border: none;
-    padding: 3px 20px;
+    padding: 3px 15px;
     border-radius: 5px;
 
 }
@@ -554,7 +554,7 @@ a {
 
 .why-img {
     /* height: 50vh; */
-    width: 90%;
+    width: 95%;
 }
 
 .front_why {
@@ -648,7 +648,7 @@ a {
     line-height: 25px;
     /* letter-spacing: -0.02em; */
     text-align: center;
-    padding: 0px 10px;
+    padding: 10px 10px;
 }
 
 .driver-part .card-title {
@@ -852,8 +852,8 @@ a {
 }
 
 .line-bg-grey span {
-
-    color: rgb(111 110 110);
+    color: rgb(201 197 197);
+    font-size: 30px;
 }
 
 .line-bg-grey h4 {
@@ -1024,7 +1024,7 @@ a {
 }
 
 .footer-apps {
-    margin-top: 3rem;
+    /* margin-top: 3rem; */
     gap: 10px;
 }
 
@@ -1168,7 +1168,7 @@ a {
 }
 
 .safety-page-text {
-    top: 30%;
+    top: 40%;
     left: 10%;
 }
 
@@ -1519,6 +1519,7 @@ a {
 
 /* About US Section  */
 .about-banner {
+    background: url('../she_ryds_img/safety_cust_background.png') !important;
     height: 90vh;
     margin-top: 0px;
 }
@@ -2118,31 +2119,77 @@ placehokdr {
 
 }
 
+.about-section {
+    width: 85%;
+    padding: 0px 20px 20px 20px;
+}
+
+
 @media (min-width: 1400px) and (max-width: 1900px) {
+
+    .home-section {
+        height: 96vh;
+    }
+
+    .title-img {
+        width: 65%;
+    }
+
+    .line-1 {
+        font-size: 30px;
+        line-height: 45px;
+    }
+
+    .line-2 {
+        font-size: 27px;
+    }
+
+    .home-points {
+        font-size: 25px;
+    }
+
+    .rydr-btn {
+        gap: 15px;
+    }
+
+    .know-more {
+        font-size: 15px;
+        padding: 5px 15px;
+    }
+
+    .btn-sec {
+        font-size: 15px;
+    }
+
     .new-saf-head {
         height: 53vh;
     }
 
     .safety-card-text {
-        font-size: 16px;
+        font-size: 20px;
     }
 
     .about-desc p {
-        font-size: 16px;
+        font-size: 20px;
     }
 
     .safety-text {
-        font-size: 16px;
+        font-size: 20px;
         font-weight: 400;
         line-height: 30px;
     }
 
+    .saf-img {
+        margin-left: 30%;
+    }
+
     .moto-content p {
-        font-size: 16px;
+        font-size: 20px;
+        line-height: 30px;
     }
 
     .points-desc p {
-        font-size: 16px;
+        font-size: 20px;
     }
 
     .points {
@@ -2150,13 +2197,57 @@ placehokdr {
         margin: 0px 0;
         margin-top: 25px;
     }
-}
 
-@media (min-width: 1400px) and (max-width: 1900px) {
-
-    .home-section {
-        height: 70vh;
+    .safety-page-top {
+        height: 90vh;
     }
+
+    .safety-title {
+        width: 45%;
+    }
+
+    .sherydr_verification p {
+        font-size: 20px;
+    }
+
+    .card-text {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .app-title {
+        font-size: 20px;
+    }
+
+    .info-list {
+        font-size: 20px;
+    }
+
+    .drive_w_us img {
+        width: 100%;
+    }
+
+    .drive_w_us {
+        width: 55%;
+    }
+
+    .drive-with-us-section {
+        height: 90vh;
+    }
+
+    .adv-head {
+        margin-top: 2rem;
+    }
+
+    .about-banner {
+        height: 90vh;
+    }
+
+    .about-title {
+        width: 44%;
+        right: 30px;
+    }
+
 }
 
 
@@ -2208,11 +2299,7 @@ placehokdr {
 
 }
 
-@media (min-width: 1600px) {
-    .home-section {
-        height: 85vh;
-    }
-}
+@media (min-width: 1600px) {}
 
 
 /* INITIATIVES  */
