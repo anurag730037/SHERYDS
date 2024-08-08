@@ -28,17 +28,20 @@
         right: 20px;
     }
 
-    .line-bg-grey {
-        margin-top: 100px;
-        padding-left: 10%;
+    .line-bg-grey {}
+
+    .line-bg-grey h4 {
+        font-size: 55px;
     }
 
     .title-img {
-        width: 39%;
+        width: 52%;
     }
 
     .sub-heading {
-        font-size: 65px;
+        margin-top: 40px;
+        font-size: 55px;
+        margin-bottom: 70px;
     }
 
     .why-img {
@@ -61,28 +64,33 @@
         font-size: 37px;
     }
 
-    .know-more {
-        font-size: 25px;
+    .moto-head {
+        height: 60px;
+    }
 
-        padding: 20px 40px
+
+
+    .know-more {
+        font-size: 21px;
+        padding: 15px 25px;
     }
 
 
     .home-section {
-        height: 57vh;
+        height: 95vh;
     }
 
     .line-1 {
-        font-size: 35px;
+        font-size: 45px;
         font-weight: 500;
         text-align: left;
-        line-height: 45px;
+        line-height: 60px;
     }
 
     .line-2 {
-        font-size: 30px;
+        font-size: 40px;
         font-weight: 700;
-        line-height: 1.2;
+        line-height: 1.3;
         text-align: left;
     }
 
@@ -100,6 +108,10 @@
         text-align: left;
     }
 
+    .safety-page-top {
+        height: 90vh;
+    }
+
     .saf-1 {
         font-size: 45px !important;
         line-height: 25x;
@@ -114,7 +126,7 @@
 
 
     .home-points {
-        font-size: 30px;
+        font-size: 39px;
         font-weight: 700;
         letter-spacing: -0.02em;
         text-align: left;
@@ -123,14 +135,39 @@
 
     .btn-sec {
         border: none;
-        font-size: 24px;
+        font-size: 26px;
         font-weight: 400;
         cursor: pointer;
     }
 
-    .safety-img img {
-        padding-left: 135px;
+    .btn-1,
+    .btn-2 {
+        padding: 10px 15px;
+    }
 
+    .safety-img img {
+        /* padding-left: 135px; */
+
+    }
+
+    .cust-safety-img img {
+        width: 35%;
+    }
+
+    .sherydr_verification_img img {
+        width: 35%;
+    }
+
+    .app-title {
+        font-size: 25px;
+    }
+
+    .card-description p {
+        padding: 10px;
+    }
+
+    .saf-img {
+        width: 40%;
     }
 
     .moto-content p,
@@ -167,9 +204,9 @@
     }
 
     .safety-text {
-        font-size: 35px;
+        font-size: 25px;
         font-weight: 400;
-        line-height: 60px;
+        line-height: 1.8;
     }
 
     .curve {
@@ -192,7 +229,7 @@
 
     .social-links {
         display: flex;
-        justify-content: center;
+        /* justify-content: center; */
         gap: 30px;
         padding-left: 0px;
     }
@@ -207,12 +244,12 @@
     /* Safety-PAGE  */
 
     .safety-title {
-        width: 29%;
+        width: 39%;
     }
 
     .safety-card-title {
         font-weight: 800 !important;
-        font-size: 37px !important;
+        font-size: 55px !important;
     }
 
 
@@ -240,6 +277,18 @@
     .app-links img {
         width: 97%;
         /* margin: 7px 4px; */
+    }
+
+    .sherydr-app {
+        justify-content: center;
+    }
+
+    .sherydr-app a {
+        justify-content: center;
+    }
+
+    .sherydr-app img {
+        width: 85%;
     }
 
     .download-app p {
@@ -298,18 +347,22 @@
     }
 
     .adv-card-img img {
-        max-width: 50%;
+        max-width: 75%;
         height: auto;
     }
 
     .adv-card-title h5 {
-        margin: 8px 0;
-        font-size: 1.5rem;
+        margin: 25px 0;
+        font-size: 1.8rem;
     }
 
     .about-title {
-        width: 25%;
+        width: 37%;
         right: 62px;
+    }
+
+    .about-desc p {
+        font-size: 25px;
     }
 
     .breadcrumb a {
@@ -348,12 +401,13 @@
     }
 
     .app-safety-feature {
+        margin-top: 3rem;
         width: 85%;
     }
 
     .safety-card-title {
-
-        height: 80px;
+        margin-bottom: 50px;
+        /* height: 50px; */
         line-height: 1.3;
     }
 
@@ -374,11 +428,26 @@
         height: 85px;
     }
 
+    .info-list {
+        font-size: 25px;
+    }
 
     .selection h4 {
         margin: 30px
     }
 
+    .drive-with-us-section {
+        height: 90vh;
+        margin-top: 0px;
+    }
+
+    .adv-part {
+        height: 70vh;
+    }
+
+    .faq-head {
+        margin-top: 150px;
+    }
 }
 
 
@@ -394,8 +463,8 @@
 @media screen and (min-width: 1900px) and (max-width: 2200px) {
     .points {
         display: flex;
-        gap: 2.5rem;
-        margin: 3rem 0;
+        gap: 1.5rem;
+        margin: 1.5rem 0;
     }
 
     .selection h4 {

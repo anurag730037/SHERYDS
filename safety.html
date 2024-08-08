@@ -24,6 +24,27 @@
     <link rel="stylesheet" href="Styles/Responsive/S.css">
 
     <script src="JS/jquery.min.js"></script>
+
+    <style>
+        .active-section {
+            display: block;
+        }
+
+        .inactive-section {
+            display: none;
+        }
+
+        .toggle-button {
+            cursor: pointer;
+        }
+
+        .highlighted {
+            font-weight: bold;
+            color: #F267AC !important;
+            /* Adjust the color as needed */
+        }
+    </style>
+
 </head>
 
 <body>
@@ -80,29 +101,20 @@
 
     <main>
         <section>
-            <div class="line-bg-grey">
-                <a href="customer.html">
-                    <h4>Customers</h4>
-                </a>
-                <span style="font-weight: 900;">|</span>
-                <a href="driver.html">
-                    <h4>SheRydr</h4>
-                </a>
-            </div>
         </section>
         <div class=" home-section safety-page-top">
             <div class=" home-text safety-page-text">
                 <div class="side-text ">
-                    <span class="line-1">We Ensure the</span> <span
-                        style="color: #b47dd4; font-family: ExtraBoldPlusJakarta;" class="line-1">Well Being</span><br>
+                    <span class="line-1">We Ensure the</span> <br><span
+                        style="color: #b47dd4; font-family: ExtraBoldPlusJakarta;" class="line-1">Well Being</span>
                     <span class="line-1">of Both Our</span>
                     <br>
 
                     <span style="color: #b47dd4; font-family: ExtraBoldPlusJakarta;" class="line-1">Customers</span>
 
-                    <span class="line-1">&</span>
+                    <span class="line-1">&</span><br>
 
-                    <span style="color: #b47dd4; font-family: ExtraBoldPlusJakarta;" class="line-1">She Rydrs</span>
+                    <span style="color: #b47dd4; font-family: ExtraBoldPlusJakarta;" class="line-1">SheRydrs</span>
 
 
 
@@ -113,6 +125,26 @@
             <div class='title-img safety-title'>
                 <img src="she_ryds_img/safety_title.png" alt="">
             </div>
+
+
+            <!-- <div class=" home-section safety-banner">
+            <div class=" home-text safety-page-text safety-top-text">
+                <div class="side-text ">
+                    <span class="line-1 saf-1">We Ensure The</span><br>
+                    <span class="line-2 saf-2"> Well Being</span><br>
+                    <span class="line-1 saf-1">For Both Our</span><br>
+                    <span class="line-2 saf-2">Customers <br class=""> & She Rydrs</span>
+                </div>
+
+
+            </div>
+            <div class='title-img safety-banner-title'>
+                <img src="she_ryds_img/safety_title.png" alt="">
+            </div>
+
+        </div> -->
+
+
 
             <!-- Modal Structure -->
             <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog"
@@ -147,52 +179,61 @@
             </div>
 
         </div>
+        <div class="line-bg-grey">
+            <h4 class="toggle-button" id="summary-btn">Summary</h4>
+            <span style="font-weight: 900;"> | </span>
+            <h4 class="toggle-button" id="customers-btn">Customers</h4>
+            <span style="font-weight: 900;"> | </span>
+            <h4 class="toggle-button" id="sherydr-btn">SheRydr</h4>
+        </div>
 
 
-
-
-
-
-        <!-- <section class="cust-safety-portion">
-            <div class="cust-safety mt-5">
-                <div class=" d-flex justify-content-center" style="margin-top: 20px;">
+        <section class="cust-safety-portion active-section" id="summary-part">
+            <div class="cust-safety mt-3">
+                <div class=" d-flex flex-column justify-content-center align-items-center" style="margin-top: 20px;">
+                    <div>
+                        <h4 class="sub-heading">Our Commitment</h4>
+                    </div>
                     <div class="row safety-card-group">
 
                         <div class="col-md-3 d-flex">
 
 
-                            <div class="card safety-card  d-flex flex-column">
-                                <img class="card-img-top safety-card-img w-75" src="she_ryds_img/safety_title.png"
-                                    alt="Card image cap">
-                                <div class="card-body safety-card-body flex-grow-1">
-                                    <h5 class="card-title safety-card-title h-auto">For Customers</h5>
-                                    <p class="card-text safety-card-text">By leveraging the latest safety technologies
-                                        and onboarding / training process for our She
-                                        Rydrs.
-                                        Every ride is tracked by SheRyds, with access to
-                                        exact location of the rydr</p>
-                                    <div>
-                                        <a href="customer.html"><button class="know-more">Know More</button></a>
-                                    </div>
+                            <div class="card safety-card flex-fill d-flex flex-column customer-safety">
+                                <div class="d-flex justify-content-center">
+                                    <img class="card-img-top safety-card-img w-50"
+                                        src="she_ryds_img/cust_safety_card.png" alt="Card image cap">
                                 </div>
+                                <div class="card-body safety-card-body flex-grow-1">
+                                    <h5 class="card-title safety-card-title sub-heading">For Customers</h5>
+                                    <p class="card-text safety-card-text">Leveraging the latest safety technologies for
+                                        our customers through rigorous training & onboarding our Sherydrs</p>
 
+                                </div>
+                                <div>
+                                    <button class="know-more toggle-button" id="customers-btn-2"
+                                        style="background-color: #f7cce1;">Know More</button>
+                                </div>
                             </div>
+
+
                         </div>
                         <div class="col-md-3 d-flex">
-                            <div class="card safety-card  d-flex flex-column">
-                                <img class="card-img-top safety-card-img w-75" src="she_ryds_img/title_img.png"
-                                    alt="Card image cap">
+                            <div class="card safety-card flex-fill d-flex flex-column driver-safety">
+                                <div class="d-flex justify-content-center">
+                                    <img class="card-img-top safety-card-img w-50" src="she_ryds_img/driver-safety.png"
+                                        alt="Card image cap">
+                                </div>
                                 <div class="card-body safety-card-body flex-grow-1">
-                                    <h5 class="card-title safety-card-title h-auto">For SheRydrs</h5>
-                                    <p class="card-text safety-card-text">All our She Rydrs are well trained and are
-                                        equipped
-                                        to handle themselves with poise in case of any
-                                        emergency and otherwise. All Rides are insured
-                                        offering safety and security to our She Rydrs</p>
+                                    <h5 class="card-title safety-card-title sub-heading">For SheRydrs</h5>
+                                    <p class="card-text safety-card-text">Our She Rydrs are well trained and poised to
+                                        handle emergencies and other situations.</p>
 
-                                    <div>
-                                        <a href="driver.html"><button class="know-more">Know More</button></a>
-                                    </div>
+
+                                </div>
+                                <div>
+                                    <button class="know-more toggle-button" id="sherydr-btn-2"
+                                        style="background-color: #ebd7f7;">Know More</button>
                                 </div>
 
                             </div>
@@ -202,7 +243,554 @@
 
                 </div>
             </div>
-        </section> -->
+        </section>
+
+        <section id="safety-cust-part" class="inactive-section">
+
+
+            <!-- <div class="new-saf-head">
+                <div class="new-saf-head-img">
+                    <img src="she_ryds_img/cust_safety.png" alt="">
+                </div>
+                <div class="new-saf-head-desc">
+                    <h2 class="sub-heading text-capitalize" style="margin-bottom: 0px;">Customers Safety</h2>
+                    <p>By leveraging the latest safety technologies
+
+                        and onboarding / training process for our SheRydrs.
+                        <br>
+                        Every ride is tracked by SheRyds, with access to
+                        exact location of the rydr
+                    </p>
+                </div>
+
+
+            </div> -->
+
+            <div class="sherydr_verification section-margin">
+                <div class="cust-safety-img col-md-6 col-lg-6">
+
+                    <img src="she_ryds_img/for_cust.png" alt="">
+
+                </div>
+
+                <div class="col-md-6 col-lg-6">
+                    <h2 class="text-capitalize sub-heading mb-5" style="color:#F267AC;">Customers Safety</h2>
+                    <p>Leveraging the latest safety technologies for our customers through rigorous training &
+                        onboarding our Sherydrs. Every ride is tracked by Sheryds, with access to exact location of the
+                        Sherydr.
+                    </p>
+                </div>
+
+            </div>
+
+
+
+            <div class="sherydr_verification section-margin">
+                <div class="sherydr_verification_img col-md-6 col-lg-6">
+
+                    <img src="she_ryds_img/verification-img.png" alt="">
+
+                </div>
+
+                <div class="col-md-6 col-lg-6">
+                    <h2 class="text-capitalize sub-heading mb-5" style="color:#F267AC;">SheRydr Verification</h2>
+                    <p class="mb-0">Our customers safety is of prime importance to us and
+                         to ensure each customers safety, security and comfort
+                        we conduct stringent background verification of She Rydrs
+                        before onboarding on our platform.</p>
+                </div>
+
+            </div>
+
+
+            <section class="cust-safety-portion">
+                <div class="cust-safety mt-lg-5 mb-lg-4">
+                    <div class="d-flex justify-content-center align-items-center flex-column mb-1">
+                        <h2 class="sub-heading text-capitalize">App Safety Features</h2>
+                        <!-- <p class="under-safety">Rides are tracked by Rydr, with access to latitude and longitude Data.</p> -->
+                    </div>
+
+                    <div class="app-safety-feature">
+
+                        <div class=" d-flex justify-content-center">
+                            <div class=" safety-card-group">
+
+
+                                <div class="card mb-5 flex-row col-md-5" style="background-color: #FFEFF1;">
+                                    <div class="col-md-4 d-flex flex-column align-items-center">
+                                        <img src="she_ryds_img/trip-sharing.png" class="card-img left-img" alt="...">
+                                        <h5 class="text-center app-title mt-3">Trip Sharing</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body app-body">
+                                            <div class="card-description">
+                                                <p class="card-text">Female Passengers can share
+                                                    their trip status with their
+                                                    respective emergency
+                                                    contacts on SheRyds App after
+                                                    the trip starts</p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card mb-5 flex-row col-md-5" style="background-color: #FFEFF1;">
+
+                                    <div class="col-md-4 d-flex flex-column align-items-center">
+                                        <img src="she_ryds_img/info-masking.png" class="card-img left-img" alt="...">
+                                        <h5 class="text-center app-title mt-3">Information Masking</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body app-body">
+                                            <div class="card-description">
+                                                <p class="card-text">Female Passengers mobile
+                                                    number is masked to protect
+                                                    their privacy and interaction
+                                                    with SheRydr happens only
+                                                    through App.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class=" d-flex justify-content-center">
+                            <div class=" safety-card-group">
+                                <div class="card mb-5 flex-row col-md-5" style="background-color: #FFEFF1;">
+                                    <div class="col-md-4 d-flex flex-column align-items-center">
+                                        <img src="she_ryds_img/QRT.png" class="card-img left-img" alt="...">
+                                        <h5 class="text-center app-title mt-3">QRT : Quick Reaction Team</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body app-body">
+                                            <div class="card-description">
+                                                <p class="card-text">In case of an emergency our QRT
+                                                    swings into action and connects the
+                                                    customer to the local PCR and
+                                                    reach the location to ensure
+                                                    customer safety.</p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card mb-5 flex-row col-md-5" style="background-color: #FFEFF1;">
+                                    <div class="col-md-4 d-flex flex-column align-items-center">
+                                        <img src="she_ryds_img/app-cust.png" class="card-img left-img" alt="...">
+                                        <h5 class="text-center app-title mt-3">Customer Support</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body app-body">
+                                            <div class="card-description">
+                                                <p class="card-text">Customer and SheRydr can report any
+                                                    kind
+                                                    of
+                                                    incidence or issues through the 24*7 support feature on the app post
+                                                    &
+                                                    during
+                                                    the ride.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class=" d-flex justify-content-center">
+                            <div class=" safety-card-group">
+
+                                <div class="card mb-5 flex-row col-md-5" style="background-color: #FFEFF1;">
+
+                                    <div class="col-md-4 d-flex flex-column align-items-center">
+                                        <img src="she_ryds_img/rating.png" class="card-img left-img" alt="...">
+                                        <h5 class="text-center app-title mt-3">Two-way Rating System</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body app-body">
+                                            <div class="card-description">
+                                                <p class="card-text">Post the ride, Customer and SheRydr
+                                                    can
+                                                    give
+                                                    ratings to each other and any rating below 3 is flagged by us.
+                                                    SheRyds
+                                                    reaches
+                                                    out
+                                                    to them in 10 minutes to address their concern. The SheRydr is
+                                                    terminated
+                                                    immediately in case of any misconduct.</p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="card mb-5 flex-row col-md-5" style="background-color: #FFEFF1;">
+                                    <div class="col-md-4 d-flex flex-column align-items-center">
+                                        <img src="she_ryds_img/app-sos'.png" class="card-img left-img" alt="...">
+                                        <h5 class="text-center app-title mt-3">SOS Button</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body app-body">
+                                            <div class="card-description">
+                                                <p class="card-text">SOS button is a 24*7 support
+                                                    feature in the App that
+                                                    connects the customer with
+                                                    the law enforcement agency,
+                                                    she Ryds Support Team and
+                                                    Quick Reaction Team to help
+                                                    the customer in case of an
+                                                    emergency.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class=" d-flex justify-content-center">
+                            <div class=" safety-card-group">
+
+                                <div class="card mb-5 flex-row col-md-5" style="background-color: #FFEFF1;">
+
+                                    <div class="col-md-4 d-flex flex-column align-items-center">
+                                        <img src="she_ryds_img/she-info.png" class="card-img left-img" alt="...">
+                                        <h5 class="text-center app-title mt-3">SheRydr Information</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body app-body">
+                                            <div class="card-description">
+                                                <p class="card-text safety-card-text">Once a ride is booked by,
+                                                    following details of SheRydrs
+                                                    are sent to the female
+                                                    passengers</p>
+                                                <ol class="info-list" style="list-style: circle;">
+                                                    <li>She Rydrs Name</li>
+                                                    <li>
+                                                        Vehicle Number
+                                                    </li>
+                                                    <li>
+                                                        Vehicle Location
+                                                    </li>
+                                                    <li>
+                                                        Star Rating of She Rydr
+                                                    </li>
+                                                </ol>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                        <!-- <div class=" d-flex justify-content-center" style="margin-top: 20px;">
+                            <div class="row safety-card-group">
+
+                                <div class="col-md-3 d-flex app-card">
+                                    <div class="card safety-card flex-fill d-flex flex-column">
+                                        <img class="card-img-top safety-card-img" src="she_ryds_img/rating.png"
+                                            alt="Card image cap">
+                                        <div class="card-body safety-card-body flex-grow-1">
+                                            <h5 class="card-title safety-card-title  ">Two-way Rating System</h5>
+                                            <p class="card-text safety-card-text">Post the ride, Customer and SheRydr
+                                                can
+                                                give
+                                                ratings to each other and any rating below 3 is flagged by us. SheRyds
+                                                reaches
+                                                out
+                                                to them in 10 minutes to address their concern. The SheRydr is
+                                                terminated
+                                                immediately in case of any misconduct.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 d-flex app-card">
+                                    <div class="card safety-card flex-fill d-flex flex-column">
+                                        <img class="card-img-top safety-card-img" src="she_ryds_img/app-sos'.png"
+                                            alt="Card image cap">
+                                        <div class="card-body safety-card-body flex-grow-1">
+                                            <h5 class="card-title safety-card-title">SOS Button</h5>
+                                            <p class="card-text safety-card-text">SOS button is a 24*7 support
+                                                feature in the App that
+                                                connects the customer with
+                                                the law enforcement agency,
+                                                she Ryds Support Team and
+                                                Quick Reaction Team to help
+                                                the customer in case of an
+                                                emergency.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 d-flex app-card">
+                                    <div class="card safety-card flex-fill d-flex flex-column">
+                                        <img class="card-img-top safety-card-img" src="she_ryds_img/she-info.png"
+                                            alt="Card image cap">
+                                        <div class="card-body safety-card-body flex-grow-1">
+                                            <h5 class="card-title safety-card-title last-head">SheRydr Information</h5>
+                                            <p class="card-text safety-card-text">Once a ride is booked by,
+                                                following details of SheRydrs
+                                                are sent to the female
+                                                passengers</p>
+                                            <ol class="info-list" style="list-style: circle;">
+                                                <li>She Rydrs Name</li>
+                                                <li>
+                                                    Vehicle Number
+                                                </li>
+                                                <li>
+                                                    Vehicle Location
+                                                </li>
+                                                <li>
+                                                    Star Rating of She Rydr
+                                                </li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                        </div> -->
+
+
+                    </div>
+                </div>
+            </section>
+        </section>
+
+
+        <section id="safety-sherydr-part" class="inactive-section">
+
+            <div class="sherydr_verification section-margin">
+                <div class="sherydr_verification_img col-md-6 col-lg-6">
+
+                    <img src="she_ryds_img/for_she.png" alt="">
+
+                </div>
+
+                <div class="col-md-6 col-lg-6">
+                    <h2 class="text-capitalize sub-heading mb-5" style="color:#F267AC;">SheRydrs Safety</h2>
+                    <p class="mb-0">All our SheRydrs are well trained and are equipped to handle themselves with poise
+                        in case of any emergency and otherwise. All Rides are insured offering safety and security to
+                        our SheRydrs.</p>
+                </div>
+
+            </div>
+
+            <!-- Modal Structure -->
+            <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog"
+                aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">X</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-section">
+                                <h5 class="text-center fw-bold">Customer App</h5>
+                                <div class="app-links">
+                                    <a href="playstore-link"><img src="Images/Google_Play_Store_badge_EN.svg.png"
+                                            alt="Play Store"></a>
+                                    <a href="applestore-link"><img src="Images/App_Store_Badge.svg (2).png"
+                                            alt="Apple Store"></a>
+                                </div>
+                            </div>
+                            <div class="modal-divider"></div>
+                            <div class="modal-section">
+                                <h5 class="text-center fw-bold">SheRydr App</h5>
+                                <div class="app-links sherydr-app">
+                                    <a href="playstore-link"><img src="Images/Google_Play_Store_badge_EN.svg.png"
+                                            alt="Play Store"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drivers  -->
+            <section class="cust-safety-portion mt-5">
+                <div class="cust-safety">
+                    <div class="app-safety-feature">
+
+
+                        <div class=" d-flex justify-content-center">
+                            <div class=" safety-card-group">
+                                <div class="card mb-5 flex-row col-md-5" style="background-color: #FFEFF1;">
+                                    <div class="col-md-4 d-flex flex-column align-items-center">
+                                        <img src="she_ryds_img/insurance.png" class="card-img left-img" alt="...">
+                                        <h5 class="text-center app-title mt-3">Insurance</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body app-body">
+                                            <div class="card-description">
+                                                <p class="card-text">Insurance can be claimed for any
+                                                    accident
+                                                    that
+                                                    occurs during the
+                                                    ride covering OPD charges, hospitalization and accidental benefit.
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card mb-5 flex-row col-md-5" style="background-color: #FFEFF1;">
+                                    <div class="col-md-4 d-flex flex-column align-items-center">
+                                        <img src="she_ryds_img/new-customer-service.png" class="card-img left-img"
+                                            alt="...">
+                                        <h5 class="text-center app-title mt-3">Customer Support</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body app-body">
+                                            <div class="card-description">
+                                                <p class="card-text">Customer and She Rydr can report any
+                                                    kind
+                                                    of
+                                                    incidence or issues
+                                                    through the 24*7 support feature on the app post & during the ride.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class=" d-flex justify-content-center">
+                            <div class=" safety-card-group">
+                                <div class="card mb-5 flex-row col-md-5" style="background-color: #FFEFF1;">
+                                    <div class="col-md-4 d-flex flex-column align-items-center">
+                                        <img src="she_ryds_img/sos.png" class="card-img left-img" alt="...">
+                                        <h5 class="text-center app-title mt-3">QRT : Quick Reaction Team</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body app-body">
+                                            <div class="card-description">
+                                                <p class="card-text">In case of an emergency our QRT
+                                                    swings into action and connects the
+                                                    customer to the local PCR and
+                                                    reach the location to ensure
+                                                    customer safety.
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card mb-5 flex-row col-md-5" style="background-color: #FFEFF1;">
+                                    <div class="col-md-4 d-flex flex-column align-items-center">
+                                        <img src="she_ryds_img/rating.png" class="card-img left-img" alt="...">
+                                        <h5 class="text-center app-title mt-3">Two-way Rating System</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body app-body">
+                                            <div class="card-description">
+                                                <p class="card-text">Post the ride, Customer and She Rydr
+                                                    can
+                                                    give
+                                                    ratings to each other
+                                                    and any rating below 3 is flagged by us. Rydr reaches out to them in
+                                                    10
+                                                    minutes to
+                                                    address their concern. The Driver is terminated immediately in case
+                                                    of
+                                                    any
+                                                    misconduct.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /////////////// -->
+                        <!-- <div class=" d-flex justify-content-center">
+                            <div class="row safety-card-group">
+                                <div class="col-md-3 d-flex">
+                                    <div class="card safety-card flex-fill d-flex flex-column">
+                                        <img class="card-img-top safety-card-img" src="she_ryds_img/insurance.png"
+                                            alt="Card image cap">
+                                        <div class="card-body safety-card-body flex-grow-1">
+                                            <h5 class="card-title safety-card-title">Insurance</h5>
+                                            <p class="card-text safety-card-text">Insurance can be claimed for any
+                                                accident
+                                                that
+                                                occurs during the
+                                                ride covering OPD charges, hospitalization and accidental benefit.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 d-flex">
+                                    <div class="card safety-card flex-fill d-flex flex-column">
+                                        <img class="card-img-top safety-card-img"
+                                            src="she_ryds_img/new-customer-service.png" alt="Card image cap">
+                                        <div class="card-body safety-card-body flex-grow-1">
+                                            <h5 class="card-title safety-card-title">Customer Support</h5>
+                                            <p class="card-text safety-card-text">Customer and She Rydr can report any
+                                                kind
+                                                of
+                                                incidence or issues
+                                                through the 24*7 support feature on the app post & during the ride.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 d-flex">
+                                    <div class="card safety-card  d-flex flex-column">
+                                        <img class="card-img-top safety-card-img" src="she_ryds_img/sos.png"
+                                            alt="Card image cap">
+                                        <div class="card-body safety-card-body flex-grow-1">
+                                            <h5 class="card-title safety-card-title">QRT : Quick Reaction Team</h5>
+                                            <p class="card-text safety-card-text">In case of an emergency our QRT
+                                                swings into action and connects the
+                                                customer to the local PCR and
+                                                reach the location to ensure
+                                                customer safety.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 d-flex">
+                                    <div class="card safety-card flex-fill d-flex flex-column">
+                                        <img class="card-img-top safety-card-img" src="she_ryds_img/rating.png"
+                                            alt="Card image cap">
+                                        <div class="card-body safety-card-body flex-grow-1">
+                                            <h5 class="card-title safety-card-title">Two-way Rating System</h5>
+                                            <p class="card-text safety-card-text">Post the ride, Customer and She Rydr
+                                                can
+                                                give
+                                                ratings to each other
+                                                and any rating below 3 is flagged by us. Rydr reaches out to them in 10
+                                                minutes to
+                                                address their concern. The Driver is terminated immediately in case of
+                                                any
+                                                misconduct.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div> -->
+                    </div>
+                </div>
+
+            </section>
+
+        </section>
 
     </main>
 
@@ -224,7 +812,7 @@
                     </div>
                     <div class="download-app about_dow_app">
                         <p>Download She Rydr App</p>
-                        <div class="app-links about_app_link">
+                        <div class="app-links about_app_link app-2">
                             <a href="playstore-link"><img src="Images/Google_Play_Store_badge_EN.svg.png"
                                     alt="Play Store"></a>
 
@@ -247,7 +835,7 @@
                         <li><a class="direct-links" href="drive_with_us.html">Drive with Us</a></li>
                         <!-- <li><a class="direct-links" href="about_us.html">Career</a></li> -->
                         <li><a class="direct-links" href="about_us.html">About Us</a></li>
-                        <li><a class="direct-links" href="initiatives.html">Initiatives</a></li>
+                        <!-- <li><a class="direct-links" href="initiatives.html">Initiatives</a></li> -->
                         <li><a class="direct-links" href="faq.html">FAQ</a></li>
                     </div>
                 </div>
@@ -310,6 +898,88 @@
         </div>
     </footer>
 
+
+    <script>
+
+        document.getElementById('summary-btn').addEventListener('click', function () {
+            document.getElementById('summary-part').classList.add('active-section');
+            document.getElementById('summary-part').classList.remove('inactive-section');
+
+            document.getElementById('safety-cust-part').classList.add('inactive-section');
+            document.getElementById('safety-cust-part').classList.remove('active-section');
+
+            document.getElementById('safety-sherydr-part').classList.add('inactive-section');
+            document.getElementById('safety-sherydr-part').classList.remove('active-section');
+
+            document.getElementById('summary-btn').classList.add('highlighted');
+            document.getElementById('customers-btn').classList.remove('highlighted');
+            document.getElementById('sherydr-btn').classList.remove('highlighted');
+        });
+
+        document.getElementById('customers-btn').addEventListener('click', function () {
+            document.getElementById('safety-cust-part').classList.add('active-section');
+            document.getElementById('safety-cust-part').classList.remove('inactive-section');
+            document.getElementById('safety-sherydr-part').classList.add('inactive-section');
+            document.getElementById('safety-sherydr-part').classList.remove('active-section');
+            document.getElementById('summary-part').classList.add('inactive-section');
+            document.getElementById('summary-part').classList.remove('active-section');
+
+            document.getElementById('summary-btn').classList.remove('highlighted');
+            document.getElementById('customers-btn').classList.add('highlighted');
+            document.getElementById('sherydr-btn').classList.remove('highlighted');
+        });
+
+        document.getElementById('sherydr-btn').addEventListener('click', function () {
+            document.getElementById('safety-sherydr-part').classList.add('active-section');
+            document.getElementById('safety-sherydr-part').classList.remove('inactive-section');
+            document.getElementById('safety-cust-part').classList.add('inactive-section');
+            document.getElementById('safety-cust-part').classList.remove('active-section');
+            document.getElementById('summary-part').classList.add('inactive-section');
+            document.getElementById('summary-part').classList.remove('active-section');
+
+            document.getElementById('summary-btn').classList.remove('highlighted');
+            document.getElementById('sherydr-btn').classList.add('highlighted');
+            document.getElementById('customers-btn').classList.remove('highlighted');
+        });
+
+        document.getElementById('customers-btn-2').addEventListener('click', function () {
+            document.getElementById('safety-cust-part').classList.add('active-section');
+            document.getElementById('safety-cust-part').classList.remove('inactive-section');
+            document.getElementById('safety-sherydr-part').classList.add('inactive-section');
+            document.getElementById('safety-sherydr-part').classList.remove('active-section');
+            document.getElementById('summary-part').classList.add('inactive-section');
+            document.getElementById('summary-part').classList.remove('active-section');
+
+            document.getElementById('summary-btn').classList.remove('highlighted');
+            document.getElementById('customers-btn').classList.add('highlighted');
+            document.getElementById('sherydr-btn').classList.remove('highlighted');
+        });
+
+        document.getElementById('sherydr-btn-2').addEventListener('click', function () {
+            document.getElementById('safety-sherydr-part').classList.add('active-section');
+            document.getElementById('safety-sherydr-part').classList.remove('inactive-section');
+            document.getElementById('safety-cust-part').classList.add('inactive-section');
+            document.getElementById('safety-cust-part').classList.remove('active-section');
+            document.getElementById('summary-part').classList.add('inactive-section');
+            document.getElementById('summary-part').classList.remove('active-section');
+
+            document.getElementById('summary-btn').classList.remove('highlighted');
+            document.getElementById('sherydr-btn').classList.add('highlighted');
+            document.getElementById('customers-btn').classList.remove('highlighted');
+        });
+
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (document.getElementById('safety-cust-part').classList.contains('active-section')) {
+                document.getElementById('customers-btn').classList.add('highlighted');
+            } else if (document.getElementById('safety-sherydr-part').classList.contains('active-section')) {
+                document.getElementById('sherydr-btn').classList.add('highlighted');
+            } else if (document.getElementById('summary-part').classList.contains('active-section')) {
+                document.getElementById('summary-btn').classList.add('highlighted');
+            }
+        });
+    </script>
 
 
 

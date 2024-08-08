@@ -52,14 +52,21 @@ a {
 .sub-heading {
     font-family: ExtraBoldPlusJakarta;
     /* text-transform: uppercase; */
-    font-size: 42px;
+    /* font-size: 42px; */
     /* font-weight: 900; */
-    line-height: 100px;
+    /* line-height: 100px;
     color: black;
     margin-top: 40px;
-    margin-bottom: 20px;
+    
     letter-spacing: 0.03em;
-    text-align: center;
+    text-align: center; */
+    margin-bottom: 50px;
+    color: black;
+    font-size: 35px;
+    font-weight: 500;
+    line-height: 60px;
+    text-align: left;
+    letter-spacing: 0.03em;
 }
 
 .adv-head {
@@ -80,18 +87,17 @@ a {
 }
 
 .know-more {
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 700;
     line-height: 20px;
     letter-spacing: -0.02em;
     text-align: center;
-    color: #f267ac;
-    background-color: #D9D9D9;
+    color: black;
+    background-color: #e3dde0;
     border: none;
-    padding: 3px 30px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    /* margin-top: 5px; */
+    padding: 3px 20px;
+    border-radius: 5px;
+
 }
 
 .nav-bar-top {
@@ -286,10 +292,10 @@ a {
     position: relative;
     justify-content: flex-start;
     align-items: center;
-    background-color: #FFEFF1;
+    /* background-color: #FFEFF1; */
     padding: 200px 50px;
     margin-top: 30px;
-    height: 75vh;
+    height: 95vh;
 }
 
 
@@ -412,19 +418,27 @@ a {
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 42%;
+    width: 50%;
     margin-top: 120px;
     /* background-image: url(/Images/Title-img.png); */
     /* height: 80vh; */
+}
+
+.safety-banner {
+    height: 95vh;
 }
 
 .safety-title {
     width: 29%;
 }
 
+.safety-banner-title {
+    width: 34%;
+}
+
 .about-title {
-    width: 25%;
-    right: 50px;
+    width: 28%;
+    right: 30px;
 }
 
 .moto-section {
@@ -433,7 +447,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* height: 100vh; */
+    height: 90vh;
 
 }
 
@@ -461,7 +475,7 @@ a {
 }
 
 .moto-head {
-    height: 40px;
+    height: 30px;
 }
 
 .points img {
@@ -475,7 +489,7 @@ a {
     line-height: 25px;
     letter-spacing: 0.02em;
     text-align: center !important;
-    padding: 10px 35px;
+    padding: 0px 35px;
 }
 
 .card-deck {
@@ -503,6 +517,10 @@ a {
 
 .mini-head {
     display: none;
+}
+
+.prime-head {
+    /* line-height: 60px; */
 }
 
 .why-choose-heading {
@@ -552,7 +570,8 @@ a {
 .points {
     display: flex;
     gap: 15px;
-    margin: 15px 0;
+    margin: 0px 0;
+    margin-top: 25px;
     width: 90%;
 }
 
@@ -685,8 +704,8 @@ a {
 }
 
 .new-saf-head {
-    margin-top: 55px;
-    height: 70vh;
+    margin-top: 0px;
+    height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -697,17 +716,17 @@ a {
 }
 
 .sherydr_verification {
-    background-color: #ffeff1;
+    /* background-color: #ffeff1; */
     display: flex;
     justify-content: center;
     align-items: center;
-
+    padding: 20px 0px;
 }
 
 .sherydr_verification p {
     word-spacing: 0.3em;
     letter-spacing: 0.03em;
-    width: 35%;
+    width: 80%;
 }
 
 .new-saf-head-desc {
@@ -736,6 +755,14 @@ a {
     align-items: center;
 }
 
+.cust-safety-img {
+    display: flex;
+    width: 35%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .sherydr_verification_img h2 {
     font-family: ExtraBoldPlusJakarta;
     font-size: 32px;
@@ -747,8 +774,15 @@ a {
 }
 
 .sherydr_verification_img img {
-    width: 60%;
+    width: 35%;
 }
+
+.cust-safety-img img {
+
+    width: 35%;
+
+}
+
 
 .safety-section {
     /* background-color: #FFEFF1; */
@@ -772,9 +806,9 @@ a {
 }
 
 .safety-text {
-    font-size: 21px;
+    font-size: 15px;
     font-weight: 400;
-    line-height: 35px;
+    line-height: 25px;
     text-align: left;
     padding: 0px 10px;
     /* padding-left: 10px; */
@@ -790,25 +824,41 @@ a {
 
 .safety-img {
     max-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.saf-img {
+    width: 40%;
 
 }
 
 .line-bg-grey {
     width: 100%;
-    height: 60px;
+    height: 10vh;
     background-color: #FFDBE0;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    gap: 50px;
-    margin-top: 65px;
-    padding-left: 140px;
+    gap: 20px;
+    /* margin-top: 65px; */
+    /* padding-left: 140px; */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.line-bg-grey span {
+
+    color: rgb(111 110 110);
 }
 
 .line-bg-grey h4 {
+    color: #818181bf;
     cursor: pointer;
-    font-weight: 700;
+    /* font-weight: 700; */
+    font-size: 30px;
 }
 
 .line-bg-grey h4 :hover {
@@ -891,8 +941,9 @@ a {
 .download-app {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center; */
+
 }
 
 .download-app p {
@@ -900,7 +951,7 @@ a {
     font-weight: 700;
     line-height: 25px;
     letter-spacing: 0.02em;
-    text-align: center;
+    /* text-align: center; */
 
 }
 
@@ -916,6 +967,10 @@ a {
     font-size: 60px;
 }
 
+.privacy-heading {
+    margin-top: 100px;
+}
+
 
 
 .socialImg {
@@ -924,7 +979,7 @@ a {
 }
 
 .social-links {
-    padding-left: 40px;
+    padding-left: 0px !important;
     display: flex;
     gap: 10px;
 
@@ -938,21 +993,21 @@ a {
 
 .app-links {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     flex-direction: row;
 }
 
 .app-links a {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     flex-direction: row;
 }
 
 .about_app_link a {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     flex-direction: row;
 }
@@ -960,6 +1015,10 @@ a {
 .app-links img {
     width: 95%;
     margin: 15px 0px;
+}
+
+.app-2 img {
+    width: 75%;
 }
 
 .footer-apps {
@@ -1088,8 +1147,14 @@ a {
     /* For Git  */
 }
 
+.safety-top-text {
+    top: 30%;
+    left: 10%;
+}
+
 .safety-page-top {
-    height: 79vh;
+    background: url('/she_ryds_img/safety_cust_background.png');
+    height: 90vh;
     margin-top: 0px;
     /* background-image: linear-gradient(90deg, rgb(194, 13, 13) 1%, rgba(194, 13, 13) 35%, rgba(247, 247, 247, 0) 60%), url("../Images/safety_final.png") !important;
     background-blend-mode: normal;
@@ -1101,7 +1166,7 @@ a {
 }
 
 .safety-page-text {
-    top: 38%;
+    top: 30%;
     left: 10%;
 }
 
@@ -1121,8 +1186,8 @@ a {
 }
 
 .saf-2 {
-    font-size: 45px;
-    line-height: 50px;
+    font-size: 70px;
+    line-height: 70px;
 }
 
 
@@ -1170,10 +1235,16 @@ a {
     padding: 0px 5px;
 }
 
-.safety-card {
+.customer-safety {
     /* background-color: #fcf6f6 !important; */
 
-    background-color: #FFEFF1 !important;
+    background: linear-gradient(180deg, #ef8ebe 0%, #FFFFFF 100%) !important;
+    border-radius: 10px !important;
+}
+
+
+.driver-safety {
+    background: linear-gradient(180deg, #d3a7ed 0%, #FFFFFF 100%) !important;
     border-radius: 10px !important;
 }
 
@@ -1192,37 +1263,66 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    width: 90%;
-    margin-top: 80px;
+    width: 95%;
+    margin-top: 10px;
 
+}
+
+.pink-bg {
+    background-color: #FFEFF1;
+
+}
+
+.app-title {
+    font-size: 16px;
+    font-family: ExtraBoldPlusJakarta;
+    padding: 0px 5px;
+}
+
+.app-body {
+    padding: 0.2rem 0px !important;
+}
+
+.app-card {
+    background: unset;
+}
+
+.card-description p {
+    text-align: left;
 }
 
 .safety-card-body {
-
     padding: 0.7rem 10px !important;
+    /* height: 20vh; */
 }
 
 .safety-card-img {
-    width: 30% !important;
-    margin-top: 20px !important;
+    width: 90% !important;
+    /* margin-top: 20px !important; */
 }
 
 .safety-card-title {
     font-weight: 700 !important;
-    font-size: 25px !important;
+    font-size: 35px !important;
     text-align: center;
-    height: 60px;
+    height: 50px;
     line-height: 1.2;
 
 }
 
 .safety-card-text {
+    text-align: justify;
     font-size: 15px;
     color: #000000;
 }
 
 .back-img {
     width: 8%;
+}
+
+.left-img {
+    width: 45% !important;
+    padding-top: 15px;
 }
 
 .app-safety-feature {
@@ -1233,6 +1333,7 @@ a {
 }
 
 .cust-safety {
+    background-image: url('she_ryds_img/safety_cust_background.png') !important;
     background-size: cover;
     /* Cover the entire div */
     background-position: center;
@@ -1288,8 +1389,14 @@ a {
 
 /* Drive With US  */
 
+.drive-with-us-section {
+    background: url('/she_ryds_img/safety_cust_background.png');
+    height: 90vh;
+    margin-top: 0px;
+}
+
 .drive_w_us {
-    width: 30%;
+    width: 40%;
 }
 
 /* .with-us-top {
@@ -1334,6 +1441,7 @@ a {
     justify-content: center;
     align-items: center;
     padding-bottom: 50px;
+    /* background: url('/she_ryds_img/safety_cust_background.png'); */
 }
 
 .adv-wid {
@@ -1408,6 +1516,10 @@ a {
 
 
 /* About US Section  */
+.about-banner {
+    height: 90vh;
+    margin-top: 0px;
+}
 
 .about-desc p {
     color: #000000;
@@ -1423,6 +1535,14 @@ a {
 
 .desc-bold {
     font-weight: 800;
+}
+
+.sherydr-app {
+    justify-content: center;
+}
+
+.sherydr-app a {
+    justify-content: center;
 }
 
 
@@ -2010,9 +2130,9 @@ placehokdr {
     }
 
     .safety-text {
-        font-size: 25px;
+        font-size: 16px;
         font-weight: 400;
-        line-height: 40px;
+        line-height: 30px;
     }
 
     .moto-content p {
@@ -2025,7 +2145,8 @@ placehokdr {
 
     .points {
         gap: 22px;
-        margin: 25px 0;
+        margin: 0px 0;
+        margin-top: 25px;
     }
 }
 
@@ -2062,7 +2183,7 @@ placehokdr {
         font-weight: 700;
         line-height: 25px;
         letter-spacing: 0.02em;
-        text-align: center;
+        /* text-align: center; */
     }
 
     .about_dow_app p {
