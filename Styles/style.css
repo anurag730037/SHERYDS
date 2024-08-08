@@ -786,7 +786,8 @@ a {
 
 .safety-section {
     /* background-color: #FFEFF1; */
-    background: url('../she_ryds_img/safety_cust_background.png');
+    background: url('../she_ryds_img/safety_cust_background.png') !important;
+
     display: flex;
     flex-direction: row;
     justify-content: center;
