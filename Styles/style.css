@@ -1153,7 +1153,7 @@ a {
 }
 
 .safety-page-top {
-    background: url('/she_ryds_img/safety_cust_background.png');
+    background: url('../she_ryds_img/safety_cust_background.png');
     height: 90vh;
     margin-top: 0px;
     /* background-image: linear-gradient(90deg, rgb(194, 13, 13) 1%, rgba(194, 13, 13) 35%, rgba(247, 247, 247, 0) 60%), url("../Images/safety_final.png") !important;
@@ -1204,8 +1204,8 @@ a {
 }
 
 .cust-safety-portion {
-    background-image: url('she_ryds_img/safety_cust_background.png') !important;
-    background-image: url('she_ryds_img/safety_cust_background.png') !important;
+    /* background-image: url('../she_ryds_img/safety_cust_background.png') !important; */
+    /* background-image: url('../she_ryds_img/safety_cust_background.png') !important; */
     background-size: cover;
     /* Cover the entire div */
     background-position: center;
@@ -1333,7 +1333,7 @@ a {
 }
 
 .cust-safety {
-    background-image: url('she_ryds_img/safety_cust_background.png') !important;
+
     background-size: cover;
     /* Cover the entire div */
     background-position: center;
