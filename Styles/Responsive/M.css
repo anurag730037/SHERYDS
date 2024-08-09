@@ -382,6 +382,13 @@
         margin: 0 0px;
     }
 
+    .playStore a {
+        justify-content: center;
+    }
+
+    .about_app_link a {
+        justify-content: center;
+    }
 
 
     /* Safety Page  */
@@ -654,6 +661,20 @@
     }
 
 }
+
+@media (max-width: 800px) {
+    @media screen and (max-height: calc(60vw)) {
+        .safety-title {
+            width: 33%;
+        }
+
+        .drive_w_us {
+            width: 45%;
+        }
+    }
+}
+
+
 
 
 

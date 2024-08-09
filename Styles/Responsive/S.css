@@ -265,7 +265,7 @@
 
 
     .sherydr_verification p {
-        width: 85%;
+        width: 80%;
         margin-top: 0px;
         text-align: center;
     }
@@ -357,7 +357,7 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        width: 90%;
+        width: 100%;
         margin-top: 0px;
         gap: 0px;
     }
