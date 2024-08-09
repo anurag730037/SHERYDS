@@ -362,7 +362,7 @@
 
     /* Drive-with-us  */
     .drive_w_us {
-        width: 41%;
+        width: 55%;
     }
 
 
@@ -373,7 +373,7 @@
     }
 
     .adv-wid {
-        width: 90%;
+        width: 83%;
     }
 
     .adv-card {
@@ -393,6 +393,10 @@
 
 
     /* About us  */
+
+    .about-banner {
+        height: 84vh;
+    }
 
     .about-text {
         top: 29%;
@@ -431,6 +435,59 @@
 
         margin-top: 20px;
     }
+
+
+    .drive-with-us-section {
+        height: 85vh;
+    }
+
+
+    .safety-card-title {
+        height: 10px;
+    }
+
+    .know-more {
+        font-size: 13px;
+    }
+
+    .footer-heading {
+        font-size: 20px;
+    }
+
+    .sherydr_verification h2 {
+        margin-bottom: 0px !important;
+        margin-top: 10px;
+    }
+
+    .sherydr_verification p {
+        width: 85%;
+        margin-top: 0px;
+    }
+
+    .cust-safety-img img {
+        width: 45%;
+    }
+
+    .sherydr_verification_img img {
+        width: 45%;
+    }
+
+    .card-text {
+        font-size: 15px;
+    }
+
+    .app-title {
+        font-size: 15px;
+        padding: 0px 5px;
+    }
+
+    .about-title {
+        width: 39%;
+        right: 30px;
+    }
+
+
+
 }
 
 @media (max-width: 825px) {
@@ -452,6 +509,6 @@
 
 @media (max-width: 1110px) {
     .moto-head {
-        height: 65px;
+        height: 35px;
     }
 }
