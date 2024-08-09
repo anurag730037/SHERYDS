@@ -2,8 +2,9 @@
 
 
     .sub-heading {
-        margin-top: 50px;
-        font-size: 35px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 27px;
     }
 
     .section-margin {
@@ -29,7 +30,12 @@
     }
 
     .dwn {
-        padding: 8px 13px;
+        padding: 8px 8px;
+    }
+
+    .btn-sec {
+        border: none;
+        font-size: 12px;
     }
 
     .why-choose-heading {
@@ -47,8 +53,8 @@
     }
 
     .home-text {
-        /* align-items: center; */
-        align-items: flex-start;
+        align-items: center;
+        /* align-items: flex-start; */
         margin: 20px;
         position: static;
         left: auto;
@@ -56,15 +62,20 @@
     }
 
     .title-img {
-        /* left: 40%; */
+        left: 35%;
         transform: translateX(-45%);
-        width: 65%;
+        width: 70%;
     }
 
     .about-title {
         /* left: 40%; */
-        transform: translateX(-50%);
-        width: 45%;
+        transform: translateX(-16%);
+        width: 50%;
+    }
+
+    .moto-section {
+        height: auto;
+        padding-bottom: 40px;
     }
 
     .motos {
@@ -76,13 +87,24 @@
 
     .moto-head {
         margin-top: 0.9rem !important;
-        height: 40px;
+        height: 10px;
     }
 
+    .moto-img {
+        width: 90px;
+    }
 
+    .mini-head {
+        display: none;
+    }
+
+    .prime-head {
+        margin-top: 10px;
+        display: block;
+    }
 
     .why-choose-section {
-        margin-top: 60px
+        /* margin-top: 60px */
     }
 
     .why-img {
@@ -90,12 +112,14 @@
     }
 
     .why-choose-content {
-
+        padding-bottom: 40px;
         flex-direction: column;
     }
 
     .why-choose-div {
+        display: flex;
         width: 88%;
+        align-items: center;
     }
 
     .points-desc p {
@@ -107,7 +131,7 @@
     }
 
     .card-text {
-        font-size: 16px;
+        font-size: 12px;
     }
 
     .driver-part .card-text {
@@ -121,19 +145,15 @@
     }
 
     .safety-section {
-        flex-direction: column;
-        padding-bottom: 20px;
+        flex-direction: column-reverse;
+        padding-bottom: 40px;
     }
-
-    .safety-heading {
-        margin: 0px 10px;
-        font-size: 31px;
-    }
-
 
 
     .safety-content .sub-heading {
-        font-size: 32px;
+        font-size: 27px;
+        margin-bottom: 0px;
+        margin-top: 10px;
     }
 
     .safety-know {
@@ -151,26 +171,48 @@
     }
 
     .social-links {
-        gap: 25px;
+        gap: 0px;
+    }
+
+    .playStore a {
+        justify-content: center;
+    }
+
+
+    .about_app_link a {
+        justify-content: center;
     }
 
     /* SAFETY  */
 
     .line-bg-grey {
         display: flex;
-        gap: 30px;
-        margin-top: 70px;
+        gap: 10px;
+        margin-top: 0px;
         padding-left: 0px;
         justify-content: center;
         align-items: center;
     }
 
+    .commitment {
+        margin-top: 0px !important;
+    }
+
+    .cust-safety {
+        margin-top: 0px !important;
+    }
+
     .safety-title {
         margin-top: 0px;
         position: static;
-        width: 70%;
+        width: 50%;
         transform: translateX(0%);
 
+    }
+
+    .commit-card {
+        width: 75% !important;
+        margin-bottom: 3rem;
     }
 
     .breadcrumb {
@@ -196,6 +238,22 @@
         margin-bottom: 25px !important;
     }
 
+    .sherydr_verification {
+        display: flex;
+        flex-direction: column;
+        margin-top: 0px !important;
+    }
+
+    .sherydr_verification_desc {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sherydr_verification h2 {
+        margin-top: 0px;
+    }
 
     .sherydr_verification_img h2 {
         font-size: 18px;
@@ -207,8 +265,9 @@
 
 
     .sherydr_verification p {
-        width: 45%;
-        margin-top: 55px;
+        width: 85%;
+        margin-top: 0px;
+        text-align: center;
     }
 
     .sherydr_verification_img {
@@ -216,9 +275,10 @@
     }
 
     .safety-page-top {
+        flex-direction: column;
         padding-bottom: 0;
         padding: 0px 0px;
-        justify-content: center;
+        justify-content: end;
         flex-wrap: wrap;
     }
 
@@ -264,31 +324,51 @@
     }
 
     .saf-img {
-        margin-top: 20px;
-        width: 100%;
+        margin-top: 0px;
+        width: 50%;
         object-fit: cover;
-        height: 67vh;
+        height: auto;
+        margin-left: 0px;
     }
 
+    .safety-content {
+        align-items: center;
+    }
+
+    .safety-text {
+        width: 80%;
+    }
+
+    .text-div {
+        align-items: center;
+    }
 
     .safety-page-text .side-text {
         padding: 0px !important;
         text-align: left;
     }
 
+    .app-safety-feature .card {
+        margin-bottom: 1rem !important;
+    }
+
     .safety-card-group {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        align-items: center;
         width: 90%;
-        margin-top: 20px;
-        gap: 20px;
+        margin-top: 0px;
+        gap: 0px;
     }
 
     .safety-card-title {
+        margin-top: 0px;
         font-size: 19px !important;
         height: auto;
     }
+
+
 
     .driver-part .card-title {
         margin-bottom: 5px;
@@ -339,10 +419,19 @@
     .drive-with-us-section {
         flex-direction: column;
         padding-bottom: 0px;
+        margin: 0px;
+        height: 100vh;
+        justify-content: space-between;
+    }
+
+    .mobile-hide {
+        display: none;
     }
 
     .adv-head {
+        text-align: center;
         font-size: 27px;
+        margin-top: 30px;
     }
 
     .with-us-top {
@@ -356,8 +445,13 @@
     }
 
     .with-us-text {
+        margin-bottom: 0px;
         align-items: center;
         margin-top: 75px;
+    }
+
+    .drive_w_us {
+        width: 70%;
     }
 
     .drive-heading {
@@ -366,7 +460,7 @@
     }
 
     .adv-part {
-        padding: 25px 0px;
+        padding: 3px 0px;
     }
 
 
@@ -384,6 +478,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        /* flex-direction: column; */
     }
 
     .adv-card-top {
@@ -391,11 +486,12 @@
         flex-wrap: wrap;
         width: 85%;
         justify-content: center;
+        flex-direction: column;
     }
 
     .adv-card-title h5 {
         margin-top: 7px;
-        font-size: 1.1rem;
+        font-size: 19px;
     }
 
     .log-input {
@@ -468,6 +564,17 @@
         font-size: 25px;
     }
 
+    .about-head h3 {
+        text-align: center !important;
+        margin-top: 0px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .about-desc p {
+        margin: 0px;
+        margin-bottom: 20px;
+    }
+
     .privacy-heading {
         margin-top: 90px;
         margin-bottom: 20px;
@@ -530,24 +637,29 @@
 
     .title-img {
         /* left: 40%; */
-        transform: translateX(-30%);
+        transform: translateX(-43%);
         width: 75%;
+    }
+
+    .btn-sec {
+        font-size: 12px;
     }
 
     .safety-title {
         transform: translateX(0%);
+        width: 55%;
     }
 
     .line-1 {
-        font-size: 19px;
-        line-height: 30px;
+        font-size: 17px;
+        line-height: 25px;
     }
 
 
 
     .line-2 {
-        font-size: 19px;
-        line-height: 20px;
+        font-size: 17px;
+        line-height: 15px;
     }
 
     .line-4 {
@@ -556,7 +668,7 @@
     }
 
     .home-points {
-        font-size: 16px;
+        font-size: 14px;
         padding: 10px 0px;
         padding-bottom: 0px;
     }
@@ -577,7 +689,9 @@
         margin-bottom: 8px;
     }
 
-
+    .safety-page-top {
+        gap: 25px;
+    }
 
     .social-links a {
         margin: 0;
@@ -588,7 +702,7 @@
     }
 
     .sub-heading {
-        font-size: 32px;
+        font-size: 27px;
     }
 
     .moto-content p {
@@ -601,6 +715,9 @@
         margin-bottom: 10px;
     }
 
+    .safety-content .sub-heading {
+        margin: 10px 0px;
+    }
 
     .new-saf-head-desc {
         width: 50%;
@@ -636,6 +753,18 @@
         width: 93%;
     }
 
+    .drive_w_us {
+        width: 80%;
+    }
+
+    .adv-head {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .adv-card-title h5 {
+        font-size: 17px;
+    }
 
 }
 

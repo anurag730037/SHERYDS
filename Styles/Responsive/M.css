@@ -188,7 +188,7 @@
         line-height: 20px;
         text-align: center;
         display: -webkit-box;
-        -webkit-line-clamp: 9;
+        -webkit-line-clamp: 10;
         -webkit-box-orient: vertical;
     }
 
