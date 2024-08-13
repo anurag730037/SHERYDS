@@ -108,6 +108,7 @@
 
     .moto-img {
         width: 80px;
+        height: 80px;
     }
 
     .moto-head {
@@ -270,7 +271,7 @@
     }
 
     .modal-section .sherydr-app img {
-        width: 51%;
+        width: 45%;
     }
 
     .app-links {

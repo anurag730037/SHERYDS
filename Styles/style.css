@@ -60,9 +60,9 @@ a {
     
     letter-spacing: 0.03em;
     text-align: center; */
-    margin-bottom: 50px;
+    margin-bottom: 45px;
     color: black;
-    font-size: 35px;
+    font-size: 25px;
     font-weight: 500;
     line-height: 60px;
     text-align: left;
@@ -184,12 +184,12 @@ a {
 }
 
 .sherydr-app img {
-    width: 85%;
+    width: 80%;
 }
 
 
 .home-parent li a {
-    font-size: 20px !important;
+    font-size: 16px !important;
     font-weight: 500;
     line-height: 32px;
     letter-spacing: -0.03em;
@@ -468,6 +468,7 @@ a {
 .moto-img {
     object-fit: contain;
     width: 100px;
+    height: 100px;
     background-color: white;
     border-radius: 30px;
     padding: 10px;
@@ -488,7 +489,7 @@ a {
     font-weight: 400;
     line-height: 25px;
     letter-spacing: 0.02em;
-    text-align: center !important;
+    text-align: justify !important;
     padding: 0px 35px;
 }
 
@@ -853,14 +854,14 @@ a {
 
 .line-bg-grey span {
     color: rgb(201 197 197);
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .line-bg-grey h4 {
     color: #818181bf;
     cursor: pointer;
     /* font-weight: 700; */
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .line-bg-grey h4 :hover {
@@ -976,7 +977,6 @@ a {
 
 
 .socialImg {
-
     /* box-shadow: 0px 17.33px 24px 0px #11132314; */
 }
 
@@ -984,7 +984,7 @@ a {
     padding-left: 0px !important;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 
 }
 
@@ -1021,6 +1021,10 @@ a {
 .app-links img {
     width: 95%;
     margin: 15px 0px;
+}
+
+.sherydr-app img {
+    width: 80%;
 }
 
 .app-2 img {
@@ -1332,9 +1336,9 @@ a {
 
 .safety-card-title {
     font-weight: 700 !important;
-    font-size: 35px !important;
+    font-size: 25px !important;
     text-align: center;
-    height: 50px;
+    height: 35px;
     line-height: 1.2;
 
 }
@@ -1653,6 +1657,10 @@ a {
     margin-top: 10px;
     box-shadow: 4px 4px #afa9a9;
     border-radius: 8px;
+}
+
+.accordion-button {
+    font-weight: 800 !important;
 }
 
 /* .accordion:active{
@@ -2384,7 +2392,7 @@ placehokdr {
     }
 
     .sherydr-app img {
-        width: 78%;
+        width: 74%;
     }
 
 }

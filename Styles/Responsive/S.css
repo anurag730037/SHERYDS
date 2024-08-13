@@ -50,6 +50,7 @@
         text-align: center;
         padding: 20px 0px;
         padding-bottom: 200px;
+        height: auto;
     }
 
     .home-text {
@@ -70,7 +71,7 @@
     .about-title {
         /* left: 40%; */
         transform: translateX(-16%);
-        width: 50%;
+        width: 40%;
     }
 
     .moto-section {
@@ -92,6 +93,7 @@
 
     .moto-img {
         width: 90px;
+        height: 90px;
     }
 
     .mini-head {
@@ -171,7 +173,7 @@
     }
 
     .social-links {
-        gap: 0px;
+        gap: 30px;
     }
 
     .playStore a {
@@ -420,7 +422,7 @@
         flex-direction: column;
         padding-bottom: 0px;
         margin: 0px;
-        height: 100vh;
+        height: auto;
         justify-content: space-between;
     }
 
@@ -584,6 +586,39 @@
     .accordion .form-control {
         font-size: 0.9rem !important;
     }
+
+    .accordion {
+        width: 95%;
+        z-index: 100;
+    }
+
+    .accordion-body {
+        padding: 0.2rem 0.2rem;
+    }
+
+    #driving-license-form,
+    #vehicle-rc-form,
+    #pan-card-form,
+    #aadhaar-card-form {
+        padding: 0px 30px;
+    }
+
+    .edit,
+    .editNumber span {
+        font-size: 12px;
+    }
+
+    .next-btn {
+        padding: 5px 25px;
+        font-size: 15px;
+    }
+
+    .reg-but {
+        padding: 10px 20px;
+        font-size: 19px;
+    }
+
+
 }
 
 
@@ -745,7 +780,7 @@
 
     .about-title {
         /* left: 40%; */
-        transform: translateX(-40%);
+        transform: translateX(-20%);
         width: 50%;
     }
 
