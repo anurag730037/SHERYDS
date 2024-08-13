@@ -1,8 +1,31 @@
+
 document.addEventListener("DOMContentLoaded", function () {
+  var check_doc_status = "http://34.93.164.215:5000/sheRyds/v1/driver/checkDocStatus";
+  var sherydr_details = "http://34.93.164.215:5000/sheRyds/v1/driver/details";
+  var get_dl = "http://34.93.164.215:5000/sheRyds/v1/driver/get-document/DL";
+  var get_rc = "http://34.93.164.215:5000/sheRyds/v1/driver/get-document/RC";
+  var get_pan = "http://34.93.164.215:5000/sheRyds/v1/driver/get-document/PAN";
+  var get_aadhar = "http://34.93.164.215:5000/sheRyds/v1/driver/get-document/AADHAR";
+
+
+  var update_profile = "http://34.93.164.215:5000/sheRyds/v1/driver/update-profile"
+  var verify_dl_api = "http://34.93.164.215:5000/sheRyds/v1/payout/verifyDL";
+  var verify_rc_api = "http://34.93.164.215:5000/sheRyds/v1/payout/verifyRC";
+  var verify_pan_api = "http://34.93.164.215:5000/sheRyds/v1/payout/verifyPan";
+  var verify_aadhar_api = "http://34.93.164.215:5000/sheRyds/v1/payout/verifyAADHAR";
+  var verify_aadhar_otp = 'http://34.93.164.215:5000/sheRyds/v1/payout/verifyAadharOtp';
+
+  var document_upload = "http://34.93.164.215:5000/sheRyds/v1/driver/upload";
+  var save_bank_details = 'http://34.93.164.215:5000/sheRyds/v1/payout/saveBankDetails';
+
+
   var headers = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    'key': localStorage.getItem("mobileNumber"),
+    app_token: 'bKbumwUX1vs8FLr8'
   };
+
 
   var loading = false;
 
@@ -19,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ],
     };
 
-    fetch("http://34.93.164.215:9000/rydr/v1/driver/checkDocStatus", {
+    fetch(check_doc_status, {
       method: "POST",
       headers,
       body: JSON.stringify(dataBody),
@@ -37,54 +60,73 @@ document.addEventListener("DOMContentLoaded", function () {
               updateStatus(
                 "headingTwo",
                 mainData[i].status,
-                mainData[i].remark
+                mainData[i].otherRemark && mainData[i].otherRemark.length > 0 ? mainData[i].otherRemark : mainData[i].remark
               );
               continue;
             case "RC":
               updateStatus(
                 "headingThree",
                 mainData[i].status,
-                mainData[i].remark
+                mainData[i].otherRemark && mainData[i].otherRemark.length > 0 ? mainData[i].otherRemark : mainData[i].remark
               );
               continue;
             case "PAN":
               updateStatus(
                 "headingFour",
                 mainData[i].status,
-                mainData[i].remark
+                mainData[i].otherRemark && mainData[i].otherRemark.length > 0 ? mainData[i].otherRemark : mainData[i].remark
               );
               continue;
             case "AADHAR":
               updateStatus(
                 "headingFive",
                 mainData[i].status,
-                mainData[i].remark
+                mainData[i].otherRemark && mainData[i].otherRemark.length > 0 ? mainData[i].otherRemark : mainData[i].remark
               );
               continue;
-            // case "Payment":
-            // updateStatus('headingSix', mainData[i].status)
-            // continue;
+            case "Payment":
+              updateStatus('headingSix', mainData[i].status)
+              continue;
           }
         }
+
+        if ((mainData[0].docType === "Profile" && mainData[0].status === "complete") && (mainData[1].docType === "DL" && mainData[1].status === "verified") && (mainData[2].docType === "RC" && mainData[2].status === "verified") && (mainData[3].docType === "PAN" && mainData[3].status === "verified") && (mainData[4].docType === "AADHAR" && mainData[4].status === "verified")) {
+          document.getElementById('bank-part').style.display = 'block';
+        }
+
+        if ((mainData[0].docType === "Profile" && mainData[0].status === "complete") && (mainData[1].docType === "DL" && mainData[1].status === "verified") && (mainData[2].docType === "RC" && mainData[2].status === "verified") && (mainData[3].docType === "PAN" && mainData[3].status === "verified") && (mainData[4].docType === "AADHAR" && mainData[4].status === "verified") && (mainData[5].docType === "Payment" && mainData[5].status === "complete")) {
+          console.log('Everything is Verified')
+          alert('Your All Documents are verified')
+        }
+
+
+        const md = mainData.filter((v) => ['DL', 'RC', 'AADHAR', 'PAN'].includes(v.docType))
+        let count = 0;
+        for (let m of md) {
+          if (m.status === 'under verification') {
+            count++;
+          }
+        }
+        if (count > 0) {
+          document.getElementById('under_verification_mess').style.display = 'block';
+        }
+        // if (count === md.length) {
+        //   document.getElementById('under_verification_mess').style.display = 'block';
+        // }
       })
       .catch((error) => {
         console.error("Error:", error);
       });
-
-
   };
 
-
-
   const completeProfile = () => {
-
 
     document.getElementById('profile-next').innerText = `Update`
 
     // document.getElementById('profile-next').style.display = 'none'
     // document.getElementById('updateProfile').style.display = 'block'
 
-    fetch("http://34.93.164.215:9000/rydr/v1/driver/details", {
+    fetch(sherydr_details, {
       method: "GET",
       headers,
     })
@@ -93,11 +135,13 @@ document.addEventListener("DOMContentLoaded", function () {
         if (data.success) {
           console.log('profile ka Data ', data);
           // Log the profile image URL
-          console.log('Profile Image URL:', data.data.profileImage);
+          console.log('Profile Image URL:', data.data?.ProfileImage);
 
           // Set the profile image source
           const profileImageElement = document.getElementById('previewprofile');
-          profileImageElement.src = data.data.ProfileImage;
+          profileImageElement.src = data.data.hasOwnProperty('ProfileImage') && data.data.ProfileImage.length > 0 ? data.data.ProfileImage : "Images/profile-user.png";
+
+          console.log('profileImageElement.src:', profileImageElement.src);
 
           document.getElementById("username").value = data.data.Name;
           document.getElementById("address").value = data.data.Address;
@@ -130,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const DLNUM = '';
   const completeDL = () => {
     console.log('DL Auto Fill');
-    fetch("http://34.93.164.215:9000/rydr/v1/driver/get-document/DL", {
+    fetch(get_dl, {
       method: "GET",
       headers,
     })
@@ -138,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         if (data) {
           console.log('DL ka Data ', data);
-          document.getElementById("dl_number").value = data.data.docNumber;
+          document.getElementById("dl_number").value = data.docNumber;
 
           document.getElementById("DL_photos").style.display = 'block';
           document.getElementById("dl_front_photo").style.display = "none";
@@ -149,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const frontDL = document.getElementById('front_photo_preview');
           if (frontDL) {
             frontDL.style.display = 'block';
-            frontDL.src = data.data.docImages[0].docFront;
+            frontDL.src = data.docImages[0].docFront;
           } else {
             console.error("Element 'front_photo_preview' not found.");
           }
@@ -157,39 +201,30 @@ document.addEventListener("DOMContentLoaded", function () {
           const backDL = document.getElementById('back_photo_preview');
           if (backDL) {
             backDL.style.display = 'block';
-            backDL.src = data.data.docImages[0].docBack;
+            backDL.src = data.docImages[0].docBack;
           } else {
             console.error("Element 'back_photo_preview' not found.");
           }
 
-          try {
-            var frontDL_File = [{
-              uri: data.docImages[0].docFront,
-              name: data.docImages[0].docFrontName,
-              type: data.docImages[0].docFrontType,
-            }];
-            var backDL_File = [{
-              uri: data.docImages[0].docBack,
-              name: data.docImages[0].docBackName,
-              type: data.docImages[0].docBackType,
-            }];
-            document.getElementById("dl_front_photo").file = frontDL_File;
-            document.getElementById("dl_back_photo").file = backDL_File;
-          } catch (err) {
-            console.log(err);
-          }
-
-          console.log('front', frontDL_File);
-          console.log('back', backDL_File);
+          document.getElementById('dl_number').disabled = true
+          document.getElementById("dl_front_photo").disabled = true
+          document.getElementById("dl_back_photo").disabled = true
 
           document.getElementById("driving-license-update").style.display = "block";
-
+          document.getElementById('change_dl_number').style.display = 'flex'
           // Event listener for update button
           document.getElementById("driving-license-update").addEventListener("click", () => {
+
+            document.getElementById("dl_front_photo").disabled = false;
+            document.getElementById("dl_back_photo").disabled = false;
+            document.getElementById('front_photo_preview').disabled = false
+            document.getElementById('back_photo_preview').disabled = false
+
+
             document.getElementById("driving-license-update").style.display = 'none';
             document.getElementById("front_photo_preview").style.display = "block";
             document.getElementById("back_photo_preview").style.display = "block";
-            document.getElementById("driving-license-next").style.display = "block";
+
             document.getElementById("updateDL").style.display = "block";
 
             // handleImagePreview("dl_front_photo", "front_photo_preview");
@@ -197,6 +232,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // handleImagePreview("dl_back_photo", "back_photo_preview");
             handleImageChange("back_photo_preview", "dl_back_photo");
+
           });
 
           document.getElementById("updateDL").addEventListener('click', () => {
@@ -216,16 +252,19 @@ document.addEventListener("DOMContentLoaded", function () {
             formData.append("documentFront", document.getElementById("dl_front_photo").files[0]);
             formData.append("documentBack", document.getElementById("dl_back_photo").files[0]);
 
-            fetch("http://34.93.164.215:9000/rydr/v1/driver/upload", {
+            fetch(document_upload, {
               method: "POST",
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+                'key': localStorage.getItem("mobileNumber"),
+                app_token: 'bKbumwUX1vs8FLr8'
               },
               body: formData,
             })
               .then((response) => response.json())
               .then((data) => {
                 console.log('Data received:', data);
+                window.location.reload();
                 // Handle response data as needed
               })
               .catch((error) => {
@@ -239,17 +278,48 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       })
       .catch((error) => {
+
         console.error("Network error:", error);
         // Handle network error
       });
   };
-  completeDL();
+
+
+  // completeDL();
+
+
+  // Changing DL number Action
+  document.getElementById('change_dl_number').addEventListener('click', () => {
+
+    document.getElementById("driving-license-update").style.display = 'none';
+    document.getElementById('dl_number').disabled = false
+    document.getElementById('dl_number').value = '';
+    document.getElementById('change_dl_number').style.display = 'none'
+    document.getElementById("edit_dl_number_warning").style.display = "flex";
+    document.getElementById("driving-license-next").style.display = "block";
+
+    document.getElementById("dl_front_photo").disabled = false;
+    document.getElementById("dl_back_photo").disabled = false;
+    document.getElementById('front_photo_preview').disabled = false;
+    document.getElementById('back_photo_preview').disabled = false;
+
+    document.getElementById("front_photo_preview").src = "";
+    document.getElementById("back_photo_preview").src = "";
+    document.getElementById('dl_front_photo').value = '';
+    document.getElementById('dl_back_photo').value = '';
+
+    document.getElementById("driving-license-next").innerHTML = `Verify`;
+    document.getElementById("updateDL").style.display = 'none'
+    document.getElementById("DL_photos").style.display = 'none'
+
+  })
+  // Changing DL number Action END
 
 
   const completeRC = () => {
-
+    document.getElementById('ownership_list').style.display = 'none'; // Because From backend We Didnt Get Ownership
     const frontRC = document.getElementById('rc_front_photo_preview');
-    fetch("http://34.93.164.215:9000/rydr/v1/driver/get-document/RC", {
+    fetch(get_rc, {
       method: "GET",
       headers,
     })
@@ -257,14 +327,15 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         if (data) {
           console.log('RC Data ', data);
-          document.getElementById("vehicle_number").value = data.data.docNumber;
+          document.getElementById("vehicle_number").value = data.docNumber;
           document.getElementById("RC_photos").style.display = 'block';
           document.getElementById("rc_front_photo").style.display = "none";
           document.getElementById("vehicle-rc-next").style.display = "none";
           frontRC.style.display = 'block';
-          frontRC.src = data.data.docImages[0].docFront;
+          frontRC.src = data.docImages[0].docFront;
           document.getElementById("submit-rc-photo").style.display = "none";
           document.getElementById("rc_Edit").style.display = "block"
+          document.getElementById("change_vehicle_number").style.display = "flex"
         }
 
         document.getElementById("vehicle_number").disabled = true;
@@ -272,17 +343,16 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("rc_front_photo").disabled = true;
 
         document.getElementById("rc_Edit").addEventListener('click', () => {
-
-          document.getElementById("vehicle_number").disabled = false;
+          document.getElementById('change_vehicle_number').style.display = 'flex'
+          // document.getElementById("vehicle_number").disabled = false;
           document.getElementById('rc_front_photo_preview').disabled = false;
           document.getElementById("rc_front_photo").disabled = false;
 
           if (frontRC) {
-
             // Event listener for image preview click (improved)
             frontRC.addEventListener('click', () => {
               const fileInput = document.getElementById('rc_front_photo');
-              fileInput.click(); // Trigger file selection dialog for user to choose new image
+              // fileInput.click(); // Trigger file selection dialog for user to choose new image
 
               fileInput.addEventListener('change', (event) => {
                 const newFile = event.target.files[0];
@@ -299,25 +369,27 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("Element 'rc_front_photo_preview' not found.");
           }
 
+          handleImageChange("rc_front_photo_preview", "rc_front_photo");
+
           document.getElementById("rc_Edit").style.display = 'none';
           document.getElementById("updaterc").style.display = 'block'
 
         })
-
 
         document.getElementById("updaterc").addEventListener('click', () => {
           const new_front_RC = document.getElementById("rc_front_photo").files[0];
 
           const formData = new FormData();
           formData.append("docType", "RC");
-          formData.append("docNumber", document.getElementById('vehicle_number').value); // Assuming docNumber is the vehicle number
+          formData.append("docNumber", document.getElementById('vehicle_number').value);
           formData.append("documentFront", new_front_RC);
 
-          fetch("http://34.93.164.215:9000/rydr/v1/driver/upload", {
+          fetch(document_upload, {
             method: "POST",
             headers: {
               Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-
+              'key': localStorage.getItem("mobileNumber"),
+              app_token: 'bKbumwUX1vs8FLr8'
             },
             body: formData,
           })
@@ -330,7 +402,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then((data) => {
               console.log("RC Photo Updated:", data);
               console.log(data)
-              // window.location.reload(); // Refresh the page or handle success scenario
+              window.location.reload(); // Refresh the page or handle success scenario
             })
             .catch((error) => {
               console.error("RC Photo Updated Network error:", error);
@@ -341,12 +413,42 @@ document.addEventListener("DOMContentLoaded", function () {
       })
 
   }
-  completeRC();
+  // completeRC();
+
+
+  // Changing Vehicle number Action
+  document.getElementById('change_vehicle_number').addEventListener('click', () => {
+    document.getElementById('vehicle_number').disabled = false
+    document.getElementById('ownership_list').style.display = 'block';
+    document.getElementById('vehicle_number').value = '';
+
+    document.getElementById('rc_front_photo_preview').disabled = false;
+    document.getElementById("rc_front_photo").disabled = false;
+    document.getElementById('rc_front_photo_preview').src = '';
+    document.getElementById("pan_front_photo").value = '';
+
+
+    document.getElementById('change_vehicle_number').style.display = 'none'
+    document.getElementById("edit_vehicle_number_warning").style.display = "flex";
+    document.getElementById("vehicle-rc-next").style.display = "block";
+
+    document.getElementById("vehicle-rc-next").innerHTML = `Verify`;
+    document.getElementById("updaterc").style.display = 'none'
+    // document.getElementById("updateAADHAR").classList.remove('next-btn')
+
+    document.getElementById('RC_photos').style.display = 'none'
+    document.getElementById('rc_Edit').style.display = 'none'
+
+
+  })
+  // Changing Vehicle number Action END
+
+
 
 
   const completePAN = () => {
     const frontPAN = document.getElementById('pan_front_photo_preview');
-    fetch("http://34.93.164.215:9000/rydr/v1/driver/get-document/PAN", {
+    fetch(get_pan, {
       method: "GET",
       headers,
     })
@@ -354,17 +456,16 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         if (data) {
           console.log('PAN Data ', data);
-
-
-          document.getElementById("pan_number").value = data.data.docNumber;
+          document.getElementById("pan_number").value = data.docNumber;
 
           document.getElementById("PAN_photos").style.display = 'block';
           document.getElementById("pan_front_photo").style.display = "none";
           document.getElementById("pan-card-next").style.display = "none";
           frontPAN.style.display = 'block';
-          frontPAN.src = data.data.docImages[0].docFront;
+          frontPAN.src = data.docImages[0].docFront;
           document.getElementById("submit-pan-photo").style.display = "none";
           document.getElementById("pan_Edit").style.display = "block";
+          document.getElementById("change_pan_number").style.display = "flex";
 
         }
 
@@ -374,16 +475,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
         document.getElementById('pan_Edit').addEventListener('click', () => {
           document.getElementById('pan_Edit').style.display = 'none'
+          document.getElementById('change_pan_number').style.display = 'flex'
           document.getElementById('updatepan').style.display = 'block'
 
-          document.getElementById('pan_number').disabled = false
+          // document.getElementById('pan_number').disabled = false
           document.getElementById('pan_front_photo_preview').disabled = false
           document.getElementById("pan_front_photo").disabled = false
+
+
 
           if (frontPAN) {
             frontPAN.addEventListener('click', () => {
               const fileInput = document.getElementById('pan_front_photo');
-              fileInput.click(); // Trigger file selection dialog for user to choose new image
+              // fileInput.click(); // Trigger file selection dialog for user to choose new image
 
               fileInput.addEventListener('change', (event) => {
                 const newFile = event.target.files[0];
@@ -402,8 +506,11 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("Element 'pan_front_photo_preview' not found.");
           }
 
+          handleImageChange("pan_front_photo_preview", "pan_front_photo");
         })
         // Event listener for image preview click (improved)
+
+
 
         document.getElementById("updatepan").addEventListener('click', () => {
           const new_front_PAN = document.getElementById("pan_front_photo").files[0];
@@ -417,20 +524,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
           console.log('new pan', document.getElementById("pan_number").value)
 
-          fetch("http://34.93.164.215:9000/rydr/v1/driver/upload", {
+          fetch(document_upload, {
             method: "POST",
             headers: {
               Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-
+              'key': localStorage.getItem("mobileNumber"),
+              app_token: 'bKbumwUX1vs8FLr8'
             },
             body: formData,
           })
-
             .then((response) => {
               if (!response.ok) {
                 throw new Error('Network response was not ok');
               }
-
               console.log('fetch hua kya?')
               return response.json();
             })
@@ -444,112 +550,129 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
       })
-
   }
-  completePAN();
+  // completePAN();
+
+  // Changing PAN number Action
+
+  document.getElementById('change_pan_number').addEventListener('click', () => {
+    // Enable the PAN number input field
+    document.getElementById('pan_number').disabled = false;
+
+    // Clear the PAN number input field
+    document.getElementById('pan_number').value = '';
+
+    // Clear the PAN front photo preview
+    const frontPAN = document.getElementById('pan_front_photo_preview');
+    frontPAN.src = ''; // Reset the source to an empty string
+
+    // Clear the PAN front photo file input
+    document.getElementById('pan_front_photo_preview').disabled = false
+    document.getElementById("pan_front_photo").disabled = false
+    document.getElementById('pan_front_photo').value = '';
+
+    // Hide and reset the display elements
+    document.getElementById('change_pan_number').style.display = 'none';
+    document.getElementById("edit_pan_number_warning").style.display = "flex";
+    document.getElementById("pan-card-next").style.display = "block";
+    document.getElementById("pan-card-next").innerHTML = `Verify`;
+
+    document.getElementById("updatepan").style.display = 'none'
+
+    // Hide the photo section and edit button
+    document.getElementById("PAN_photos").style.display = 'none';
+    document.getElementById("pan_Edit").style.display = "none";
+  });
+
+  // Changing PAN number Action END
+
+
+  // const updateAADHAR = async (frontAADHAR_File, backAADHAR_File) => {
+  //   const formData = new FormData();
+
+  //   const frontPhotoInput = document.getElementById("aadhar_front_photo");
+  //   const backPhotoInput = document.getElementById("aadhar_back_photo");
+
+  //   console.log('frontPhotoInput.files > ', frontPhotoInput.files)
+  //   console.log('backPhotoInput.files > ', backPhotoInput.files)
+
+  //   async function fetchImageToBinary(fileUrl) {
+  //     try {
+  //       // Step 1: Fetch the image
+  //       const response = await fetch(fileUrl, {
+  //         mode: 'no-cors',
+  //       });
+  //       const blob = await response.blob();  // Convert the response to a Blob
+
+  //       console.log('response****', response);
+  //       console.log('blob****', blob)
+  //       // formData.append('file', blob, 'image.jpg'); // Append the Blob to FormData
+  //       return blob;
+  //     } catch (error) {
+  //       console.error('Error fetching the image:', error);
+  //     }
+  //   }
 
 
 
+  //   const fetchAndAppendImage = async (fileInput, formDataKey) => {
 
-  const updateAADHAR = async (data, frontAADHAR_File, backAADHAR_File) => {
-    const formData = new FormData();
+  //     if (fileInput.files[0]) {
+  //       formData.append(formDataKey, fileInput.files[0]);
+  //     }
+  //   };
 
-    const frontPhotoInput = document.getElementById("aadhar_front_photo");
-    const backPhotoInput = document.getElementById("aadhar_back_photo");
+  //   await fetchAndAppendImage(frontPhotoInput, 'documentFront');
+  //   await fetchAndAppendImage(backPhotoInput, 'documentBack');
 
-    console.log('frontPhotoInput.files > ', frontPhotoInput.files)
-    console.log('backPhotoInput.files > ', backPhotoInput.files)
+  //   // Append other form data as needed
+  //   formData.append('docNumber', document.getElementById('aadhaar_number').value);
+  //   formData.append('docType', "AADHAR");
 
-    // Helper function to fetch the image as a blob and append it to the form data
-    // const appendImageBlob = async (url, formDataKey) => {
-    //   const response = await fetch(url);
-    //   const blob = await response.blob();
-    //   formData.append(formDataKey, blob, url.split('/').pop());
-    // };
-    // Helper function to fetch the image as a Data URI and append it to the form data
-
-
-
-    function fetchImageToBinary(imageUrl, formDataKey) {
-      return new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', imageUrl, true);
-        xhr.responseType = 'arraybuffer'; // Set responseType to 'arraybuffer' to get binary data
-        xhr.onload = function () {
-          if (xhr.status === 200) {
-            const arrayBuffer = xhr.response;
-
-            // Append the binary image data to the FormData
-            formData.append(formDataKey, new Blob([arrayBuffer])); // Specify a filename ('image.jpg' in this example)
-
-            // Resolve the promise with the FormData object
-            resolve(formData);
-          } else {
-            reject(new Error(`Failed to fetch image. Status: ${xhr.status}`));
-          }
-        };
-        xhr.onerror = function () {
-          reject(new Error('Network error'));
-        };
-        xhr.send();
-      });
-    }
-
-
-    const fetchAndAppendImage = (fileInput, fileUrl, formDataKey) => {
-      if (fileInput.files[0]) {
-        formData.append(formDataKey, fileInput.files[0]);
-      } else if (fileUrl) {
-        fetchImageToBinary(fileUrl, formDataKey);
-      }
-    };
-    fetchAndAppendImage(frontPhotoInput, frontAADHAR_File, 'documentFront');
-    fetchAndAppendImage(backPhotoInput, backAADHAR_File, 'documentBack');
-
-    // Append other form data as needed
-    formData.append('docNumber', document.getElementById('aadhaar_number').value);
-    formData.append('docType', "AADHAR");
-
-    fetch("http://34.93.164.215:9000/rydr/v1/driver/upload", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-      body: formData,
-    })
-      .then(async response => {
-        const contentType = response.headers.get('content-type');
-        if (contentType && contentType.includes('application/json')) {
-          return response.json();
-        } else {
-          const text = await response.text();
-          throw new Error(`Unexpected response format: ${text}`);
-        }
-      })
-      .then(data => {
-        if (data.success) {
-          console.log("AADHAR updated successfully:", data);
-          window.location.reload();
-        } else {
-          console.error("Error updating AADHAR:", data);
-        }
-      })
-      .catch(error => {
-        console.error("Network error:", error);
-      });
-  };
+  //   fetch(document_upload, {
+  //     method: "POST",
+  //     headers: {
+  //       Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  //       'key': localStorage.getItem("mobileNumber"),
+  //       app_token: 'bKbumwUX1vs8FLr8'
+  //     },
+  //     body: formData,
+  //   })
+  //     .then(async response => {
+  //       const contentType = response.headers.get('content-type');
+  //       if (contentType && contentType.includes('application/json')) {
+  //         return response.json();
+  //       } else {
+  //         const text = await response.text();
+  //         throw new Error(`Unexpected response format: ${text}`);
+  //       }
+  //     })
+  //     .then(data => {
+  //       console.log('udpated aadhar data', data)
+  //       if (data) {
+  //         console.log("AADHAR updated successfully:", data);
+  //         // window.location.reload();
+  //       } else {
+  //         console.error("Error updating AADHAR:", data);
+  //       }
+  //     })
+  //     .catch(error => {
+  //       console.error("Network error:", error);
+  //     });
+  // };
 
   const completeAADHAR = () => {
     console.log('AADHAR Auto Fill');
-    fetch("http://34.93.164.215:9000/rydr/v1/driver/get-document/AADHAR", {
+    fetch(get_aadhar, {
       method: "GET",
       headers,
     })
+
       .then((response) => response.json())
       .then((data) => {
         if (data) {
           console.log('AADHAR Data ', data);
-          document.getElementById("aadhaar_number").value = data.data.docNumber;
+          document.getElementById("aadhaar_number").value = data.docNumber;
 
           document.getElementById("AADHAR_Photos").style.display = 'block';
           document.getElementById("aadhar_front_photo").style.display = "none";
@@ -557,63 +680,42 @@ document.addEventListener("DOMContentLoaded", function () {
           document.getElementById("submit-aadhar-photo").style.display = "none";
           document.getElementById("aadhar-next").style.display = "none";
 
-          let frontAADHAR_File;
-          let backAADHAR_File;
-
-          console.log('Checking Front', data.data.docImages[0].docFront)
-
-
 
           const frontAADHAR = document.getElementById('aadhar_front_photo_preview');
-          if (frontAADHAR && data.data.docImages[0].docFront) {
+          if (frontAADHAR) {
             frontAADHAR.style.display = 'block';
-            frontAADHAR.src = data.data.docImages[0].docFront;
-            frontAADHAR_File = data.data.docImages[0].docFront;
-
+            frontAADHAR.src = data.docImages[0].docFront;
           } else {
             console.error("Element 'aaadhar_front_photo_preview' not found.");
           }
 
           const backAADHAR = document.getElementById('aadhar_back_photo_preview');
-          if (backAADHAR && data.data.docImages[0].docBack) {
+          if (backAADHAR) {
             backAADHAR.style.display = 'block';
-            backAADHAR.src = data.data.docImages[0].docBack;
-            backAADHAR_File = data.data.docImages[0].docBack;
+            backAADHAR.src = data.docImages[0].docBack;
           } else {
             console.error("Element 'aadhar_back_photo_preview' not found.");
           }
 
+
+          document.getElementById('aadhaar_number').disabled = true
+          document.getElementById("aadhar_front_photo").disabled = true
+          document.getElementById("aadhar_back_photo").disabled = true
+
           document.getElementById("aadhar-edit").style.display = "block";
-
-          // try {
-          //   var frontAADHAR_File = [{
-          //     uri: data.docImages[0].docFront,
-          //     name: data.docImages[0].docFrontName,
-          //     type: data.docImages[0].docFrontType,
-          //   }];
-          //   var backAADHAR_File = [{
-          //     uri: data.docImages[0].docBack,
-          //     name: data.docImages[0].docBackName,
-          //     type: data.docImages[0].docBackType,
-          //   }];
-          //   document.getElementById("aadhar_front_photo").file = frontAADHAR_File;
-          //   document.getElementById("aadhar_back_photo").file = backAADHAR_File;
-          // } catch (err) {
-          //   console.log(err);
-          // }
-
-          // console.log('front', frontAADHAR_File);
-          // console.log('back', backAADHAR_File);
-
-          // Store existing image URLs for later use
-
+          document.getElementById("edit_aadhar_number").style.display = "flex";
           // Event listener for update button
           document.getElementById("aadhar-edit").addEventListener("click", () => {
+
+            document.getElementById("aadhar_front_photo").disabled = false
+            document.getElementById("aadhar_back_photo").disabled = false
+            document.getElementById("aadhar_front_photo_preview").disabled = false
+            document.getElementById("aadhar_back_photo_preview").disabled = false
+
             document.getElementById("aadhar-edit").style.display = 'none';
             document.getElementById("aadhar_front_photo_preview").style.display = "block";
             document.getElementById("aadhar_back_photo_preview").style.display = "block";
-            document.getElementById("aadhar-next").style.display = "block";
-            document.getElementById("aadhar-next").innerHTML = `Verify`;
+
             document.getElementById("updateAADHAR").style.display = "block";
 
             // handleImagePreview("aadhar_front_photo", "aadhar_front_photo_preview");
@@ -621,16 +723,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // handleImagePreview("aadhar_back_photo", "aadhar_back_photo_preview");
             handleImageChange("aadhar_back_photo_preview", "aadhar_back_photo");
+
           });
 
-          const aagekaphoto = document.getElementById("aadhar_front_photo")
+
 
           document.getElementById("updateAADHAR").addEventListener('click', () => {
             console.log('AADHAR update clicked');
+            // updateAADHAR(frontAADHAR_File, backAADHAR_File);
 
-            console.log('frontFile', aagekaphoto)
-            updateAADHAR(data, frontAADHAR_File, backAADHAR_File);
+            const formData = new FormData();
 
+            // const frontPhotoInput = document.getElementById("aadhar_front_photo");
+            // const backPhotoInput = document.getElementById("aadhar_back_photo");
+
+
+            formData.append('docType', "AADHAR");
+            formData.append('docNumber', document.getElementById('aadhaar_number').value);
+            formData.append('documentFront', document.getElementById('aadhar_front_photo').files[0])
+            formData.append('documentBack', document.getElementById('aadhar_back_photo').files[0])
+
+            fetch(document_upload, {
+              method: "POST",
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+                'key': localStorage.getItem("mobileNumber"),
+                app_token: 'bKbumwUX1vs8FLr8'
+              },
+              body: formData,
+            })
+              .then((response) =>
+                response.json()).then((data) => {
+                  console.log('Addhar Data recevied', data)
+                  window.location.reload();
+                })
+              .catch(error => {
+                console.error("Aadhar photo upload Network error", error);
+              });
           });
 
         } else {
@@ -643,62 +772,97 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   };
 
-  completeAADHAR();
+  // completeAADHAR();
+
+  // Changing Addhar Number ACtion
+  document.getElementById('edit_aadhar_number').addEventListener('click', () => {
+
+    // document.getElementById("updateAADHAR").classList.remove('next-btn')
+
+    document.getElementById('aadhar-edit').style.display = 'none'
+    document.getElementById('aadhaar_number').disabled = false
+    document.getElementById('aadhaar_number').value = '';
+    document.getElementById('edit_aadhar_number').style.display = 'none'
+    document.getElementById("edit_aadhar_number_warning").style.display = "flex";
+    document.getElementById("aadhar-next").style.display = "block";
+
+    document.getElementById("aadhar_front_photo").disabled = false;
+    document.getElementById("aadhar_back_photo").disabled = false;
+    document.getElementById('aadhar_front_photo_preview').disabled = false;
+    document.getElementById('aadhar_back_photo_preview').disabled = false;
+
+    document.getElementById("aadhar_front_photo_preview").src = "";
+    document.getElementById("aadhar_back_photo_preview").src = "";
+    document.getElementById('aadhar_front_photo').value = '';
+    document.getElementById('aadhar_back_photo').value = '';
+
+    document.getElementById("aadhar-next").innerHTML = `Verify`;
+    document.getElementById("updateAADHAR").style.display = 'none'
+    document.getElementById("AADHAR_Photos").style.display = 'none'
+  })
+
+  // Changing Addhar Number ACtion ENDS------------------
+
+
+
+
+
 
   // *************Reusable Functions For Photo Upload**********
 
   // Function to handle image preview
-  // const handleImagePreview = (inputId, previewId) => {
-  //   const inputElement = document.getElementById(inputId);
-  //   const previewElement = document.getElementById(previewId);
+  const handleImagePreview = (inputId, previewId) => {
+    const inputElement = document.getElementById(inputId);
+    const previewElement = document.getElementById(previewId);
 
-  //   inputElement.addEventListener("change", (e) => {
-  //     const file = inputElement.files[e.currentTarget.files.length - 1];
-  //     if (file) {
-  //       const reader = new FileReader();
-  //       reader.onload = (e) => {
-  //         previewElement.src = e.target.result;
-  //         previewElement.style.display = "block";
-  //         previewElement.style.cursor = "pointer";
-  //       };
-  //       inputElement.style.display = "none";
-  //       reader.readAsDataURL(file);
-  //     }
-  //   });
-  // };
+    inputElement.addEventListener("change", (e) => {
+      const file = inputElement.files[e.currentTarget.files.length - 1];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          previewElement.src = e.target.result;
+          previewElement.style.display = "block";
+          previewElement.style.cursor = "pointer";
+        };
+        inputElement.style.display = "none";
+        reader.readAsDataURL(file);
+      }
+    });
+  };
 
   // Function to handle image change
   const handleImageChange = (previewId, inputId) => {
     const previewElement = document.getElementById(previewId);
 
-    previewElement.addEventListener("click", () => {
-      const newElement = document.getElementById(inputId);
-      // newElement.type = "file";
-      newElement.style.display = "none"; // Hide the new input element
-      // document.body.appendChild(newElement);
+    const newElement = document.getElementById(inputId);
+    const changeHandler = (e) => {
+      const file = e.currentTarget.files[e.currentTarget.files.length - 1];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          previewElement.src = e.target.result;
+          previewElement.style.display = "block";
+        };
+        reader.readAsDataURL(file);
+      }
+    };
 
-      newElement.addEventListener("change", (e) => {
-        const file = e.currentTarget.files[e.currentTarget.files.length - 1];
-        if (file) {
-          const reader = new FileReader();
-          reader.onload = (e) => {
-            previewElement.src = e.target.result;
-            previewElement.style.display = "block";
-          };
-          reader.readAsDataURL(file);
-          // document.getElementById(inputId).files = newElement.files; // Update the original file input
-        }
-        // document.body.removeChild(newElement); // Clean up the new input element
-      });
+    previewElement.addEventListener("click", () => {
+      newElement.style.display = "none"; // Hide the new input element
+
+      // Remove existing event listener before adding a new one
+      newElement.removeEventListener("change", changeHandler);
+      newElement.addEventListener("change", changeHandler);
+
       newElement.click();
     });
-    // return file
   };
+
   // *************Reusable Functions For Photo Upload**********
 
 
 
-
+  // completeProfile();
 
 
   const updateStatus = async (accordionId, status, remark) => {
@@ -724,23 +888,45 @@ document.addEventListener("DOMContentLoaded", function () {
       accordionButton.classList.remove("error");
       accordionButton.classList.add("success");
       iconContainer.innerHTML = '<i class="fas fa-check-circle"></i>';
-      if (accordionId === 'headingTwo') {
-        completeDL();
-      } else if (accordionId === 'headingTwo') {
-
-        completeDL();
-
-      }
+      // if (accordionId === 'headingTwo') {
+      //   completeDL();
+      // } else if (accordionId === 'headingThree') {
+      //   completeRC();
+      // }
     } else if (status === "under verification") {
       accordionButton.classList.remove("success");
       accordionButton.classList.add("error");
       iconContainer.innerHTML =
         '<i class="fa-regular fa-hourglass-half" style="color: #f17609;"></i>';
 
-      if (remark && remark.length > 0) {
-        document.querySelector(`#${accordionId} .remark`).innerText =
-          "*" + remark;
+      if (accordionId === 'headingTwo') {
+        completeDL();
+      } else if (accordionId === 'headingThree') {
+        completeRC();
+      } else if (accordionId === 'headingFour') {
+        completePAN();
+      } else if (accordionId === 'headingFive') {
+        completeAADHAR();
       }
+
+      // console.log('remark', remark + accordionId)
+
+      if (remark && remark.length > 0) {
+
+        const parentElement = document.getElementById(accordionId); // Get the parent element by id
+        if (parentElement) {
+
+          const remarkElement = parentElement.querySelector('.remark'); // Get the child element with class 'remark'
+          if (remarkElement) {
+            remarkElement.innerText = `*` + remark; // Update the text with the remark
+          } else {
+            console.log(`Element with class 'remark' not found inside #${accordionId}.`);
+          }
+        } else {
+          console.log(`Element with id ${accordionId} not found.`);
+        }
+      }
+
     }
     // } else {
     //     accordionButton.classList.remove('success');
@@ -748,24 +934,30 @@ document.addEventListener("DOMContentLoaded", function () {
     //     iconContainer.innerHTML = '<i class="fas fa-times-circle"></i>';
     // }
 
+    // if ((accordionId === "headingOne" && status === "complete") && (accordionId === "headingTwo" && status === "verified") &&
+    //   (accordionId === "headingThree" && status === "verified") && (accordionId === "headingFour" && status === "verified") &&
+    //   (accordionId === "headingFive" && status === "verified") && (accordionId === "headingSix" && status === "complete")) {
+    //   window.location.href = "index.html";
+    // }
+
     if (accordionId === "headingOne" && status === "complete") {
       document.getElementById('document-part').style.display = 'block';
-
     }
 
-    const headings = ["headingOne", "headingTwo", "headingThree", "headingFour", "headingFive"];
-    let allVerified = true;
+    // const headings = ["headingOne", "headingTwo", "headingThree", "headingFour", "headingFive"];
+    // let allVerified = true;
 
-    for (let i = 0; i < headings.length - 1; i++) {
-      if (headings[i].status !== "verified") {
-        allVerified = false;
-        break;
-      }
-    }
+    // for (let i = 1; i < headings.length; i++) {
+    //   if (headings[i].status !== "verified") {
+    //     allVerified = false;
+    //     break;
+    //   }
+    // }
 
-    if (allVerified) {
-      document.getElementById('bank-part').style.display = 'block';
-    }
+    // if (allVerified) {
+    //   console.log('yes All veryfied')
+    //   document.getElementById('bank-part').style.display = 'block';
+    // }
 
   };
 
@@ -797,6 +989,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // Function to preview the profile image and set the imageUploaded flag
+
+  var imageUploaded = false;
   function previewprofileImage(event) {
     const reader = new FileReader();
     reader.onload = function () {
@@ -855,6 +1049,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (!allFieldsFilled && firstEmptyField) {
+      alert("Please fill out all fields or Profile Img.");
       firstEmptyField.scrollIntoView({ behavior: "smooth", block: "center" });
     }
     return allFieldsFilled;
@@ -862,39 +1057,64 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // --- Profile Next Button Click Event ---
   profileNextButton.addEventListener("click", function () {
+
+
+    console.log('Profile Next Cliked')
     if (validateFields(profileFields, profileForm)) {
-      const formData = new FormData();
 
-      const profileImageFile = document.getElementById("profile_image").files[0];
+      if (imageUploaded) {
 
-      if (profileImageFile) {
-        formData.append("profileImage", profileImageFile);
+        var formData = new FormData();
+
+        const profileImageFile = document.getElementById("profile_image").files[0];
+
+        if (profileImageFile) {
+          formData.append("profileImage", profileImageFile);
+        }
+
+        formData.append("FirstName", document.getElementById("username").value);
+        formData.append("address", document.getElementById("address").value);
+        formData.append("bloodGroup", document.getElementById("blood_group").value);
+        formData.append("city", document.getElementById("city").value);
+        formData.append("dateOfBirth", document.getElementById("dob").value);
+        formData.append("email", document.getElementById("email").value);
+        formData.append("gender", document.querySelector("input[name='gender']:checked").value);
+        formData.append("pincode", document.getElementById("pincode").value);
+        formData.append("state", document.getElementById("state").value);
+
+        console.log(formData);
+
+      } else {
+        var reqbody = {
+          "FirstName": document.getElementById("username").value,
+          "address": document.getElementById("address").value,
+          "bloodGroup": document.getElementById("blood_group").value,
+          "city": document.getElementById("city").value,
+          "dateOfBirth": document.getElementById("dob").value,
+          "email": document.getElementById("email").value,
+          "gender": document.querySelector("input[name='gender']:checked").value,
+          "pincode": document.getElementById("pincode").value,
+          "state": document.getElementById("state").value,
+        }
       }
 
-      formData.append("FirstName", document.getElementById("username").value);
-      formData.append("address", document.getElementById("address").value);
-      formData.append("bloodGroup", document.getElementById("blood_group").value);
-      formData.append("city", document.getElementById("city").value);
-      formData.append("dateOfBirth", document.getElementById("dob").value);
-      formData.append("email", document.getElementById("email").value);
-      formData.append("gender", document.querySelector("input[name='gender']:checked").value);
-      formData.append("pincode", document.getElementById("pincode").value);
-      formData.append("state", document.getElementById("state").value);
 
-      console.log(formData);
-
-      fetch("http://34.93.164.215:9000/rydr/v1/driver/update-profile", {
+      fetch(update_profile, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          'key': localStorage.getItem("mobileNumber"),
+          app_token: 'bKbumwUX1vs8FLr8'
         },
-        body: formData,
+        body: imageUploaded ? formData : JSON.stringify(
+          reqbody
+        ),
       })
         .then((response) => response.json())
         .then((data) => {
           if (data.success) {
             console.log("Profile updated successfully:", data);
-            // window.location.reload();
+            window.location.reload();
             profileNextButton.innerHTML = `Update`
 
           } else {
@@ -909,7 +1129,6 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log("Nothing not validating fields");
     }
   });
-
 
   // --- Driving License Section ---
 
@@ -928,13 +1147,13 @@ document.addEventListener("DOMContentLoaded", function () {
         dlNumberField.classList.remove("empty_error");
 
         const DLNumber = dlNumber;
-        DLNUM = dlNumber
+        // DLNUM = dlNumber
 
         // loading = true
         document.getElementById(
           "driving-license-next"
         ).innerHTML = `<span class="spinner-border text-danger" role="status" />`;
-        fetch("http://34.93.164.215:9000/rydr/v1/payout/verifyDL", {
+        fetch(verify_dl_api, {
           method: "POST",
           headers,
           body: JSON.stringify({
@@ -943,24 +1162,28 @@ document.addEventListener("DOMContentLoaded", function () {
         })
           .then((response) => response.json())
           .then((data) => {
-            if (data.data.status = "VALID") {
+            if (data.status !== 400 && data.data.status == "VALID") {
               // console.log('DL Sent successfully:', data);
               console.log("data", data);
               document.getElementById("driving-license-next").innerText =
                 "Verify";
               //photo logic
+              //Only Work When edit Number Clicked
+              document.getElementById("updateDL").disabled = false;
+              document.getElementById("updateDL").style.backgroundColor = '#C30000'
+              document.getElementById("edit_dl_number_warning").style.display = "none";
 
-              document.getElementById(
-                "DL_photos"
-              ).style.display = 'block';
 
+
+              document.getElementById("DL_photos").style.display = 'block';
+              document.getElementById('submit-dl-photo').style.display = 'block'
               document.getElementById("driving-license-next").style.display =
                 "none";
 
               /* --------DL Photo Auto Loaded----------- */
 
               //   fetch(
-              //     "http://34.93.164.215:9000/rydr/v1/driver/get-document/DL",
+              //     "http://34.93.164.215:5000/sheRyds/v1/driver/get-document/DL",
               //     {
               //       method: "GET",
               //       headers,
@@ -988,8 +1211,8 @@ document.addEventListener("DOMContentLoaded", function () {
               //     });
 
               // Call the functions for DL front and back photos
-              // handleImagePreview("dl_front_photo", "front_photo_preview");
-              // handleImagePreview("dl_back_photo", "back_photo_preview");
+              handleImagePreview("dl_front_photo", "front_photo_preview");
+              handleImagePreview("dl_back_photo", "back_photo_preview");
               handleImageChange("front_photo_preview", "dl_front_photo");
               handleImageChange("back_photo_preview", "dl_back_photo");
 
@@ -1016,12 +1239,14 @@ document.addEventListener("DOMContentLoaded", function () {
                   formData.append("documentFront", front_DL);
                   formData.append("documentBack", back_DL);
 
-                  fetch("http://34.93.164.215:9000/rydr/v1/driver/upload", {
+                  fetch(document_upload, {
                     method: "POST",
                     headers: {
                       Authorization: `Bearer ${localStorage.getItem(
                         "accessToken"
-                      )}`
+                      )}`,
+                      'key': localStorage.getItem("mobileNumber"),
+                      app_token: 'bKbumwUX1vs8FLr8'
                     },
                     body: formData,
                   })
@@ -1038,14 +1263,18 @@ document.addEventListener("DOMContentLoaded", function () {
               //   window.location.reload();
             } else {
               console.error("Error updating DL:", data);
+              alert(data?.message)
             }
             // loading = false
             document.getElementById("driving-license-next").innerText =
               "Verify";
           })
           .catch((error) => {
+            alert('unable to Verify')
+            console.log('verify problem', error)
             console.error("Network error:", error);
             // loading = false
+
             document.getElementById("driving-license-next").innerText =
               "Verify";
           });
@@ -1093,7 +1322,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nextButton.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`;
 
       // Example fetch request to verify RC
-      fetch("http://34.93.164.215:9000/rydr/v1/payout/verifyRC", {
+      fetch(verify_rc_api, {
         method: "POST",
         headers,
         body: JSON.stringify({
@@ -1107,60 +1336,76 @@ document.addEventListener("DOMContentLoaded", function () {
           return response.json();
         })
         .then((data) => {
-          console.log("Data:", data);
-          if (data.data.status === "VALID") {
+          console.log("Data:", data.message);
+          if (data.status == 400) {
+            alert(data.message);
 
-            nextButton.innerText = "Verify";
+          }
+          else {
 
-            // Show photo logic
-            document.getElementById("RC_photos").style.display = 'block';
-            nextButton.style.display = "none";
+            if (data.data.status === "VALID") {
 
-            // Handle image previews and changes for RC photo
-            // handleImagePreview("rc_front_photo", "rc_front_photo_preview");
-            handleImageChange("rc_front_photo_preview", "rc_front_photo");
+              nextButton.innerText = "Verify";
 
-            // Submit photo logic for RC
-            document.getElementById("submit-rc-photo").addEventListener("click", () => {
-              const front_RC = document.getElementById("rc_front_photo").files[0];
+              //Only Work When edit Number Clicked
+              document.getElementById("updaterc").disabled = false;
+              document.getElementById("updaterc").style.backgroundColor = '#C30000'
+              document.getElementById("edit_vehicle_number_warning").style.display = "none";
 
-              if (!front_RC) {
-                alert("Please upload the front photo of your RC.");
-                return;
-              }
+              // Show photo logic
+              document.getElementById("RC_photos").style.display = 'block';
+              nextButton.style.display = "none";
+              document.getElementById('submit-rc-photo').style.display = 'block'
 
-              const formData = new FormData();
-              formData.append("docType", "RC");
-              formData.append("docNumber", document.getElementById('vehicle_number').value); // Assuming docNumber is the vehicle number
-              formData.append("documentFront", front_RC);
 
-              fetch("http://34.93.164.215:9000/rydr/v1/driver/upload", {
-                method: "POST",
-                headers: {
-                  Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              // Handle image previews and changes for RC photo
+              handleImagePreview("rc_front_photo", "rc_front_photo_preview");
+              handleImageChange("rc_front_photo_preview", "rc_front_photo");
 
-                },
-                body: formData,
-              })
-                .then((response) => {
-                  if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                  }
-                  return response.json();
+              // Submit photo logic for RC
+              document.getElementById("submit-rc-photo").addEventListener("click", () => {
+                const front_RC = document.getElementById("rc_front_photo").files[0];
+
+                if (!front_RC) {
+                  alert("Please upload the front photo of your RC.");
+                  return;
+                }
+
+                const formData = new FormData();
+                formData.append("docType", "RC");
+                formData.append("docNumber", document.getElementById('vehicle_number').value); // Assuming docNumber is the vehicle number
+                formData.append("documentFront", front_RC);
+
+                fetch(document_upload, {
+                  method: "POST",
+                  headers: {
+                    Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+                    'key': localStorage.getItem("mobileNumber"),
+                    app_token: 'bKbumwUX1vs8FLr8'
+                  },
+                  body: formData,
                 })
-                .then((data) => {
-                  console.log("RC Photo Upload Response:", data);
-                  console.log(data)
-                  window.location.reload(); // Refresh the page or handle success scenario
-                })
-                .catch((error) => {
-                  console.error("RC Photo Upload Network error:", error);
-                  // Handle network error
-                });
-            });
+                  .then((response) => {
+                    if (!response.ok) {
+                      throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                  })
+                  .then((data) => {
+                    console.log("RC Photo Upload Response:", data);
+                    console.log(data)
+                    window.location.reload(); // Refresh the page or handle success scenario
+                  })
+                  .catch((error) => {
+                    console.error("RC Photo Upload Network error:", error);
+                    // Handle network error
+                  });
+              });
 
-          } else {
-            console.error("Error verifying RC:", data);
+            } else {
+              console.error("Error verifying RC:", data);
+              alert(mess)
+            }
           }
 
           // Reset button text after fetch completes
@@ -1196,72 +1441,91 @@ document.addEventListener("DOMContentLoaded", function () {
         const PANnumber = panNumber;
         document.getElementById("pan-card-next").innerHTML = `<span class="spinner-border text-danger" role="status"></span>`;
 
-        fetch("http://34.93.164.215:9000/rydr/v1/payout/verifyPan", {
+        fetch(verify_pan_api, {
           method: "POST",
           headers,
           body: JSON.stringify({ pan: PANnumber }),
         })
           .then((response) => response.json())
           .then((data) => {
-            if (data.data.valid) {
-              console.log("PAN data", data);
-              document.getElementById("pan-card-next").innerText = "Verify";
-
-              document.getElementById("pan-card-next").style.display = "none";
-
-              // Show photo logic
-              console.log('Showing img')
-              document.getElementById('PAN_photos').style.display = 'block'
-
-              // Handle image previews and changes for RC photo
-              // handleImagePreview("pan_front_photo", "pan_front_photo_preview");
-              handleImageChange("pan_front_photo_preview", "pan_front_photo");
-
-              // Submit photo logic for RC
-              document.getElementById("submit-pan-photo").addEventListener("click", () => {
-                const front_PAN = document.getElementById("pan_front_photo").files[0];
-
-
-                if (!front_PAN) {
-                  alert("Please upload the front photo of your PAN Card.");
-                  return;
-                }
-
-                const formData = new FormData();
-                formData.append("docType", "PAN");
-                formData.append("docNumber", panNumber);
-                formData.append("documentFront", front_PAN);
-
-                fetch("http://34.93.164.215:9000/rydr/v1/driver/upload", {
-                  method: "POST",
-                  headers: {
-                    Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-
-                  },
-                  body: formData,
-                })
-                  .then((response) => {
-                    if (!response.ok) {
-                      throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                  })
-                  .then((data) => {
-                    console.log("PAN Photo Upload Response:", data);
-                    console.log(data)
-                    window.location.reload(); // Refresh the page or handle success scenario
-                  })
-                  .catch((error) => {
-                    console.error("RC Photo Upload Network error:", error);
-                    // Handle network error
-                  });
-              })
-            }
-            else {
-              console.error("Error verifying PAN:", data);
-              // Reset button text after fetch completes
+            console.log('Checking pan Data', data)
+            if (data.code == 400) {
+              alert(data.message);
               document.getElementById('pan-card-next').innerText = "Next";
+
+            } else {
+              if (data.data.valid) {
+                console.log("PAN data", data);
+
+                // document.getElementById("pan-card-next").innerText = "Verify";
+
+                document.getElementById("pan-card-next").style.display = "none";
+
+                // Show photo logic
+                console.log('Showing img')
+
+                //Only Work When edit Number Clicked
+                document.getElementById("updatepan").disabled = false;
+                document.getElementById("updatepan").style.backgroundColor = '#C30000'
+                document.getElementById("edit_pan_number_warning").style.display = "none";
+
+
+                document.getElementById('PAN_photos').style.display = 'block'
+                document.getElementById("submit-pan-photo").style.display = 'block'
+                // Handle image previews and changes for RC photo
+                handleImagePreview("pan_front_photo", "pan_front_photo_preview");
+                handleImageChange("pan_front_photo_preview", "pan_front_photo");
+
+                // Submit photo logic for RC
+                document.getElementById("submit-pan-photo").addEventListener("click", () => {
+                  const front_PAN = document.getElementById("pan_front_photo").files[0];
+
+
+                  if (!front_PAN) {
+                    alert("Please upload the front photo of your PAN Card.");
+                    return;
+                  }
+
+                  const formData = new FormData();
+                  formData.append("docType", "PAN");
+                  formData.append("docNumber", panNumber);
+                  formData.append("documentFront", front_PAN);
+
+                  fetch(document_upload, {
+                    method: "POST",
+                    headers: {
+                      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+                      'key': localStorage.getItem("mobileNumber"),
+                      app_token: 'bKbumwUX1vs8FLr8'
+
+                    },
+                    body: formData,
+                  })
+                    .then((response) => {
+                      if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                      }
+                      return response.json();
+                    })
+                    .then((data) => {
+                      console.log("PAN Photo Upload Response:", data);
+                      console.log(data)
+                      window.location.reload(); // Refresh the page or handle success scenario
+                    })
+                    .catch((error) => {
+                      console.error("RC Photo Upload Network error:", error);
+                      // Handle network error
+                    });
+                })
+              }
+              else {
+                console.error("Error verifying PAN:", data);
+                // Reset button text after fetch completes
+                document.getElementById('pan-card-next').innerText = "Next";
+              }
+
             }
+
           })
           .catch((error) => {
             console.error("Network error:", error);
@@ -1277,6 +1541,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (aadharNumber === "" || aadharNumber.length !== 12) {
       aadharNumberField.classList.add("empty_error");
       aadharNumberField.scrollIntoView({ behavior: "smooth", block: "center" });
+      alert('Aadhar card number must be 12 characters long')
       updateAccordionIcon("headingFive", false); // Error icon
     } else {
       document.getElementById(
@@ -1287,7 +1552,7 @@ document.addEventListener("DOMContentLoaded", function () {
         aadharNumber
       };
 
-      fetch("http://34.93.164.215:9000/rydr/v1/payout/verifyAADHAR", {
+      fetch(verify_aadhar_api, {
         method: "POST",
         headers,
         body: JSON.stringify(requestBody)
@@ -1301,12 +1566,12 @@ document.addEventListener("DOMContentLoaded", function () {
           return response.json();
         })
         .then((data) => {
+          console.log('OTP Data', data)
           if (data.data.status === 'SUCCESS') {
             ref_id = data.data.ref_id;
             console.log(ref_id);
             document.getElementById('aadhar_number_section').style.display = 'none';
             document.getElementById('aadhar-next').style.display = 'none';
-
             document.getElementById('aadhaar_otp').value = ''; // Clear the OTP input field
             document.getElementById('aadhar_otp_section').style.display = 'block';
             document.getElementById("aadhar-otp-verify").innerHTML = `Verify OTP`;
@@ -1347,7 +1612,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     // Fetch API call to verify Aadhaar OTP
-    fetch('http://34.93.164.215:9000/rydr/v1/payout/verifyAadharOtp', {
+    fetch(verify_aadhar_otp, {
       method: 'POST',
       headers,
       body: JSON.stringify(otpRequestBody)
@@ -1365,15 +1630,20 @@ document.addEventListener("DOMContentLoaded", function () {
         if (otpData.data) {
           console.log('OTP verification successful:', otpData);
 
+          document.getElementById("updateAADHAR").disabled = false
+          document.getElementById("updateAADHAR").style.backgroundColor = '#C30000'
+          document.getElementById("edit_aadhar_number_warning").style.display = "none";
+
           document.getElementById('aadhar_otp_section').style.display = 'none';
           document.getElementById('aadhar-otp-verify').style.display = 'none';
 
           document.getElementById('aadhar_number_section').style.display = 'block';
           document.getElementById("AADHAR_Photos").style.display = 'block';
+          document.getElementById("submit-aadhar-photo").style.display = 'block';
 
           // Call the functions for AADHAR front and back photos
-          // handleImagePreview("aadhar_front_photo", "aadhar_front_photo_preview");
-          // handleImagePreview("aadhar_back_photo", "aadhar_back_photo_preview");
+          handleImagePreview("aadhar_front_photo", "aadhar_front_photo_preview");
+          handleImagePreview("aadhar_back_photo", "aadhar_back_photo_preview");
           handleImageChange("aadhar_front_photo_preview", "aadhar_front_photo");
           handleImageChange("aadhar_back_photo_preview", "aadhar_back_photo");
 
@@ -1400,12 +1670,14 @@ document.addEventListener("DOMContentLoaded", function () {
               formData.append("documentFront", front_AADHAR);
               formData.append("documentBack", back_AADHAR);
 
-              fetch("http://34.93.164.215:9000/rydr/v1/driver/upload", {
+              fetch(document_upload, {
                 method: "POST",
                 headers: {
                   Authorization: `Bearer ${localStorage.getItem(
                     "accessToken"
                   )}`,
+                  'key': localStorage.getItem("mobileNumber"),
+                  app_token: 'bKbumwUX1vs8FLr8'
                 },
                 body: formData,
               })
@@ -1438,8 +1710,8 @@ document.addEventListener("DOMContentLoaded", function () {
         // }
       })
       .catch(function (otpError) {
-
-        if (error.message === 'Unauthorised') {
+        console.log('AAdhar Checking Wrong OTP', otpError)
+        if (otpError.message === 'Unauthorised') {
           console.log("Clearing local storage");
           alert('Session Expired')
           window.location.href = 'login.html'
@@ -1482,7 +1754,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ifscCodeInput.classList.remove('is-invalid'); // Remove invalid class
 
       try {
-        const response = await fetch(`http://34.93.164.215:9000/rydr/v1/payout/${ifscCode}`);
+        const response = await fetch(`http://34.93.164.215:5000/sheRyds/v1/payout/${ifscCode}`);
         if (!response.ok) {
           throw new Error('API request failed');
         }
@@ -1514,15 +1786,20 @@ document.addEventListener("DOMContentLoaded", function () {
   // Add event listener for submit button click
   bankSubmitBtn.addEventListener('click', function () {
 
-
-    const username = document.getElementById('username').value.trim();
+    // Check if all fields are filled
+    const accHolderName = document.getElementById('acc_holder_name').value.trim();
     const accNumber = document.getElementById('acc-number').value.trim();
     const confirmAccNumber = document.getElementById('confirm-acc-number').value.trim();
     const ifscCode = document.getElementById('ifsc-code').value.trim();
     const bankName = document.getElementById('bank-name').value;
 
-    // Check if all fields are filled
-    if (username === '' || accNumber === '' || confirmAccNumber === '' || ifscCode === '') {
+    console.log('accHolderName:', accHolderName);  // Debugging
+    console.log('Account Number:', accNumber);  // Debugging
+    console.log('Confirm Account Number:', confirmAccNumber);  // Debugging
+    console.log('IFSC Code:', ifscCode);  // Debugging
+    console.log('Bank Name:', bankName);  // Debugging
+
+    if (accHolderName === '' || accNumber === '' || confirmAccNumber === '' || ifscCode === '') {
       alert('Please fill out all fields');
       return;
     }
@@ -1537,22 +1814,28 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('acc-number-feedback').textContent = '';
 
 
-    fetch('http://34.93.164.215:9000/rydr/v1/payout/saveBankDetails', {
+    fetch(save_bank_details, {
       method: "POST",
       headers,
       body: JSON.stringify({
         "bankAccount": accNumber,
         "ifsc": ifscCode,
-        "accountHolderName": username,
+        "accountHolderName": accHolderName,
         "bankName": bankName
 
       })
     })
       .then(response => response.json())
       .then(data => {
+
+        if (data.status == 400) {
+          alert(data.message)
+        } else {
+          alert('Bank Account Added Succesfully')
+          window.location.reload();
+        }
         // Handle API response (if needed)
-        alert('Bank Account Added Succesfully')
-        console.log('Success:', data);
+
         // Optionally, show success message or redirect
       })
       .catch(error => {
@@ -1572,7 +1855,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     else {
 
-      fetch('http://34.93.164.215:9000/rydr/v1/payout/saveBankDetails', {
+      fetch(save_bank_details, {
         method: 'POST',
         headers,
         body: JSON.stringify({
@@ -1583,9 +1866,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
           alert(data.message)
           // console.log(data.code)
-
-
-
         })
         .catch(error => {
           console.error('Error:', error);

@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="Styles/Responsive/M.css">
     <link rel="stylesheet" href="Styles/Responsive/S.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
     <script src="JS/jquery.min.js"></script>
 </head>
 
@@ -89,6 +92,13 @@
                                         </a>
                                     </div>
 
+                                    <div class="login-register-btn" data-toggle="modal" id="loginButton"
+                                        data-target="#customer-login">
+                                        <!-- <a href="login.html">
+                                            <div class="log-in">Log In</div>
+                                        </a> -->
+                                    </div>
+
                                 </div>
                             </div>
                         </nav>
@@ -135,7 +145,11 @@
                                  " data-target="#myModal">Download SheRyds</button>
 
 
-                            <button type="button" class="btn-1 btn-sec dwn">Sign-up as SheRydr</button>
+                            <!-- <button type="button" class="btn-1 btn-sec dwn">Sign-up as SheRydr</button> -->
+
+                            <div class="btn-1" id="signup-driver">
+                                <a href="login.html"> <button class="btn-1 btn-sec dwn">SignUp as SheRydr</button></a>
+                            </div>
 
                             <!-- <div class="btn-1 ">
                                 <a href="/">
@@ -340,7 +354,7 @@
 
                         <div class=" why-choose-div col-lg-6 col-md-6 ">
                             <div>
-                                <h2 class="sub-heading mb-lg-4 prime-head ">Why Choose Us</h2>
+                                <h2 class="sub-heading mb-lg-3 prime-head ">Why Choose Us</h2>
                             </div>
                             <div class="points">
                                 <div>
@@ -371,6 +385,8 @@
                                 </div>
                             </div>
 
+
+
                             <div class="points">
                                 <div>
                                     <img src="she_ryds_img/affordable.png" alt="">
@@ -380,6 +396,18 @@
                                     <p class=" text-start" style="font-family: ExtraBoldPlusJakarta;">Affordable Pricing
                                     </p>
                                     <p>Affordable and transparent pricing mechanism for all rides.</p>
+                                </div>
+                            </div>
+
+                            <div class="points">
+                                <div>
+                                    <img src="she_ryds_img/affordable.png" alt="">
+                                </div>
+                                <div class=" points-desc">
+                                    <!-- <p><strong>Pricing </strong></p> -->
+                                    <p class=" text-start" style="font-family: ExtraBoldPlusJakarta;">Subscription Plans
+                                    </p>
+                                    <p>Attractive subscription plans for regular taxi users.</p>
                                 </div>
                             </div>
 
@@ -402,7 +430,8 @@
                                 </div>
                                 <div class=" points-desc">
                                     <!-- <p><strong>Tree Plantation</strong></p> -->
-                                    <p class=" text-start" style="font-family: ExtraBoldPlusJakarta;">Empower Women</p>
+                                    <p class=" text-start" style="font-family: ExtraBoldPlusJakarta;">Empowerimg Women
+                                    </p>
                                     <p>Every Ride taken with She Ryds, offers employment and earning potential to women
                                         with dignity.</p>
                                 </div>
@@ -583,8 +612,8 @@
             <div class="">
                 <div class=" footer-section">
 
-                    <div class="col-lg-4 col-md-4 col-6 d-flex flex-column  footer-apps">
-                        <div class="download-app about_dow_app">
+                    <div class="col-lg-2 col-md-2 col-6 d-flex flex-column justify-content-center footer-apps">
+                        <!-- <div class="download-app about_dow_app">
                             <p>Download Customer App</p>
                             <div class="app-links about_app_link">
                                 <div class="playStore">
@@ -597,15 +626,15 @@
                                             alt="Apple Store"></a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="download-app about_dow_app">
+                        </div> -->
+                        <!-- <div class="download-app about_dow_app">
                             <p>Download She Rydr App</p>
                             <div class="app-links about_app_link app-2">
                                 <a href="playstore-link"><img src="Images/Google_Play_Store_badge_EN.svg.png"
                                         alt="Play Store"></a>
 
                             </div>
-                        </div>
+                        </div> -->
                         <div class="social-links about-social-link">
                             <a href="facebook-link"><img class="socialImg" src="she_ryds_img/Facebook.png" alt=""></a>
                             <a href="twitter-link"><img class="socialImg" src="she_ryds_img/Twitter.png" alt=""></a>
@@ -615,7 +644,7 @@
                     </div>
 
 
-                    <div class="col-lg-2 col-md-2 col-6  ">
+                    <div class="col-lg-3 col-md-3 col-6  ">
                         <h5 class="footer-heading">Shortcuts</h5>
                         <div class="list-unstyled">
                             <li><a class="direct-links" href="index.html">Home</a></li>
@@ -739,11 +768,11 @@
 
         if (token) {
             signUpbuttonName = `<a href="${htmlPage}"><button class="btn-sec" id="signup-driver">
-                                 SIGNUP AS DRIVER</button></a>`
+                                 SignUp as SheRydr</button></a>`
         }
         else {
             signUpbuttonName = `<a href="login.html"><button class="btn-sec" id="signup-driver">
-                                 SIGNUP AS DRIVER</button></a>`
+                                 SignUp as SheRydr</button></a>`
         }
 
         document.getElementById('signup-driver').innerHTML = signUpbuttonName

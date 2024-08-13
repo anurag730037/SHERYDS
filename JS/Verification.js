@@ -1,5 +1,9 @@
 // JavaScript
 var mobileNumber; // Define mobileNumber globally
+var send_otp = 'http://34.93.164.215:5000/sheRyds/v1/driver/verify-mobile';
+var submit_otp = 'http://34.93.164.215:5000/sheRyds/v1/otp/verify';
+var fetch_cities = 'http://34.93.164.215:5000/sheRyds/v1/serviceableCities/city-list';
+
 
 const GETOTP = () => {
     var mobileNumberInput = document.getElementById('mobilenumber');
@@ -20,10 +24,11 @@ const GETOTP = () => {
     };
 
     // API call to send OTP using Fetch
-    fetch('http://34.93.164.215:9000/rydr/v1/driver/verify-mobile', {
+    fetch(send_otp, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            app_token: 'bKbumwUX1vs8FLr8'
         },
         body: JSON.stringify(requestBody)
     })
@@ -36,6 +41,7 @@ const GETOTP = () => {
         .then(data => {
             console.log('OTP sent successfully:', data);
             // Hide the getotp section and show the submitotp section
+            localStorage.setItem('mobileNumber', mobileNumber);
             document.getElementById('getotpSection').style.display = 'none';
             document.getElementById('heading').style.display = 'none';
             document.getElementById('submitotpSection').style.display = 'block';
@@ -49,29 +55,29 @@ const GETOTP = () => {
 
 
 // Fetch Cities Was Here
-const fetchCities = () => {
-    fetch('http://34.93.164.215:9000/rydr/v1/serviceableCities/city-list')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            const citySelect = document.getElementById('city');
-            citySelect.innerHTML = ''; // Clear existing options
-            data.data.forEach(city => {
-                const option = document.createElement('option');
-                option.value = city;
-                option.textContent = city;
-                citySelect.appendChild(option);
-            });
-        })
-        .catch(error => {
-            console.error('Error fetching cities:', error);
-            alert('Error fetching cities. Please try again.');
-        });
-}
+// const fetchCities = () => {
+//     fetch(fetch_cities)
+//         .then(response => {
+//             if (!response.ok) {
+//                 throw new Error('Network response was not ok');
+//             }
+//             return response.json();
+//         })
+//         .then(data => {
+//             const citySelect = document.getElementById('city');
+//             citySelect.innerHTML = ''; // Clear existing options
+//             data.data.forEach(city => {
+//                 const option = document.createElement('option');
+//                 option.value = city;
+//                 option.textContent = city;
+//                 citySelect.appendChild(option);
+//             });
+//         })
+//         .catch(error => {
+//             console.error('Error fetching cities:', error);
+//             alert('Error fetching cities. Please try again.');
+//         });
+// }
 
 const SUBMITOTP = () => {
     var otpInput = document.getElementById('otp');
@@ -88,10 +94,12 @@ const SUBMITOTP = () => {
     };
 
     // Fetch API call to verify OTP
-    fetch('http://34.93.164.215:9000/rydr/v1/otp/verify', {
+    fetch(submit_otp, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            app_token: 'bKbumwUX1vs8FLr8',
+            'key': localStorage.getItem("mobileNumber")
         },
         body: JSON.stringify(requestBody)
     })
@@ -107,7 +115,7 @@ const SUBMITOTP = () => {
             localStorage.setItem('accessToken', data?.data?.accessToken);
             localStorage.setItem('memberId', data?.data?.user?.memberId);
             localStorage.setItem('memberType', data?.data?.user?.memberType);
-            localStorage.setItem('mobileNumber', data?.data?.user?.mobileNumber);
+
 
             localStorage.setItem('cityName', data?.data?.user?.cityName);
             localStorage.setItem('vehicleType', data?.data?.user?.vehicleType);

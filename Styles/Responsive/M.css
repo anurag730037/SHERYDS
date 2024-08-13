@@ -279,7 +279,7 @@
     }
 
     .social-links img {
-        width: 60%;
+        width: 15%;
     }
 
     .footer-heading {
@@ -371,7 +371,7 @@
 
     .social-links {
         padding-left: 15px;
-        gap: 0px;
+        gap: 20px;
     }
 
     .list-unstyled {
@@ -628,13 +628,11 @@
     }
 
 
-    .points {
-        margin: 7px 0;
-    }
+
 
     .points {
         gap: 17px;
-        margin: 8px 0;
+        margin-top: 7px;
         width: 95%;
     }
 

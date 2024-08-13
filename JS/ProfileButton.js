@@ -5,18 +5,18 @@ window.addEventListener('DOMContentLoaded', function () {
     let htmlPage = ''
     var buttonName = ''
 
-    console.log(token)
+    console.log(typeof cityName)
 
 
-    if (token && token.length > 0 && cityName && cityName.length > 0 && vehicle && vehicle.length > 0) {
+    if (token && token.length > 0 && cityName && cityName.length > 0 && cityName !== 'undefined' && vehicle && vehicle.length > 0 && vehicle !== 'undefined') {
         // window.location.href = 'oldRegistration.html'
         htmlPage = 'oldRegistration.html'
     }
-    else if (token && token.length > 0 && !cityName) {
+    else if (token && token.length > 0 && cityName === 'undefined') {
         // window.location.href = 'SelectCities.html'
         htmlPage = 'SelectCities.html'
     }
-    else if (token && token.length > 0 && !vehicle) {
+    else if (token && token.length > 0 && vehicle === 'undefined') {
         // window.location.href = 'SelectVehicle.html'
         htmlPage = 'SelectVehicle.html'
     }
@@ -26,16 +26,33 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     if (token) {
-        buttonName = `<a href="${htmlPage}">
-                            <div class="log-in">Continue </div>
+        if (window.matchMedia("(max-width: 981px)").matches) {
+            buttonName = `<a href="${htmlPage}" class="d-flex justify-content-center align-items-center">
+                                    <div class="log-in profile" style="border-radius: 5px; width: 90%; margin-top:15px">Profile</div>
+                                </a>`
+        } else {
+            buttonName = `<a href="${htmlPage}">
+                            <div class="log-in profile" style="border-radius: 50%;"><i class="fa-regular fa-user"></i></div>
                         </a>`
+        }
     }
     else {
-        buttonName = `<a href="login.html">
-                            <div class="log-in">Log In</div>
+        if (window.matchMedia("(max-width: 981px)").matches) {
+            buttonName = `<a href="${htmlPage}" class="d-flex justify-content-center align-items-center">
+                                    <div class="log-in profile" style="border-radius: 5px; width: 90%; margin-top: 15px">Profile</div>
+                                </a>`
+        }
+        else {
+            buttonName = `<a href="login.html">
+                             <div class="log-in profile" style="border-radius: 50%;"><i class="fa-regular fa-user"></i></div>
                         </a>`
+        }
     }
-
-
     document.getElementById('loginButton').innerHTML = buttonName
+
+
 })
+
+
+
+

@@ -580,6 +580,10 @@
         margin-bottom: 20px;
 
     }
+
+    .accordion .form-control {
+        font-size: 0.9rem !important;
+    }
 }
 
 
@@ -698,7 +702,7 @@
     }
 
     .social-links img {
-        width: 75%;
+        width: 20%;
     }
 
     .sub-heading {

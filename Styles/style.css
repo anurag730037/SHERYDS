@@ -83,7 +83,7 @@ a {
 }
 
 .current-item {
-    color: #C30000;
+    color: #F267AC;
 }
 
 .know-more {
@@ -143,7 +143,7 @@ a {
 }
 
 .classynav {
-    gap: 20px;
+    gap: 10px;
 }
 
 @media (max-width: 1050px) {
@@ -226,12 +226,12 @@ a {
     text-decoration: none !important;
 }
 
-.log-in:hover,
+/* .log-in:hover,
 .log-in:focus {
     color: #F267AC;
     background-color: white;
     border: 1px solid #F267AC;
-}
+} */
 
 /* Initially hide the menu button */
 .menu-icon {
@@ -411,7 +411,7 @@ a {
     border: none;
     background-color: white;
     font-weight: 500;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
 .title-img {
@@ -569,10 +569,10 @@ a {
 
 .points {
     display: flex;
-    gap: 15px;
+    gap: 10px;
     margin: 0px 0;
-    margin-top: 25px;
-    width: 90%;
+    margin-top: 15px;
+    width: 93%;
 }
 
 .whats {
@@ -983,6 +983,7 @@ a {
 .social-links {
     padding-left: 0px !important;
     display: flex;
+    flex-direction: column;
     gap: 10px;
 
 }
@@ -990,6 +991,9 @@ a {
 .social-links a {
     margin: 0 8px;
     color: #ffffff;
+    display: flex;
+    justify-content: center;
+
 }
 
 
@@ -1130,11 +1134,11 @@ a {
     padding: 8px 16px;
 }
 
-.form-control {
+/* .form-control {
 
     color: #212529;
     background-color: #f8e9eb !important
-}
+} */
 
 .footer-bottom {
     border-top: 1px solid #ddd;
@@ -1578,7 +1582,7 @@ a {
 
 /* Registraion  */
 
-.registraion-top {
+/* .registraion-top {
     background-image:
         linear-gradient(90deg, rgb(194, 13, 13) 10%, rgba(194, 13, 13) 30%, rgba(138, 130, 130, 0) 50%),
         url("../Images/registerBanner.png") !important;
@@ -1588,7 +1592,7 @@ a {
     background-repeat: no-repeat;
     background-position: right;
     background-position: right center;
-}
+} */
 
 
 #profile-form {
@@ -1656,12 +1660,15 @@ a {
   } */
 
 .accordion-button:not(.collapsed) {
-    background-color: #f9e5e5 !important;
+    background-color: white !important;
     color: #303030 !important;
+    font-weight: 800;
+    padding-bottom: 1rem;
+
 }
 
 .accordion-button:focus {
-    box-shadow: 0 0 0 0.10rem rgba(255, 238, 238, 0.993) !important;
+    /* box-shadow: 0 0 0 0.10rem rgba(255, 238, 238, 0.993) !important; */
 }
 
 .accordion-content {
@@ -1710,7 +1717,7 @@ a {
 
 
 .reg-but {
-    background-color: #C30000;
+    background-color: #F267AC;
     color: white;
     padding: 10px;
     font-size: 25px;
@@ -1720,13 +1727,13 @@ a {
 
 .reg-but:hover {
     background-color: white;
-    color: #C30000;
-    border: 1px solid #C30000;
+    color: #F267AC;
+    border: 1px solid #F267AC;
 }
 
 
 .next-btn {
-    background-color: #C30000;
+    background-color: #F267AC;
     color: white;
     border-radius: 5px;
     border: 1px solid white;
@@ -1736,8 +1743,8 @@ a {
 
 .next-btn:hover {
     background-color: white;
-    color: #C30000;
-    border: 1px solid #C30000;
+    color: #F267AC;
+    border: 1px solid #F267AC;
 }
 
 .col-form-label {
@@ -1955,7 +1962,7 @@ input::file-selector-button {
 .edit-icon {
     cursor: pointer;
     font-weight: 500;
-    color: #C30000;
+    color: #F267AC;
 }
 
 @media (max-width: 800px) {
@@ -2137,9 +2144,10 @@ placehokdr {
 .log-in i {
     width: 100%;
     color: white;
-    width: 50px;
-    height: 50px;
+}
 
+.log-in i {
+    padding: 3px;
 }
 
 .about-section {
@@ -2236,7 +2244,7 @@ placehokdr {
     .points {
         gap: 22px;
         margin: 0px 0;
-        margin-top: 25px;
+        margin-top: 13px;
     }
 
     .safety-page-top {
@@ -2474,4 +2482,585 @@ placehokdr {
     box-shadow: 0 4px 8px rgba(151, 151, 151, 0.377);
     padding: 20px;
     border-radius: 8px;
+}
+
+
+
+
+
+/* Registraion  */
+
+/* .registraion-top {
+    background-image:
+        linear-gradient(90deg, rgb(194, 13, 13) 10%, rgba(194, 13, 13) 30%, rgba(138, 130, 130, 0) 50%),
+        url("../Images/registerBanner.png") !important;
+    background-color: transparent;
+    background-blend-mode: normal;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-position: right center;
+} */
+
+
+#profile-form {
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.circle-profile-icon {
+    position: relative;
+
+    width: 90px;
+    height: 90px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+}
+
+.circle-profile-icon input[type=file] {
+    display: none;
+}
+
+.circle-profile-icon label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.circle-profile-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.circle-profile-icon span {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.accordion-item {
+    margin-top: 10px;
+    box-shadow: 4px 4px #afa9a9;
+    border-radius: 8px;
+}
+
+/* .accordion:active{
+    background-color: #f5bdbd !important;
+  } */
+
+
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.10rem rgba(255, 238, 238, 0.993) !important;
+}
+
+.accordion-content {
+    display: none;
+    flex-direction: column;
+    margin-top: 10px;
+    background-color: transparent;
+    border-radius: 5px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    padding: 10px;
+}
+
+.accordion-content img {
+    width: 35px;
+    height: 35px;
+    margin: 5px 0;
+}
+
+.accordion-content a {
+    /* padding: 5px; */
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    /* border-top: 1px solid #f1f1f1; */
+    font-size: 14px;
+}
+
+.accordion-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.accordion-content a:first-child {
+    border-top: none;
+}
+
+.accordion {
+    width: 70%;
+    z-index: 100;
+}
+
+.accordion-button {
+    font-size: 1.3rem !important;
+    font-weight: 500;
+}
+
+
+
+.reg-but {
+    background-color: #F267AC;
+    color: white;
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 20px;
+    border: 1px solid white;
+}
+
+.reg-line {
+    color: white !important;
+    font-weight: 700;
+}
+
+.reg-but:hover {
+    background-color: white;
+    color: #F267AC;
+    border: 1px solid #F267AC;
+}
+
+
+.next-btn {
+    background-color: #F267AC;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid white;
+    padding: 5px 10px;
+    font-size: 22px;
+}
+
+.next-btn:hover {
+    background-color: white;
+    color: #F267AC;
+    border: 1px solid #F267AC;
+}
+
+.col-form-label {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 17px !important;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #000000;
+    background-color: #efefef;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 1rem !important;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.form-select {
+    width: 50% !important;
+    font-size: 1.2rem !important;
+}
+
+
+
+
+
+
+
+
+/* Hide the arrow buttons in WebKit browsers (Chrome, Safari, Edge) */
+#mobilenumber::-webkit-outer-spin-button,
+#mobilenumber::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Prevent the input from appearing as a number input in WebKit browsers */
+#mobilenumber[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Hide the arrow buttons in Firefox */
+#mobilenumber[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
+#bike img {
+    width: 20%;
+}
+
+.vehicle-list ul li {
+    border: 1px solid transparent;
+    border-radius: 20px;
+    margin-top: 0.4rem;
+    cursor: pointer;
+}
+
+.vehicle-list ul li.active {
+    border: 1px solid rgb(255, 0, 0);
+    border-radius: 20px;
+    margin-top: 0.4rem;
+    cursor: pointer;
+}
+
+.vehicle-heading {
+    padding: 5px;
+    font-size: 1.2rem;
+}
+
+
+.vehicle_img {
+    width: 30%;
+    padding: 5px 0px;
+}
+
+.vl_continue {
+    background-color: #555;
+    color: white;
+    font-weight: 500;
+
+    font-size: 15px;
+    border: 1px solid white;
+    padding: 7px 25px;
+    border-radius: 7px;
+    margin: 5px;
+}
+
+.square-input {
+    display: block;
+    height: 100px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    object-fit: cover;
+    display: block;
+    width: 150px;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #dad7d7;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.photo-input {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.front-choose,
+.back-choose {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input::file-selector-button {
+    display: none;
+}
+
+.remark {
+    text-align: center;
+    font-style: italic;
+    color: #c30000;
+    font-size: 0.8rem;
+    padding-left: 20px;
+    position: relative;
+    bottom: 10px;
+
+}
+
+
+.empty_error {
+    border: 1px solid rgba(255, 0, 0, 0.822) !important;
+}
+
+#aadhar-otp-verify {
+    margin: auto;
+}
+
+.vehicle_details,
+.pan_details {
+    margin: 10px 0px;
+}
+
+.button_centre {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.button-span {
+    padding: 15px;
+    background-color: #F267AC;
+    color: white;
+    border-radius: 10px;
+}
+
+.center_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    border: 4px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 4px solid #3498db;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.d-none {
+    display: none;
+}
+
+#addhar_feedback {
+    color: grey;
+    font-size: 13px;
+    padding: 5px;
+}
+
+.edit-icon {
+    cursor: pointer;
+    font-weight: 500;
+    color: #F267AC;
+}
+
+@media (max-width: 800px) {
+    .edit-icon {
+        font-size: 12px;
+    }
+}
+
+
+/* New Login  */
+.log-sec {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+
+}
+
+.login-logo {
+    display: flex;
+    justify-content: center;
+}
+
+.login-logo img {
+    width: 70%;
+    padding-top: 30px;
+
+}
+
+/* .login-div {
+    background: linear-gradient(180deg, #EE1414 0%, #930000 100%);
+    border-radius: 20px;
+    margin: 150px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    padding-bottom: 50px;
+} */
+
+.mob {
+    color: white;
+    font-weight: 500 !important;
+}
+
+
+.input-sec {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.otp-btn {
+    font-weight: 500;
+    background-color: white;
+    color: #F267AC;
+    font-size: 15px;
+    border: 1px solid white;
+    padding: 7px 25px;
+    border-radius: 7px;
+}
+
+/* 
+placehokdr {
+    font-family: Plus Jakarta Sans;
+    font-size: 16.88px;
+    font-weight: 400;
+    line-height: 21.27px;
+    text-align: left;
+
+} */
+
+.log-input {
+    font-size: 18px !important;
+    border: 1.21px solid #BCBEC0 !important;
+    border-radius: 12px 0px 0px 0px !;
+    font-weight: 500;
+}
+
+.login-banner {
+    position: relative;
+    width: 30%;
+    margin-top: 35px;
+}
+
+.no-spinner {
+    -moz-appearance: textfield;
+    /* Firefox */
+    -webkit-appearance: none;
+    /* Safari and Chrome */
+    appearance: none;
+}
+
+.no-spinner::-webkit-outer-spin-button,
+.no-spinner::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    /* Safari and Chrome */
+}
+
+.no-spinner::-moz-inner-spin-button {
+    display: none;
+    /* Firefox */
+}
+
+.city {
+    font-weight: 700;
+    background-color: white;
+}
+
+.vehicle_name {
+    color: white;
+}
+
+.terms_main p {
+    color: #212529;
+}
+
+.main-list li {
+    margin: 10px 0px;
+}
+
+.main-list li p {
+    margin: 5px 0px;
+}
+
+
+
+.edit {
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    margin: 10px;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+
+.curve-1 {
+    position: absolute;
+    width: 20%;
+    left: 25%;
+    z-index: 1;
+}
+
+.curve-2 {
+    position: absolute;
+    width: 20%;
+    left: 55%;
+    z-index: 1;
+}
+
+.log-in i {
+    width: 100%;
+    color: white;
+
+
+}
+
+.editNumber {
+    color: black;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+}
+
+.editNumber span {
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.editNumber span:hover {
+    background-color: white;
+    color: #F267AC;
+    border: 1px solid #F267AC;
+}
+
+
+
+.profile :hover {
+    background-color: #F267AC;
+}
+
+#signup-driver a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

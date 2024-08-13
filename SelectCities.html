@@ -77,11 +77,11 @@
                             <div class="classynav">
                                 <div>
                                     <ul id="nav" class="home-parent">
-                                        <li class="  text-decoration-none nav-items"><a href="./index.html">Home</a>
+                                        <li class=" text-decoration-none nav-items"><a href="./index.html">Home</a></li>
+                                        <li class=" text-decoration-none nav-items"><a href="safety.html">Safety</a>
                                         </li>
-                                        <li class="  text-decoration-none nav-items"><a href="safety.html">Safety</a>
-                                        </li>
-                                        <li class=" text-decoration-none nav-items"><a href="drive_with_us.html">Drive
+                                        <li class="text-decoration-none nav-items current-item"><a
+                                                href="Drive_with_us.html">Drive
                                                 with us</a></li>
                                         <li class="text-decoration-none nav-items"><a href="about_us.html">About
                                                 Us</a></li>
@@ -89,13 +89,15 @@
                                                 Initiatives</a></li> -->
                                     </ul>
                                 </div>
-                                <!-- <div>|</div> -->
-                                <div class="login-register-btn mx-3">
-                                    <a href="#" data-toggle="modal" data-target="#myModal">
-                                        <div class="log-in">Download the App</div>
-                                    </a>
-                                </div>
 
+                                <!-- <div>|</div> -->
+
+                                <!-- <div class="login-register-btn mx-3" data-toggle="modal" data-target="#customer-login">
+                                    <a href="">
+
+                                        <div class="log-in">HI</div>
+                                    </a>
+                                </div> -->
                             </div>
                         </div>
                     </nav>
@@ -106,95 +108,37 @@
 
     <main>
 
-        <!-- <section>
-            <div class=" registraion-top home-section">
-                <div class=" home-text with-us-text">
-                    <div class="side-text drive-text">
+        <section class="log-sec flex-column justify-content-center">
+            <div class="login-div" style="margin-bottom: 50px;">
 
-                        <span class="line-3" style="font-weight: 700;">"Registration"</span><br>
-                      
+                <div id="choose_city" style="display: block;">
+                    <div class="rydr-contact-form">
+
+                        <div class="container contact-heading mb-30">
+                            <h4 class="text-center mob" style="padding: 25px;">Select City !</h4>
+                            <p class="mb-4" style="color: whitesmoke;">Which city do you want to ride?</p>
+                        </div>
+                        <div class="container">
+                            <div class="wrap">
+                                <form action="#" class="d-flex flex-row justify-content-around">
+                                    <select class="select city mb-30 " name="city" id="city"></select>
+                                    <button type="button" value="" id="" class=" otp-btn "
+                                        onclick="cityNext()">Next</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
+
 
             </div>
-        </section> -->
 
-        <section class="log-sec">
-            <div class="login-div">
-                <!-- Modal Structure -->
-                <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog"
-                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                        aria-hidden="true">X</span></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="modal-section">
-                                    <h5 class="text-center fw-bold">Customer App</h5>
-                                    <div class="app-links">
-                                        <a href="playstore-link"><img src="Images/Google_Play_Store_badge_EN.svg.png"
-                                                alt="Play Store"></a>
-                                        <a href="applestore-link"><img src="Images/App_Store_Badge.svg (2).png"
-                                                alt="Apple Store"></a>
-                                    </div>
-                                </div>
-                                <div class="modal-divider"></div>
-                                <div class="modal-section">
-                                    <h5 class="text-center fw-bold">SheRydr App</h5>
-                                    <div class="app-links sherydr-app">
-                                        <a href="playstore-link"><img src="Images/Google_Play_Store_badge_EN.svg.png"
-                                                alt="Play Store"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-around align-items-center flex-column">
-                    <div class="login-logo">
-                        <img src="she_ryds_img/login-logo.png" alt="Logo">
-                    </div>
-                    <div class="getotp  " id="getotpSection">
-                        <div class="d-flex justify-content-center align-items-center flex-column">
-                            <div class="input-sec">
-                                <label for="mobilenumber" class="col-form-label mb-2 mob" id="heading">Enter Mobile
-                                    Number</label>
-                                <input type="number" class="form-control log-input" id="mobilenumber"
-                                    name="mobilenumber" required placeholder="10 digits number" autofocus>
-                            </div>
-                            <div class="mt-4">
-                                <button class="otp-btn" id="getOtpButton" onclick="GETOTP()">Get OTP</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="submitotp " id="submitotpSection" style="display: none;">
-                        <div class="d-flex justify-content-center align-items-center flex-column">
-                            <div class="input-sec">
-                                <label for="otp" class="col-form-label mb-2 mob">Enter OTP :</label>
-                                <input type="number" class="form-control log-input no-spinner" id="otp" name="otp"
-                                    maxlength="6" placeholder="Enter OTP" autofocus>
-
-                            </div>
-                            <div>
-                                <button class="otp-btn mt-3" id="submitOTP" onclick="SUBMITOTP()">Submit OTP</button>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-
-
-
-
-
-                </div>
+            <div class="d-flex justify-content-center mt-5 mb-5">
+                <button class="reg-but" onclick="logout()">
+                    Logout <i class="fa fa-arrow-right-from-bracket"></i>
+                </button>
             </div>
+
 
         </section>
 
@@ -207,34 +151,33 @@
     </main>
 
 
-
     <footer class="footer">
         <div class="">
             <div class=" footer-section">
 
                 <div class="col-lg-2 col-md-2 col-6 d-flex flex-column justify-content-center footer-apps">
                     <!-- <div class="download-app about_dow_app">
-                            <p>Download Customer App</p>
-                            <div class="app-links about_app_link">
-                                <div class="playStore">
-                                    <a href="playstore-link"><img src="Images/Google_Play_Store_badge_EN.svg.png"
-                                            alt="Play Store"></a>
-                                </div>
-
-                                <div>
-                                    <a href="applestore-link"><img src="Images/App_Store_Badge.svg (2).png"
-                                            alt="Apple Store"></a>
-                                </div>
-                            </div>
-                        </div> -->
-                    <!-- <div class="download-app about_dow_app">
-                            <p>Download She Rydr App</p>
-                            <div class="app-links about_app_link app-2">
+                        <p>Download Customer App</p>
+                        <div class="app-links about_app_link">
+                            <div class="playStore">
                                 <a href="playstore-link"><img src="Images/Google_Play_Store_badge_EN.svg.png"
                                         alt="Play Store"></a>
-
                             </div>
-                        </div> -->
+
+                            <div>
+                                <a href="applestore-link"><img src="Images/App_Store_Badge.svg (2).png"
+                                        alt="Apple Store"></a>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- <div class="download-app about_dow_app">
+                        <p>Download She Rydr App</p>
+                        <div class="app-links about_app_link app-2">
+                            <a href="playstore-link"><img src="Images/Google_Play_Store_badge_EN.svg.png"
+                                    alt="Play Store"></a>
+
+                        </div>
+                    </div> -->
                     <div class="social-links about-social-link">
                         <a href="facebook-link"><img class="socialImg" src="she_ryds_img/Facebook.png" alt=""></a>
                         <a href="twitter-link"><img class="socialImg" src="she_ryds_img/Twitter.png" alt=""></a>
@@ -261,7 +204,7 @@
                 <div class="col-lg-2 col-md-2 add-sec col-6">
                     <h5 class="footer-heading">Address</h5>
 
-                    <div class="add-div">
+                    <div class="add-div ">
                         <p><strong class="add">Registered Office:</strong><br>
                             737-738, 7 Floor, Mall of Jaipur, Gandhi Path, W B Block, Vaishali Nagar,
                             Jaipur, Raj 302021
@@ -315,65 +258,92 @@
         </div>
     </footer>
 
-
     </div>
-
     <script>
-        const mobile = document.getElementById('mobilenumber');
-
-        mobile.addEventListener('input', function (event) {
-            const value = event.target.value;
-
-            // Ensure only numbers are allowed (prevents unintended pasting)
-            if (!/^\d+$/.test(value)) {
-                mobile.value = value.replace(/[^0-9]/g, '');
-                return;
-            }
-
-            // Restrict to a maximum of 12 digits
-            if (value.length > 10) {
-                mobile.value = value.slice(0, 10);
-            }
-
-            // Check if the first digit is greater than or equal to 6
-            if (value.length > 0 && value[0] < '6') {
-                mobile.value = ''; // Clear the input if the first digit is less than 6
-                alert("The first digit must be greater than or equal to 6.");
-            }
-        });
-
+        const logout = () => {
+            console.log('Logout')
+            localStorage.clear();
+            window.location.href = 'index.html';
+        }
     </script>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        var fetch_cities = 'http://34.93.164.215:5000/sheRyds/v1/serviceableCities/city-list';
+
+        const fetchCities = () => {
+            fetch(fetch_cities)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const citySelect = document.getElementById('city');
+                    citySelect.innerHTML = ''; // Clear existing options
+                    data.data.forEach(city => {
+                        const option = document.createElement('option');
+                        option.value = city;
+                        option.textContent = city;
+                        citySelect.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching cities:', error);
+                    alert('Error fetching cities. Please try again.');
+                });
+        }
+
+        fetchCities();
+
+        const cityNext = () => {
+            var cityinput = document.getElementById('city');
+            var city = cityinput.value; // Get the OTP value and trim any extra spaces
+            // Construct the request body for OTP verification
+            var requestBody = {
+                CityName: city
+            };
+            fetch('http://34.93.164.215:5000/sheRyds/v1/driver/update-profile', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Authorization": `Bearer ${localStorage.getItem('accessToken')}`,
+                    'key': localStorage.getItem("mobileNumber"),
+                    app_token: 'bKbumwUX1vs8FLr8'
+                },
+                body: JSON.stringify(requestBody)
+            })
+                .then(function (response) {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(function (data) {
+                    console.log('City Sent successful:', data);
+                    localStorage.setItem('cityName', city)
+                    window.location.href = 'SelectVehicle.html';
+                })
+                .catch(function (error) {
+                    console.error('Error Sending City:', error);
+                    // Handle error, e.g., display error message to the user
+                    alert('Error Sending City. Please try again.');
+                });
+        }
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="JS/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/bootstrap.bundle.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/newBoot.js"></script>
-    <script src="JS/Verification.js"></script>
+    <!-- <script src="JS/Reg_process.js"></script> -->
     <script src="JS/contact-form.js"></script>
     <script src="JS/popper.min.js"></script>
     <script src="JS/uza.bundle.js"></script>
     <script src="JS/active.js"></script>
-    <script>
-        const otpinp = document.getElementById('otp');
 
-        otpinp.addEventListener('input', function (event) {
-            const value = event.target.value;
-
-            // Ensure only numbers are allowed (prevents unintended pasting)
-            if (!/^\d+$/.test(value)) {
-                otpinp.value = value.replace(/[^0-9]/g, '');
-                return;
-            }
-
-            // Restrict to a maximum of 12 digits
-            if (value.length > 6) {
-                otpinp.value = value.slice(0, 6);
-            }
-        });
-    </script>
 
 
 

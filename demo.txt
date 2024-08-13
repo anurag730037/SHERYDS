@@ -5,7 +5,7 @@
                 <div class="col-lg-4 col-md-4 col-6 d-flex flex-column justify-content-between">
                     <div class="footer-logo ">
                         <p><strong>Powered by :</strong></p>
-                        <img src="Images/new-logo.png" alt="Logo">
+                        <img src="she_ryds_img/she_logo.png" alt="Logo">
                     </div>
                     <div class="download-app">
                         <p>Download Our App</p>

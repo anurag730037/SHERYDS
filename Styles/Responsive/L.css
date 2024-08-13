@@ -146,8 +146,8 @@
     }
 
     .points {
-        gap: 18px;
-        margin: 8px 0;
+        gap: 15px;
+        margin-top: 8px;
         width: 100%;
     }
 
@@ -165,7 +165,8 @@
 
     .prime-head {
         margin-bottom: 0px !important;
-        line-height: 75px;
+        line-height: 55px;
+        margin-top: 0px;
     }
 
     .cust-part,
@@ -268,11 +269,11 @@
 
     .social-links {
         padding-left: 0px;
-        gap: 10px;
+        gap: 20px;
     }
 
     .socialImg {
-        width: 90%;
+        width: 30%;
     }
 
     .list-unstyled,
@@ -485,6 +486,8 @@
         width: 39%;
         right: 30px;
     }
+
+
 }
 
 @media (max-width: 1024px) {
