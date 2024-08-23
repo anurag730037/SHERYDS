@@ -215,8 +215,7 @@
                                 <form id="profile-form">
                                     <div class="d-flex justify-content-center align-items-center">
                                         <div class="circle-profile-icon">
-                                            <input type="file" id="profile_image" name="profile_image" accept="image/*"
-                                                onchange="previewprofileImage(event)">
+                                            <input type="file" id="profile_image" name="profile_image" accept="image/*">
                                             <label for="profile_image">
                                                 <img id="previewprofile" src="Images/profile-user.png"
                                                     alt="Profile Icon">
@@ -314,7 +313,7 @@
                         </div>
                     </div>
 
-                    <div style="display: none;" id="document-part">
+                    <div style="display: block;" id="document-part">
 
                         <!-- Driving License Accordion -->
 
@@ -335,8 +334,7 @@
                                         <div class="mb-3">
                                             <label for="dl_number" class="col-form-label">DL Number:</label>
                                             <input type="text" class="form-control" id="dl_number" name="dl_number"
-                                                placeholder="Example: DL-1234567890" required
-                                                oninput="this.value = this.value.toUpperCase()">
+                                                placeholder="" required oninput="this.value = this.value.toUpperCase()">
                                             <div class="editNumber mt-3 mb-4" id="change_dl_number"
                                                 style="display: none;">
                                                 <span>Change DL number <i class="fa fa-edit"></i> </span>
@@ -679,7 +677,7 @@
 
                                             <div class=" center_div border-bottom " id="btn-bank-details"
                                                 style="cursor: pointer;">
-                                                <h5 class="" id="bank">Bank Acc.
+                                                <h5 class="" id="bank">Bank Acc. <i class="fa fa-bank"></i>
                                                 </h5>
                                             </div>
                                             <div>
@@ -687,7 +685,7 @@
                                             </div>
                                             <div class=" center_div border-bottom" id="btn-upi"
                                                 style="cursor: pointer;">
-                                                <h5 class="" id="upi">UPI</h5>
+                                                <h5 class="" id="upi">UPI <i class="fa fa-credit-card"></i></h5>
                                             </div>
                                         </div>
                                     </div>
@@ -929,17 +927,16 @@
 
 
     <script>
-        function previewprofileImage(event) {
-            var input = event.target;
-            var reader = new FileReader();
+        // function previewprofileImage(event) {
+        //     var input = event.target;
+        //     var reader = new FileReader();
 
-            reader.onload = function () {
-                var img = document.getElementById('previewprofile');
-                img.src = reader.result;
-            };
-
-            reader.readAsDataURL(input.files[0]);
-        }
+        //     reader.onload = function () {
+        //         var img = document.getElementById('previewprofile');
+        //         img.src = reader.result;
+        //     };
+        //     reader.readAsDataURL(input.files[0]);
+        // }
 
         // Retrieve data from localStorage
         var mobileNumber = localStorage.getItem('mobileNumber');
@@ -958,6 +955,7 @@
             document.getElementById('upi-section').classList.add('d-none');
             document.getElementById('bank').classList.add('button-span');
             document.getElementById('upi').classList.remove('button-span');
+
         });
 
         document.getElementById('btn-upi').addEventListener('click', function () {

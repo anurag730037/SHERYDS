@@ -189,7 +189,7 @@ a {
 
 
 .home-parent li a {
-    font-size: 16px !important;
+    font-size: 13px !important;
     font-weight: 500;
     line-height: 32px;
     letter-spacing: -0.03em;
@@ -211,7 +211,7 @@ a {
     border-radius: 5.33px;
     opacity: 0px;
     text-align: center;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 500;
     line-height: 23px;
     letter-spacing: -0.03em;
@@ -318,7 +318,7 @@ a {
 
 .line-1 {
     color: black;
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 500;
     line-height: 38px;
     text-align: left;
@@ -329,7 +329,7 @@ a {
 
     font-family: BoldPlusJakarta;
     color: #F267AC;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 900;
     text-align: left;
     letter-spacing: 0.04em;
@@ -339,7 +339,7 @@ a {
 
 .home-points {
     color: black;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
 
     letter-spacing: 0.02em;
@@ -476,7 +476,7 @@ a {
 }
 
 .moto-head {
-    height: 30px;
+    height: 10px;
 }
 
 .points img {
@@ -485,7 +485,7 @@ a {
 }
 
 .moto-content p {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 25px;
     letter-spacing: 0.02em;
@@ -591,7 +591,7 @@ a {
     color: black;
     /* padding: 0px 10px; */
     letter-spacing: 0.03em;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .points-desc p strong {
@@ -644,12 +644,12 @@ a {
 }
 
 .card-text {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 25px;
     /* letter-spacing: -0.02em; */
     text-align: center;
-    padding: 10px 10px;
+    padding: 10px 20px 10px 10px;
 }
 
 .driver-part .card-title {
@@ -665,7 +665,7 @@ a {
     font-weight: 400;
     line-height: 25px;
     letter-spacing: -0.02em;
-    text-align: center;
+    text-align: justify !important;
 
 }
 
@@ -725,9 +725,11 @@ a {
 }
 
 .sherydr_verification p {
+    font-size: 14px;
     word-spacing: 0.3em;
     letter-spacing: 0.03em;
     width: 80%;
+    text-align: justify;
 }
 
 .new-saf-head-desc {
@@ -775,12 +777,12 @@ a {
 }
 
 .sherydr_verification_img img {
-    width: 35%;
+    width: 30%;
 }
 
 .cust-safety-img img {
 
-    width: 35%;
+    width: 30%;
 
 }
 
@@ -809,10 +811,10 @@ a {
 }
 
 .safety-text {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 25px;
-    text-align: left;
+    text-align: justify;
     padding: 0px 10px;
     /* padding-left: 10px; */
     font-weight: 400;
@@ -844,7 +846,7 @@ a {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
     /* margin-top: 65px; */
     /* padding-left: 140px; */
     text-align: center;
@@ -854,7 +856,7 @@ a {
 
 .line-bg-grey span {
     color: rgb(201 197 197);
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .line-bg-grey h4 {
@@ -919,7 +921,7 @@ a {
 .footer {
 
     background-color: #FFEFF1;
-    padding: 15px 0;
+    padding: 15px;
 }
 
 .footer-logo {
@@ -978,21 +980,23 @@ a {
 
 .socialImg {
     /* box-shadow: 0px 17.33px 24px 0px #11132314; */
+    width: 60%;
 }
 
 .social-links {
     padding-left: 0px !important;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: row;
+    justify-content: end;
+    gap: 0px;
 
 }
 
 .social-links a {
-    margin: 0 8px;
+    margin: 0 0px;
     color: #ffffff;
     display: flex;
-    justify-content: center;
+    justify-content: end;
 
 }
 
@@ -1019,7 +1023,7 @@ a {
 }
 
 .app-links img {
-    width: 95%;
+    width: 85%;
     margin: 15px 0px;
 }
 
@@ -1037,7 +1041,7 @@ a {
 }
 
 .footer-heading {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
     line-height: 30px;
     letter-spacing: -0.02em;
@@ -1053,14 +1057,23 @@ a {
 .add-sec {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.addresses {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
 }
 
 .add-div {
-    margin: auto 0px;
+    /* margin: auto 0px; */
 }
 
 .add-div p {
-    font-size: 15px;
+    font-size: 14px;
     /* font-weight: 600; */
 }
 
@@ -1069,7 +1082,7 @@ a {
 }
 
 .direct-links {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     text-align: left;
     color: #0e1118;
@@ -1091,7 +1104,7 @@ a {
 }
 
 .social-links {
-    justify-content: center;
+    justify-content: end;
 }
 
 .app-links {
@@ -1108,11 +1121,10 @@ a {
 .list-unstyled {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 .list-unstyled li {
-    margin-bottom: 25px;
+    margin-bottom: 3px;
 }
 
 .contact-form input,
@@ -1147,10 +1159,10 @@ a {
 .footer-bottom {
     border-top: 1px solid #ddd;
     padding: 10px 0;
-    margin-top: 17px;
+    margin-top: 3px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 0px 20px;
 }
@@ -1165,7 +1177,7 @@ a {
 .footer-end a {
     color: black;
     /* margin: 0px 20px; */
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
     /* line-height: 32px; */
     text-align: left;
@@ -1307,7 +1319,7 @@ a {
 }
 
 .app-title {
-    font-size: 16px;
+    font-size: 14px;
     font-family: ExtraBoldPlusJakarta;
     padding: 0px 5px;
 }
@@ -1321,7 +1333,7 @@ a {
 }
 
 .card-description p {
-    text-align: left;
+    text-align: justify;
 }
 
 .safety-card-body {
@@ -1345,7 +1357,7 @@ a {
 
 .safety-card-text {
     text-align: justify;
-    font-size: 15px;
+    font-size: 14px;
     color: #000000;
 }
 
@@ -1482,7 +1494,7 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 75%;
+    width: 65%;
 }
 
 .adv-sec-top,
@@ -1510,7 +1522,7 @@ a {
     /* flex-wrap: wrap; */
     flex-direction: column;
     justify-content: space-around;
-    gap: 20px;
+    gap: 25px;
     /* Adjust the gap between cards as needed */
 }
 
@@ -1537,14 +1549,14 @@ a {
 }
 
 .adv-card-img img {
-    max-width: 40%;
+    max-width: 37%;
     height: auto;
 }
 
 .adv-card-title h5 {
     margin: 5px 0;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 14px;
 }
 
 
@@ -1557,7 +1569,7 @@ a {
 
 .about-desc p {
     color: #000000;
-    font-size: 15px;
+    font-size: 14px;
     text-align: justify;
     margin: 20px 0px;
     word-spacing: 0.1em;
@@ -2270,6 +2282,7 @@ placehokdr {
     .card-text {
         font-size: 20px;
         line-height: 30px;
+        text-align: justify !important;
     }
 
     .app-title {
@@ -2289,7 +2302,7 @@ placehokdr {
     }
 
     .social-links {
-        justify-content: center;
+        justify-content: end;
     }
 
     .app-links {

@@ -274,18 +274,22 @@
         width: 45%;
     }
 
+    .footer-section {
+        padding: 0px;
+    }
+
     .app-links {
         display: flex;
         flex-direction: column;
     }
 
     .social-links img {
-        width: 15%;
+        width: 50%;
     }
 
     .footer-heading {
-        margin-top: 1.5rem;
-        font-size: 22px;
+        margin-top: 0.5rem;
+        font-size: 15px;
     }
 
     .footer-apps {
@@ -293,11 +297,11 @@
     }
 
     .direct-links {
-        font-size: 15px;
+        font-size: 10px;
     }
 
     .add-div p {
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .contact-form input {
@@ -330,12 +334,12 @@
 
     .footer-bottom p,
     .footer-end a {
-        font-size: 10px;
+        font-size: 8px;
         margin-top: 10px;
     }
 
     .footer-end a {
-        font-size: 12px;
+        font-size: 9px;
     }
 
     .add-sec,
@@ -371,16 +375,20 @@
     }
 
     .social-links {
-        padding-left: 15px;
-        gap: 20px;
+        justify-content: center;
+        padding-left: 0px;
+        gap: 0px;
     }
 
+
+
     .list-unstyled {
-        align-items: center;
+        /* align-items: center; */
     }
 
     .social-links a {
         margin: 0 0px;
+        justify-content: center;
     }
 
     .playStore a {

@@ -172,8 +172,17 @@
         align-items: center;
     }
 
+    .first-part {
+        flex-direction: column !important;
+    }
+
     .social-links {
-        gap: 30px;
+        gap: 0px;
+        justify-content: center;
+    }
+
+    .social-links a {
+        justify-content: center;
     }
 
     .playStore a {
@@ -469,10 +478,21 @@
 
     .list-unstyled li {
         text-align: center;
+        margin-bottom: 12px;
     }
+
 
     .adv-sec {
         align-items: center;
+    }
+
+    .addresses {
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    .social-links img {
+        width: 60%;
     }
 
     .adv-wid {
@@ -737,7 +757,7 @@
     }
 
     .social-links img {
-        width: 20%;
+        width: 50%;
     }
 
     .sub-heading {

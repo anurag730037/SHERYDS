@@ -90,16 +90,46 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }
 
-        if ((mainData[0].docType === "Profile" && mainData[0].status === "complete") && (mainData[1].docType === "DL" && mainData[1].status === "verified") && (mainData[2].docType === "RC" && mainData[2].status === "verified") && (mainData[3].docType === "PAN" && mainData[3].status === "verified") && (mainData[4].docType === "AADHAR" && mainData[4].status === "verified")) {
-          document.getElementById('bank-part').style.display = 'block';
-        }
-
+        // All Documents Including Payment Section is Verified
         if ((mainData[0].docType === "Profile" && mainData[0].status === "complete") && (mainData[1].docType === "DL" && mainData[1].status === "verified") && (mainData[2].docType === "RC" && mainData[2].status === "verified") && (mainData[3].docType === "PAN" && mainData[3].status === "verified") && (mainData[4].docType === "AADHAR" && mainData[4].status === "verified") && (mainData[5].docType === "Payment" && mainData[5].status === "complete")) {
           console.log('Everything is Verified')
           alert('Your All Documents are verified')
         }
 
+        // Showing Payment Section When All the Documents are Verified
+        if ((mainData[0].docType === "Profile" && mainData[0].status === "complete") && (mainData[1].docType === "DL" && mainData[1].status === "verified") && (mainData[2].docType === "RC" && mainData[2].status === "verified") && (mainData[3].docType === "PAN" && mainData[3].status === "verified") && (mainData[4].docType === "AADHAR" && mainData[4].status === "verified")) {
+          document.getElementById('bank-part').style.display = 'block';
+        }
 
+        function disableAccordionToggle(headingId, message) {
+          const accordionButton = document.querySelector(`#${headingId} .accordion-button`);
+          accordionButton.classList.add('disabled'); // Add a class to style as disabled
+
+          accordionButton.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent the toggle
+            event.stopPropagation(); // Stop the event from bubbling
+            alert(message);
+          });
+        }
+
+        // Check each document status and disable the corresponding accordion if verified/complete
+        const docStatus = {
+          "headingFour": "PAN",
+          "headingTwo": "DL",
+          "headingThree": "RC",
+          "headingFive": "AADHAR",
+          "headingSix": "Payment"
+        };
+
+        Object.keys(docStatus).forEach(headingId => {
+          const docType = docStatus[headingId];
+          const doc = mainData.find(d => d.docType === docType);
+          if (doc && (doc.status === "verified" || doc.status === "complete")) {
+            disableAccordionToggle(headingId, 'Already Verified');
+          }
+        });
+
+        // Showing Under Verification Message
         const md = mainData.filter((v) => ['DL', 'RC', 'AADHAR', 'PAN'].includes(v.docType))
         let count = 0;
         for (let m of md) {
@@ -119,13 +149,13 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   };
 
+
+  // AutoFill Already Submitted Profile Data from API
   const completeProfile = () => {
 
     document.getElementById('profile-next').innerText = `Update`
-
     // document.getElementById('profile-next').style.display = 'none'
     // document.getElementById('updateProfile').style.display = 'block'
-
     fetch(sherydr_details, {
       method: "GET",
       headers,
@@ -170,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   };
 
-
+  // AutoFill Already Submitted DL Data from API
   const DLNUM = '';
   const completeDL = () => {
     console.log('DL Auto Fill');
@@ -220,19 +250,17 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('front_photo_preview').disabled = false
             document.getElementById('back_photo_preview').disabled = false
 
-
             document.getElementById("driving-license-update").style.display = 'none';
             document.getElementById("front_photo_preview").style.display = "block";
             document.getElementById("back_photo_preview").style.display = "block";
 
             document.getElementById("updateDL").style.display = "block";
 
-            // handleImagePreview("dl_front_photo", "front_photo_preview");
+            handleImagePreview("dl_front_photo", "front_photo_preview");
             handleImageChange("front_photo_preview", "dl_front_photo");
 
-            // handleImagePreview("dl_back_photo", "back_photo_preview");
+            handleImagePreview("dl_back_photo", "back_photo_preview");
             handleImageChange("back_photo_preview", "dl_back_photo");
-
           });
 
           document.getElementById("updateDL").addEventListener('click', () => {
@@ -278,15 +306,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       })
       .catch((error) => {
-
         console.error("Network error:", error);
         // Handle network error
       });
   };
 
-
   // completeDL();
-
 
   // Changing DL number Action
   document.getElementById('change_dl_number').addEventListener('click', () => {
@@ -309,13 +334,13 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('dl_back_photo').value = '';
 
     document.getElementById("driving-license-next").innerHTML = `Verify`;
-    document.getElementById("updateDL").style.display = 'none'
-    document.getElementById("DL_photos").style.display = 'none'
-
+    document.getElementById("updateDL").style.display = 'none';
+    document.getElementById("DL_photos").style.display = 'none';
   })
   // Changing DL number Action END
 
 
+  // AutoFill Already Submitted RC Data from API
   const completeRC = () => {
     document.getElementById('ownership_list').style.display = 'none'; // Because From backend We Didnt Get Ownership
     const frontRC = document.getElementById('rc_front_photo_preview');
@@ -372,8 +397,7 @@ document.addEventListener("DOMContentLoaded", function () {
           handleImageChange("rc_front_photo_preview", "rc_front_photo");
 
           document.getElementById("rc_Edit").style.display = 'none';
-          document.getElementById("updaterc").style.display = 'block'
-
+          document.getElementById("updaterc").style.display = 'block';
         })
 
         document.getElementById("updaterc").addEventListener('click', () => {
@@ -409,7 +433,6 @@ document.addEventListener("DOMContentLoaded", function () {
               // Handle network error
             });
         });
-
       })
 
   }
@@ -427,7 +450,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('rc_front_photo_preview').src = '';
     document.getElementById("pan_front_photo").value = '';
 
-
     document.getElementById('change_vehicle_number').style.display = 'none'
     document.getElementById("edit_vehicle_number_warning").style.display = "flex";
     document.getElementById("vehicle-rc-next").style.display = "block";
@@ -435,17 +457,14 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("vehicle-rc-next").innerHTML = `Verify`;
     document.getElementById("updaterc").style.display = 'none'
     // document.getElementById("updateAADHAR").classList.remove('next-btn')
-
     document.getElementById('RC_photos').style.display = 'none'
     document.getElementById('rc_Edit').style.display = 'none'
-
-
   })
   // Changing Vehicle number Action END
 
 
 
-
+  // AutoFill Already Submitted PAN Data from API
   const completePAN = () => {
     const frontPAN = document.getElementById('pan_front_photo_preview');
     fetch(get_pan, {
@@ -661,6 +680,9 @@ document.addEventListener("DOMContentLoaded", function () {
   //     });
   // };
 
+
+  // AutoFill Already Submitted AADHAR Data from API
+
   const completeAADHAR = () => {
     console.log('AADHAR Auto Fill');
     fetch(get_aadhar, {
@@ -718,10 +740,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             document.getElementById("updateAADHAR").style.display = "block";
 
-            // handleImagePreview("aadhar_front_photo", "aadhar_front_photo_preview");
+            handleImagePreview("aadhar_front_photo", "aadhar_front_photo_preview");
             handleImageChange("aadhar_front_photo_preview", "aadhar_front_photo");
 
-            // handleImagePreview("aadhar_back_photo", "aadhar_back_photo_preview");
+            handleImagePreview("aadhar_back_photo", "aadhar_back_photo_preview");
             handleImageChange("aadhar_back_photo_preview", "aadhar_back_photo");
 
           });
@@ -864,6 +886,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // completeProfile();
 
+  // Updating Status and remark Of Accordian Sections
+
 
   const updateStatus = async (accordionId, status, remark) => {
 
@@ -926,39 +950,10 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log(`Element with id ${accordionId} not found.`);
         }
       }
-
     }
-    // } else {
-    //     accordionButton.classList.remove('success');
-    //     accordionButton.classList.add('error');
-    //     iconContainer.innerHTML = '<i class="fas fa-times-circle"></i>';
-    // }
-
-    // if ((accordionId === "headingOne" && status === "complete") && (accordionId === "headingTwo" && status === "verified") &&
-    //   (accordionId === "headingThree" && status === "verified") && (accordionId === "headingFour" && status === "verified") &&
-    //   (accordionId === "headingFive" && status === "verified") && (accordionId === "headingSix" && status === "complete")) {
-    //   window.location.href = "index.html";
-    // }
-
     if (accordionId === "headingOne" && status === "complete") {
       document.getElementById('document-part').style.display = 'block';
     }
-
-    // const headings = ["headingOne", "headingTwo", "headingThree", "headingFour", "headingFive"];
-    // let allVerified = true;
-
-    // for (let i = 1; i < headings.length; i++) {
-    //   if (headings[i].status !== "verified") {
-    //     allVerified = false;
-    //     break;
-    //   }
-    // }
-
-    // if (allVerified) {
-    //   console.log('yes All veryfied')
-    //   document.getElementById('bank-part').style.display = 'block';
-    // }
-
   };
 
   CheckingRegistration();
@@ -982,10 +977,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+
+  // Frist Time Filling Data
+
+
   // --- Profile Section Validation ---
   const profileNextButton = document.getElementById("profile-next");
   const profileForm = document.getElementById("profile-form");
-  const profileFields = profileForm.querySelectorAll("input, textarea, select");
+  const profileFields = profileForm.querySelectorAll("input:not([type='file']), textarea, select");
 
 
   // Function to preview the profile image and set the imageUploaded flag
@@ -1001,9 +1000,11 @@ document.addEventListener("DOMContentLoaded", function () {
     reader.readAsDataURL(event.target.files[0]);
   }
 
-  document.getElementById("profile_image").addEventListener("change", previewprofileImage);
 
+  document.getElementById("profile_image").addEventListener("change", previewprofileImage);
   // Calculate the maximum allowed date (18 years ago from today)
+
+
   const today = new Date();
   const maxDate = new Date(
     today.getFullYear() - 18,
@@ -1020,13 +1021,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     fields.forEach(function (field) {
       if (
-        (field.type !== "radio" && field.value.trim() === "") ||
-        (field.type === "radio" &&
-          !form.querySelector('input[name="gender"]:checked'))
+        (field.type !== "radio" && field.value.trim() === "")
+        // || (field.type === "radio" &&
+        //   !form.querySelector('input[name="gender"]:checked'))
       ) {
+        console.log('ddd', field)
         allFieldsFilled = false;
         field.classList.add("empty_error");
-        if (!firstEmptyField) {
+        if (firstEmptyField !== null) {
           firstEmptyField = field;
         }
       } else {
@@ -1035,18 +1037,29 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Check if the profile image is selected or if an existing image is available
-    const profileImage = document.getElementById("profile_image");
-    const existingImage = document.getElementById("previewprofile").src !== "Images/profile-user.png";
 
-    if (!profileImage.files[0] && !existingImage) {
-      allFieldsFilled = false;
-      profileImage.classList.add("empty_error");
-      if (!firstEmptyField) {
-        firstEmptyField = profileImage;
-      }
-    } else {
+    const profileImage = document.getElementById("profile_image");
+    const existingImage = document.getElementById("previewprofile").src === "Images/profile-user.png";
+    console.log('profileImage >', profileImage.files)
+    console.log('SRC> ', document.getElementById("previewprofile").src)
+    console.log('existing Image >', existingImage)
+
+    if (profileImage.files.length) {
       profileImage.classList.remove("empty_error");
     }
+    else if (!existingImage) {
+      profileImage.classList.remove("empty_error");
+    } else {
+      console.log('fdf')
+      allFieldsFilled = false;
+      profileImage.classList.add("empty_error");
+      if (firstEmptyField !== null) {
+        firstEmptyField = profileImage;
+      }
+    }
+
+    console.log('allFieldsFilled', allFieldsFilled)
+    console.log('firstEmptyField', firstEmptyField)
 
     if (!allFieldsFilled && firstEmptyField) {
       alert("Please fill out all fields or Profile Img.");
@@ -1056,6 +1069,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // --- Profile Next Button Click Event ---
+
   profileNextButton.addEventListener("click", function () {
 
 
@@ -1072,11 +1086,25 @@ document.addEventListener("DOMContentLoaded", function () {
           formData.append("profileImage", profileImageFile);
         }
 
+        // Get the date value from the input field
+        const dateInput = document.getElementById('dob').value;
+        console.log('Prev DOB', dateInput)
+
+        // Convert the date to DD-MM-YYYY format
+        const date = new Date(dateInput);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+        const year = date.getFullYear();
+        const formattedDate = `${day}-${month}-${year}`;
+
+        // console.log('new', formattedDate)
+
         formData.append("FirstName", document.getElementById("username").value);
         formData.append("address", document.getElementById("address").value);
         formData.append("bloodGroup", document.getElementById("blood_group").value);
         formData.append("city", document.getElementById("city").value);
-        formData.append("dateOfBirth", document.getElementById("dob").value);
+        formData.append('dateOfBirth', formattedDate);
+
         formData.append("email", document.getElementById("email").value);
         formData.append("gender", document.querySelector("input[name='gender']:checked").value);
         formData.append("pincode", document.getElementById("pincode").value);
@@ -1086,18 +1114,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
       } else {
         var reqbody = {
-          "FirstName": document.getElementById("username").value,
-          "address": document.getElementById("address").value,
-          "bloodGroup": document.getElementById("blood_group").value,
-          "city": document.getElementById("city").value,
-          "dateOfBirth": document.getElementById("dob").value,
-          "email": document.getElementById("email").value,
-          "gender": document.querySelector("input[name='gender']:checked").value,
-          "pincode": document.getElementById("pincode").value,
-          "state": document.getElementById("state").value,
+          FirstName: document.getElementById("username").value,
+          address: document.getElementById("address").value,
+          bloodGroup: document.getElementById("blood_group").value,
+          city: document.getElementById("city").value,
+          dateOfBirth: document.getElementById("dob").value,
+          email: document.getElementById("email").value,
+          gender: document.querySelector("input[name='gender']:checked").value,
+          pincode: document.getElementById("pincode").value,
+          state: document.getElementById("state").value,
         }
       }
 
+      console.log('BODY >>', JSON.stringify(reqbody))
 
       fetch(update_profile, {
         method: "POST",
@@ -1106,15 +1135,13 @@ document.addEventListener("DOMContentLoaded", function () {
           'key': localStorage.getItem("mobileNumber"),
           app_token: 'bKbumwUX1vs8FLr8'
         },
-        body: imageUploaded ? formData : JSON.stringify(
-          reqbody
-        ),
+        body: imageUploaded ? formData : JSON.stringify(reqbody),
       })
         .then((response) => response.json())
         .then((data) => {
           if (data.success) {
             console.log("Profile updated successfully:", data);
-            window.location.reload();
+            // window.location.reload();
             profileNextButton.innerHTML = `Update`
 
           } else {
@@ -1129,6 +1156,8 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log("Nothing not validating fields");
     }
   });
+
+
 
   // --- Driving License Section ---
 
@@ -1281,6 +1310,8 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+
+    
   // Select the form and the next button
   const form = document.getElementById('vehicle-rc-form');
   const nextButton = document.getElementById('vehicle-rc-next');
@@ -1534,6 +1565,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+  // Aadhar Card Section
   document.getElementById("aadhar-next").addEventListener("click", function () {
     var aadharNumberField = document.getElementById("aadhaar_number");
     var aadharNumber = aadharNumberField.value.trim();
@@ -1547,7 +1579,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById(
         "aadhar-next"
       ).innerHTML = `<span class="spinner-border text-danger" role="status" />`;
-
+      aadharNumberField.classList.remove("empty_error");
       var requestBody = {
         aadharNumber
       };
@@ -1629,7 +1661,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(function (otpData) {
         if (otpData.data) {
           console.log('OTP verification successful:', otpData);
-
+          document.getElementById('addhar_feedback').style.display = 'none';
           document.getElementById("updateAADHAR").disabled = false
           document.getElementById("updateAADHAR").style.backgroundColor = '#C30000'
           document.getElementById("edit_aadhar_number_warning").style.display = "none";
@@ -1735,8 +1767,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // AAdhar Section Ends -------------------
-
-
 
 
 
@@ -1874,34 +1904,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   // Submit button click event
@@ -2066,4 +2068,6 @@ document.addEventListener("DOMContentLoaded", function () {
   //           });
   //       }
   //     });
+
+
 });
